@@ -1,0 +1,156 @@
+/* created by cornelis bosua 8/4/14 */
+
+/* ----------------- fonts to import --------------------- */
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+/* font-family: 'Lobster', 'cursive'; */
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+/* font-family: 'Pacifico', 'cursive'; */
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+/* font-family: 'Ubuntu', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+/* font-family: 'Raleway', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Dosis);
+/* font-family: 'Dosis', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Abel);
+/* font-family: 'Abel', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+/* font-family: 'Josefin Sans', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Quicksand);
+/* font-family: 'Quicksand', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+/* font-family: 'Poiret One', 'cursive'; */
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+/* font-family: 'Droid Sans', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+/* font-family: 'Permanent Marker', 'cursive'; */
+
+/* ----------------- Reset all styles ----------------- */
+*{
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+body {
+	background-color:#eeeeee;
+	font-family: 'Droid Sans', 'sans-serif';
+    font-size: 48px;
+}
+
+.wrapper {
+	margin: auto;
+	width: 100%;
+	height: auto;
+}
+
+#welcome {
+	position: relative;
+	left: 20%; /* this could potentially cause problems */
+	width: 600px;
+	height: fill;
+	top: 30%;
+	background-color: rgba(150,70,90,0); /* currently not being used */
+	text-align: center;
+	font-family: 'Quicksand', 'sans-serif';
+	color: white;
+}
+/*
+.centerall {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+	-webkit-transform:translate(-50%,-50%);
+}
+*/
+
+
+/***** This is for the sections in the document *******/
+
+#homebg {
+	margin: auto;
+	width: 100%;
+	height: 800px;
+	background-image: url(../img/p2.jpg);
+	background-color: rgba(200,190,43,0.3);
+}
+
+#homesection {
+	width: fill;
+	height: fill;
+	overflow: hidden;
+}
+
+#slide1 {
+	margin: auto;
+	background-color: rgba(50,100,200,0.3);
+	width: 100%;
+	Height: 800px;
+}
+
+/******* START styling for NAVIGATION Bar *******/
+
+nav {
+	width: 100%;
+	height: fill;
+	background-color: rgba(200,190,43,0.3); /* melb uni colour #003466 */
+	text-align: right;
+}
+nav p {
+	color: rgba(255,255,255,0.8);
+	font-size: 30%;
+	padding: 10px 10px 10px 10px;
+	font-family: 'Poiret One', 'cursive';
+}
+
+a:link {text-decoration:none; color: rgba(255,255,255,0.8);}
+a:visited {text-decoration:none;}
+a:hover {text-decoration: none; opacity: 0.8;}
+a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
+
+/******* END styling for NAVIGATION Bar *******/
+
+
+/***** styling the aside's within the sections ****/
+#about,#journey,#media {
+	float:left;
+	display:inline;
+	width: 250px;
+	height: 200px;
+	overflow: hidden;
+	background-color: rgba(100,100,100,0.5);
+	margin: 20px;
+}
+
+.section-heading {
+	text-align: center;
+	font-family: 'Dosis', 'sans-serif'; 
+	margin-top: 20%;
+	color: white;
+	font-style: italic;
+	font-size: 70%;
+}
+
+.align-center {
+	margin: auto 0px 0px 0px 0px;
+}
+
+#slide-content {
+	position: relative;
+	width: 870px;
+	height: 300px;
+	margin: auto;
+	background-color: rgba(100,100,190,0.2);
+}
+
+#slide-content p{
+	font-size: 40%;
+	color: white;
+	text-align: center;
+}
+#slide-content h2{
+	font-size: 60%;
+	color: white;
+	text-align: center;
+}
+
