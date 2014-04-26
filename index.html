@@ -5,34 +5,21 @@
 
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/functions.js"></script>
-<!--
-<script type="text/javascript" src="js/skrollr.js"></script>
-<script type="text/javascript">
-    skrollr.init();
-</script>
--->
-
-<script type="text/javascript" src="js/skrollr.min.js"></script>
-<script type="text/javascript">
-	var s = skrollr.init({
-		edgeStrategy: 'set',
-		easing: {
-			WTF: Math.random,
-			inverted: function(p) {
-				return 1-p;
-			}
-		}
-	});
-	</script>
 
 </head>
-
 <body>
-<nav id="nav" class="align-center" > University of Melbourne </nav>
+<nav> <!-- START nav here -->
+	<div id="nav-heading">
+		University of Melbourne
+	</div>
+	<div id="nav-login">
+		<a href="http://www.google.com"> log in</a> | 
+		<a href="http://www.google.com"> sign up </a>
+	</div>
+</nav> <!-- END nav here -->
 
 <div class="wrapper" >
 	
@@ -49,23 +36,29 @@
 
 
 <section id="main"> <!-- start Main sectoin -->
+	
 	<div id="slide1" class="align-center"> <!-- start slide1 -->
 		<br>
 		<div class='section-heading'><p>"An entry point into the History Computers..."</p></div> <!-- heading for section-->
 		<br>
-		<div id="slide-content">
-			<div id="about" class="content-box">
+		<div id="slide-content"> <!-- START slide-content -->
+		<a href="http://people.eng.unimelb.edu.au/ammoffat/fifty-years/">
+			<div id="about" class="content-box" >
+			<img src="img/about2.jpg" />
 			<h2>About</h2>
 			<p>The History of CIS at the university is quite remarkable, click for a short summary</p>
 			</div>
-			
+		</a>
+		<a href="paralax/journey.html">
 			<div id="journey" class="content-box">
+			<img src="img/journey.jpg" />
 			<h2>Journey</h2>
 			<p>journey through the history and add your own story - insert paralax link here -</p>
 			</div>
-			
-			<div id="media" class="content-box">
-			<h2>Media</h2>
+		</a>
+			<div id="media" class="content-box" onClick=goToURL(http://www.google.com.au)>
+			<img src="img/gallery1.jpg" />
+			<h2>Media Gallery</h2>
 			<p>click to see more media</p>
 			</div>
 		</div> <!-- END slide-content -->

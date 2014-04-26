@@ -7,6 +7,11 @@ $(document).ready(function(){
 		$("#show").click(function(){
 				$("p").show();
 		});
+		
+		$("#rabout").click(function(){
+				$("p").show();
+		});
+		
 		/*
 		$("#homesection").click(function(){
 				$("#title").hide();

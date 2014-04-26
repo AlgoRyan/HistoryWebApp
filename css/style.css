@@ -1,5 +1,28 @@
 /* created by cornelis bosua 8/4/14 */
 
+/* ----------------- fonts to import --------------------- */
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+/* font-family: 'Lobster', 'cursive'; */
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+/* font-family: 'Pacifico', 'cursive'; */
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+/* font-family: 'Ubuntu', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+/* font-family: 'Raleway', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Dosis);
+/* font-family: 'Dosis', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Abel);
+/* font-family: 'Abel', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+/* font-family: 'Josefin Sans', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Quicksand);
+/* font-family: 'Quicksand', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+/* font-family: 'Poiret One', 'cursive'; */
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+/* font-family: 'Droid Sans', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+/* font-family: 'Permanent Marker', 'cursive'; */
 
 /* ----------------- Reset all styles ----------------- */
 *{
@@ -28,7 +51,7 @@ body {
 	top: 30%;
 	background-color: rgba(150,70,90,0); /* currently not being used */
 	text-align: center;
-	font-family: 'Lobster', 'cursive';
+	font-family: 'Quicksand', 'sans-serif'; 
 	color: white;
 	/*background-image: url(../img/Desert.jpg);*/
 }
@@ -61,40 +84,72 @@ body {
 
 #slide1 {
 	margin: auto;
-	background-color: rgba(120,120,120,0.6);
+	background-color: rgba(120,120,120,0.3);
 	width: 1000px;
 	Height: 500px;
 }
 
+/******* START styling for NAVIGATION Bar *******/
 
-#nav {
-	color: white;
-	text-size: 2em;
-	text-align: center;
-	background-color: #003466; 
+nav {
+	width: 100%;
+	height: fill;
+	background-color: #003466;
 }
+
+#nav-heading {
+	color: white;
+	font-size: 70%;
+	display: inline;
+	text-align: center;
+	margin-left: 20%;
+	font-family: 'Josefin Sans', 'sans-serif';
+}
+
+#nav-login {
+	color: rgba(255,255,255,0.8);
+	font-size: 30%;
+	display: inline;
+	float: right;
+	margin: 10px 20px 10px 20px;
+	font-family: 'Poiret One', 'cursive';;
+}
+
+#nav-login a{
+	color: lightblue;
+	font-style: normal;
+}
+
+a:link {text-decoration:none; color: rgba(255,255,255,0.8);}
+a:visited {text-decoration:none;}
+a:hover {text-decoration: none; opacity: 0.8;}
+a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
+
+/******* END styling for NAVIGATION Bar *******/
+
 
 /***** styling the aside's within the sections ****/
 #about,#journey,#media {
 	float:left;
 	display:inline;
 	width: 250px;
-	height: 200px;
+	height: 250px;
 	overflow: hidden;
 	background-color: rgba(100,100,100,0.5);
 	margin: 20px;
+	font-family: 'Raleway', 'sans-serif';
 }
 
 .section-heading {
 	text-align: center;
-	font-family: 'Lobster', 'cursive';
+	/*font-family: 'Lobster', 'cursive'; */
+	font-family: 'Poiret One', 'cursive'; 
 	color: white;
 	font-style: italic;
 	font-size: 70%;
 }
 
 .align-center {
-	
 	margin: auto 0px 0px 0px 0px;
 }
 
@@ -106,13 +161,34 @@ body {
 	background-color: rgba(100,100,190,0.2);
 }
 
+#slide-content img {
+	width: 230px;
+	height: 100px;
+	margin: 10px 10px 0px 10px;
+	overflow: hidden;
+}
+
+#about:hover, #journey:hover, #media:hover  {
+	opacity: 0.8;
+}
+
+/* in order to 
+#journey p:hover {
+	color:red;
+}*/
+
+
+
 #slide-content p{
-	font-size: 40%;
+	font-size: 30%;
 	color: white;
 	text-align: center;
 }
 #slide-content h2{
-	font-size: 60%;
+	font-size: 50%;
 	color: white;
 	text-align: center;
 }
+
+
+
