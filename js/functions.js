@@ -22,4 +22,3 @@ $(document).ready(function(){
 		element.style.opacity = "0.9";
 		element.style.filter  = 'alpha(opacity=90)';
 });
-// 
