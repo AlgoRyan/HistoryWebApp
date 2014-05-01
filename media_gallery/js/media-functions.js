@@ -1,7 +1,7 @@
 // created by cjbosua on 28/4/14
-
+results = 7;
 $(document).ready(function(){
-
+	adjustDivHeight("#slide-content",results,290,3);
 });
 
 function addImage() {
@@ -13,6 +13,8 @@ function addImage() {
 	item.find("#template-h2").html(title);
 	item.find("#template-p").html(descript);
 	item.appendTo("#slide-content");
+	results++;
+	adjustDivHeight("#slide-content",results,290,3);
 }
 // needs some work
 function addImages() {
@@ -32,8 +34,6 @@ function test() {
 	document.getElementById("template-p").innerHTML=document.getElementById("filter-img").value;
 
 }
-
-
 
 function writeMessage()
 {
@@ -97,17 +97,28 @@ function search() {
 		}
 	}
 	
-	document.getElementById("result").innerHTML = results_count;
-	if (results_count === 0) {
-		$("#slide-content").height(0);
-	} else if (results_count <= 3) {
-		//document.getElementById("result").innerHTML = "true";
-		$("#slide-content").height(290);
-	} else if (results_count <= 6 ) {
-		$("#slide-content").height(580);
-	} else if (results_count <= 9 ) {
-		$("#slide-content").height(870);
+	//results_count = countByClass("added-image");
+	
+	document.getElementById("result").innerHTML = "There are: " + results_count + " results";
+	
+	adjustDivHeight("#slide-content",results_count,290,3);
+
+}
+/*
+function countByClass(id) {
+	sum = 0;
+	for (var n=0; n < array_len; n++) {
+		if (document.getElementsByClassName(id)[n].style.display === "block") {
+			sum++;
+		}
+	}
+	return sum;
+}*/
+
+function adjustDivHeight(id, num, x,i) {
+	if (num === 0) {
+		$(id).height(0);
+	} else {
+		$(id).height(parseInt((num+2)/i)*x);
 	}
 }
-
-find
