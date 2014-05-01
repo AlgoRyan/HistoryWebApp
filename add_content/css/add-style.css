@@ -1,0 +1,228 @@
+/* created by cornelis bosua 28/4/14 */
+
+/* ----------------- fonts to import --------------------- */
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+/* font-family: 'Lobster', 'cursive'; */
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+/* font-family: 'Pacifico', 'cursive'; */
+@import url(http://fonts.googleapis.com/css?family=Ubuntu);
+/* font-family: 'Ubuntu', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+/* font-family: 'Raleway', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Dosis);
+/* font-family: 'Dosis', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Abel);
+/* font-family: 'Abel', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans);
+/* font-family: 'Josefin Sans', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Quicksand);
+/* font-family: 'Quicksand', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+/* font-family: 'Poiret One', 'cursive'; */
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+/* font-family: 'Droid Sans', 'sans-serif'; */
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+/* font-family: 'Permanent Marker', 'cursive'; */
+
+/* ----------------- Reset all styles ----------------- */
+*{
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+body {
+	background-color:#eeeeee;
+	/*font-family: "Nova Square", cursive;*/
+        font-size: 48px;
+}
+
+.wrapper {
+	margin: auto;
+	width: 95%;
+	height: auto;
+}
+
+#welcome-title {
+	position: relative;
+	left: 20%; /* this could potentially cause problems */
+	width: 600px;
+	height: fill;
+	top: 30%;
+	background-color: rgba(150,70,90,0); /* currently not being used */
+	text-align: center;
+	font-family: 'Quicksand', 'sans-serif'; 
+	color: white;
+	/*background-image: url(../img/Desert.jpg);*/
+}
+/*
+.centerall {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+	-webkit-transform:translate(-50%,-50%);
+}
+*/
+
+
+/***** This is for the sections in the document *******/
+
+#homebg {
+	margin: auto;
+	width: fill;
+	height: 100px;
+	background-image: url(../img/p2.jpg);
+	background-color: rgba(10,50,210,0.3);
+}
+
+#homesection {
+	width: 1000px;
+	height: fill;
+	overflow: hidden;
+	margin: auto;
+}
+
+#slide1 {
+	margin: auto;
+	background-color: rgba(120,120,120,0.3);
+	width: 1000px;
+	height: fill;
+}
+
+/******* START styling for NAVIGATION Bar *******/
+
+nav {
+	width: 100%;
+	height: fill;
+	background-color: #003466;
+}
+
+#nav-heading {
+	color: white;
+	font-size: 70%;
+	display: inline;
+	text-align: center;
+	margin-left: 20%;
+	font-family: 'Josefin Sans', 'sans-serif';
+}
+
+#nav-login {
+	color: rgba(255,255,255,0.8);
+	font-size: 30%;
+	display: inline;
+	float: right;
+	margin: 10px 20px 10px 20px;
+	font-family: 'Poiret One', 'cursive';;
+}
+
+#nav-login a{
+	color: lightblue;
+	font-style: normal;
+}
+
+a:link {text-decoration:none; color: rgba(255,255,255,0.8);}
+a:visited {text-decoration:none;}
+a:hover {text-decoration: none; opacity: 0.8;}
+a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
+
+/******* END styling for NAVIGATION Bar *******/
+
+/********** END styling for slide-content ************/
+#slide-content {
+	position: relative;
+	width: 870px;
+	height: 800px;
+	margin: auto;
+	background-color: rgba(100,100,190,0.0);
+}
+
+#slide-content img {
+	width: 230px;
+	height: 180px;
+	margin: 10px 10px 0px 10px;
+	overflow: hidden;
+	border-radius: 20px;
+}
+
+#slide-content p{
+	font-size: 20%;
+	color: white;
+	text-align: center;
+}
+#slide-content h2{
+	font-size: 40%;
+	color: white;
+	text-align: center;
+}
+/********** END styling for slide-content ************/
+
+
+/********** START styling for img-content ************/
+#img-content {
+	font-family: 'Raleway', 'sans-serif';
+	position: relative;
+	width: 1000px;
+	height: fill;
+	margin: auto;
+	background-color: rgba(10,50,210,0.3);
+}
+
+#img-content p{
+	color: rgba(30,10,255,0.5);
+	text-align: center;
+}
+/********** END styling for img-content ************/
+
+/** general styling **/
+
+.align-center {
+	margin: auto 0px 0px 0px 0px;
+}
+
+.content-box {
+	width: 250px;
+	height: 250px;
+	float:left;
+	display:inline;
+	overflow: hidden;
+	background-color: rgba(100,100,100,0.5);
+	margin: 20px;
+	font-family: 'Raleway', 'sans-serif';
+}
+
+#search-box {
+	margin-left: 180px;
+	width: 400px;
+	height fill;
+	background-color: rgba(1,255,25,0.0);
+	font-size: 0.4em;
+	color: white;
+	padding: 20px;
+}
+
+.search-bar {
+	margin: 0px 0px 0px 0px;
+	width: 200px;
+	height: 20px;
+	float: right;
+	
+}
+
+.button {
+	margin: auto;
+	text-align: center;
+	color: white;
+	font-size: 1em;
+	font-family: 'Raleway', 'sans-serif';
+	background-color: rgba(250,100,60,0.5);
+}
+
+#add-image-button {
+	margin-left: 10px;
+}
+
+#template-img {
+}
+
+/* background-color: rgba(100,100,190,0.8); nice */
