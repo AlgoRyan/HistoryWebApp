@@ -1,5 +1,38 @@
 // created by cjbosua on 8/4/14
+// For a full explanation of this code, please refer to the blogpost at http://www.bram.us/2014/01/01/skrollr-css-animations-linked-to-scroll-position/
 
+// setSkrollr function extracted from https://www.pingdom.com/2013/
+var setSkrollr = function($el, data) {
+    for (var i = 0, l = data.length; i < l; i++) {
+        var d = data[i],
+            px = d[0];
+            css = d[1];
+        $el.attr('data-' + px, css);
+    }
+}
+
+jQuery(function($) {
+    /* for parallax testing
+    setSkrollr($('#box1'), [[0, 'width:100%'], [1500, 'width:0%']]);
+    setSkrollr($('#box2'), [[0, 'transform:translateX(-100%)'], [750, 'transform:translateX(100%)'], [1500, 'transform:translateX(-100%)']]);
+    */
+    
+    setSkrollr($('#welcome'), [[0, 'opacity:1'], [400, 'opacity:0'],]);
+    setSkrollr($('#homesection'), [[0, 'opacity:1'], [800, 'opacity:0'],]);
+    //setSkrollr($('#welcome'), [[0, 'font-size:150%'], [1000, 'font-size:50%'],]); doesn't work
+    
+    setSkrollr($('#slide1'), [[400, 'margin: 0px 0px 0px 1000px'], [800, 'margin: 0px 0px 0px 120px'],]);
+    setSkrollr($('#slide2'), [[800, 'margin: 0px 0px 0px 1000px'], [1600, 'margin: 0px 0px 0px 120px'],]);
+    setSkrollr($('#slide3'), [[1600, 'margin: 0px 0px 0px 1000px'], [2400, 'margin: 0px 0px 0px 120px'],]);
+    setSkrollr($('#slide4'), [[2400, 'margin: 0px 0px 0px 1000px'], [3200, 'margin: 0px 0px 0px 120px'],]);    
+    
+    skrollr.init({
+        smoothScrolling: false
+    });
+});
+
+
+/*
 $(document).ready(function(){
 		$("#hide").click(function(){
 				$("p").hide();
@@ -12,11 +45,11 @@ $(document).ready(function(){
 				$("p").show();
 		});
 		
-		/*
-		$("#homesection").click(function(){
-				$("#title").hide();
-		});
-		*/
+		
+		//$("#homesection").click(function(){
+		//		$("#title").hide();
+		//});
+		
 		
 		var element = document.getElementById('id');
 		element.style.opacity = "0.9";
@@ -41,3 +74,4 @@ jQuery(function($) {
         smoothScrolling: false
     });
 });
+*/
