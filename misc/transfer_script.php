@@ -2,19 +2,13 @@
 
 // Name of the file
 $filename = 'info30005database_cleaned.sql';
-// MySQL host
-$mysql_host = '127.0.0.1';
-// MySQL username
-$mysql_username = 'beta';
-// MySQL password
-$mysql_password = 'beta_2014';
-// Database name
-$mysql_database = 'beta';
 
 // Connect to MySQL server
-mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error connecting to MySQL server: ' . mysql_error());
+$con=mysqli_connect('127.0.0.1', 'beta', 'beta_2014', 'beta');
+if (mysqli_connect_errno()) {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
 // Select database
-mysql_select_db($mysql_database) or die('Error selecting MySQL database: ' . mysql_error());
 
 // Temporary variable, used to store current query
 $templine = '';
@@ -33,10 +27,11 @@ $templine .= $line;
 if (substr(trim($line), -1, 1) == ';')
 {
     // Perform the query
-    mysql_query($templine) or print('Error performing query \'<strong>' . $templine . '\': ' . mysql_error() . '<br /><br />');
+    mysqli_query($templine) or print('Error performing query \'<strong>' . $templine . '\': ' . mysqli_error() . '<br /><br />');
     // Reset temp variable to empty
     $templine = '';
 }
 }
+mysqli_close($con);
  echo "Tables imported successfully";
 ?>
