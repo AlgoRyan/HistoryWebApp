@@ -10,8 +10,8 @@
 -- Second clean : 06/05/2014
 --
 
-CREATE DATABASE IF NOT EXISTS `museum`;
-USE `museum`;
+CREATE DATABASE IF NOT EXISTS `beta`;
+USE `beta`;
 
 --
 -- Table structure for table 'CSIRAC'
