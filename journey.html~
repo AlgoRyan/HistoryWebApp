@@ -7,14 +7,6 @@
 <link rel="stylesheet" type="text/css" href="css/paralax-style.css">
 <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/paralax-functions.js"></script>
-
-<script type="text/javascript" src="js/skrollr.js"></script>
-<script type="text/javascript">
-    skrollr.init();
-</script>
-
 </head>
 
 <body>
@@ -126,6 +118,16 @@
 
 
 </div> <!-- wrapper -->
+
+<!-- all the js scripts and libraries used-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/paralax-functions.js"></script>
+
+<script type="text/javascript" src="js/skrollr.js"></script>
+<script type="text/javascript">
+    skrollr.init();
+</script>
+
 </body>
 
 </html>

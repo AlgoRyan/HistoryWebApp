@@ -1,4 +1,4 @@
-/* created by cornelis bosua 8/4/14 */
+/* created by cornelis bosua 28/4/14 */
 
 /* ----------------- fonts to import --------------------- */
 @import url(http://fonts.googleapis.com/css?family=Lobster);
@@ -25,7 +25,7 @@
 /* font-family: 'Permanent Marker', 'cursive'; */
 
 /* ----------------- Reset all styles ----------------- */
-*{	
+*{
 	margin:0;
 	padding:0;
 	border:0;
@@ -43,7 +43,7 @@ body {
 	height: auto;
 }
 
-#welcome {
+#welcome-title {
 	position: relative;
 	left: 20%; /* this could potentially cause problems */
 	width: 600px;
@@ -70,10 +70,9 @@ body {
 
 #homebg {
 	margin: auto;
-	width: 1000px;
-	height: 400px;
-	background-image: url(../img/p1.jpg);
-	background-color: rgba(200,190,43,0.3);
+	width: fill;
+	height: 100px;
+	background-color: rgba(10,50,210,0.3);
 }
 
 #homesection {
@@ -81,6 +80,13 @@ body {
 	height: fill;
 	overflow: hidden;
 	margin: auto;
+}
+
+#slide1 {
+	margin: auto;
+	background-color: rgba(120,120,120,0.3);
+	width: 1000px;
+	height: fill;
 }
 
 /******* START styling for NAVIGATION Bar *******/
@@ -96,7 +102,7 @@ nav {
 	font-size: 70%;
 	display: inline;
 	text-align: center;
-	margin-left: 30%;
+	margin-left: 20%;
 	font-family: 'Josefin Sans', 'sans-serif';
 }
 
@@ -114,31 +120,6 @@ nav {
 	font-style: normal;
 }
 
-#moderator, #add-content {
-	font-family: 'Quicksand', 'sans-serif'; 
-	font-size: 80%;
-	color: white;
-	padding-left: 20px;
-	position: fixed;
-	right: 0%;
-	width: 50px;
-	height: 50px;
-	text-align: center:
-	border-radius: 10px;
-}
-
-#moderator {background-color: rgba(255,12,10,0.5);}
-
-#add-content {
-	margin-top:70px;
-	background-color: rgba(0,35,255,0.3);
-}
-
-#moderator p {
-	margin: auto;
-	text-align: center:
-}
-
 a:link {text-decoration:none; color: rgba(255,255,255,0.8);}
 a:visited {text-decoration:none;}
 a:hover {text-decoration: none; opacity: 0.8;}
@@ -146,8 +127,58 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 
 /******* END styling for NAVIGATION Bar *******/
 
+/********** END styling for slide-content ************/
+#slide-content {
+	position: relative;
+	width: 870px;
+	height: 800px;
+	margin: auto;
+	background-color: rgba(100,100,190,0.0);
+}
 
-/***** styling the aside's within the sections ****/
+#slide-content img {
+	width: 230px;
+	height: 180px;
+	margin: 10px 10px 0px 10px;
+	overflow: hidden;
+	border-radius: 20px;
+}
+
+#slide-content p{
+	font-size: 20%;
+	color: white;
+	text-align: center;
+}
+#slide-content h2{
+	font-size: 40%;
+	color: white;
+	text-align: center;
+}
+/********** END styling for slide-content ************/
+
+
+/********** START styling for img-content ************/
+#img-content {
+	font-family: 'Raleway', 'sans-serif';
+	position: relative;
+	width: 870px;
+	height: fill;
+	margin: auto;
+	background-color: rgba(30,100,190,0.3);
+}
+
+#img-content p{
+	color: rgba(30,10,255,0.5);
+	text-align: center;
+}
+/********** END styling for img-content ************/
+
+/** general styling **/
+
+.align-center {
+	margin: auto 0px 0px 0px 0px;
+}
+
 .content-box {
 	width: 250px;
 	height: 250px;
@@ -159,70 +190,35 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 	font-family: 'Raleway', 'sans-serif';
 }
 
-.content-box:hover {
-	opacity: 0.999;
-}
-.section-heading {
-	text-align: center;
-	/*font-family: 'Lobster', 'cursive'; */
-	font-family: 'Poiret One', 'cursive'; 
+#search-box {
+	margin-left: 180px;
+	width: 400px;
+	height fill;
+	background-color: rgba(1,255,25,0.0);
+	font-size: 0.4em;
 	color: white;
-	font-style: italic;
-	font-size: 70%;
+	padding: 20px;
 }
 
-.align-center {
-	margin: auto 0px 0px 0px 0px;
+.search-bar {
+	margin: 0px 0px 0px 0px;
+	width: 200px;
+	height: 20px;
+	float: right;
+	
 }
 
-
-/***** Slide styling ******/
-
-#slide1 {
+.button {
 	margin: auto;
-	background-color: rgba(120,120,120,0.3);
-	width: 1000px;
-	Height: 500px;
-}
-
-#slide1 div { 
-	border-radius: 0px;
-}
-
-
-#slide-content {
-	position: relative;
-	width: 870px;
-	height: 300px;
-	margin: auto;
-	background-color: rgba(100,100,190,0.2);
-}
-
-#slide-content img {
-	width: 230px;
-	height: 100px;
-	margin: 10px 10px 0px 10px;
-	overflow: hidden;
-}
-
-#slide-content p{
-	font-size: 30%;
-	color: white;
 	text-align: center;
-}
-#slide-content h2{
-	font-size: 50%;
 	color: white;
-	text-align: center;
+	font-size: 1em;
+	font-family: 'Raleway', 'sans-serif';
+	background-color: rgba(250,100,60,0.5);
 }
 
-/****** END Slide styling
-
-#about:hover, #journey:hover, #media:hover  {
-	opacity: 0.8;
+#add-image-button {
+	margin-left: 10px;
 }
 
-/* in order to 
-#journey p:hover {
-	color:red;
-}*/
+/* background-color: rgba(100,100,190,0.8); nice */

@@ -35,7 +35,38 @@ body {
 	background-color:#eeeeee;
 	font-family: 'Droid Sans', 'sans-serif';
     font-size: 48px;
+     background: #fff fixed url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEX4+Pj09PQf/c7fAAAAGklEQVR4Xq3MIQEAAADDIPqX/kvMIMEWEm8O7b0/wewc/NcAAAAASUVORK5CYII=) repeat;
 }
+
+div {
+  overflow: hidden;
+  text-align: center;
+}
+
+#box1 {
+  position: fixed;
+  background: lightblue;
+  margin: auto;
+  top: 0; left: 0; right: 0;  bottom: 0;
+}
+
+#box2 {
+  position: fixed;
+  background: red;
+  height: 100px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+
+#box3 {
+  position: fixed;
+  background: yellow;
+  height: 100px;
+  width: 100px;
+  margin-top: 200px;
+}
+
 
 .wrapper {
 	margin: auto;
