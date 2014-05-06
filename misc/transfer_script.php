@@ -8,7 +8,6 @@ $con=mysqli_connect('127.0.0.1', 'beta', 'beta_2014', 'beta');
 if (mysqli_connect_errno()) {
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-// Select database
 
 // Temporary variable, used to store current query
 $templine = '';
