@@ -1,21 +1,21 @@
-#
-# DUMP FILE
-#
-# Database is ported from MS Access
-#------------------------------------------------------------------
-# Created using "MS Access to MySQL" form http://www.bullzip.com
-# Program Version 5.1.242
-#
-# "CLEANED" DATABASE EXTRACTED FROM CSc_Museum 5Apr14 Cleaned
-# Second clean : 06/05/2014
-#
+--
+-- DUMP FILE
+--
+-- Database is ported from MS Access
+--------------------------------------------------------------------
+-- Created using "MS Access to MySQL" form http://www.bullzip.com
+-- Program Version 5.1.242
+--
+-- "CLEANED" DATABASE EXTRACTED FROM CSc_Museum 5Apr14 Cleaned
+-- Second clean : 06/05/2014
+--
 
 CREATE DATABASE IF NOT EXISTS `museum`;
 USE `museum`;
 
-#
-# Table structure for table 'CSIRAC'
-#
+--
+-- Table structure for table 'CSIRAC'
+--
 
 DROP TABLE IF EXISTS `CSIRAC`;
 
@@ -38,9 +38,9 @@ CREATE TABLE `CSIRAC` (
 
 SET autocommit=1;
 
-#
-# Dumping data for table 'CSIRAC'
-#
+--
+-- Dumping data for table 'CSIRAC'
+--
 
 INSERT INTO `CSIRAC` (`CSIRACID`, `CSIRACObjectName`, `CSIRACObjectNameQualifier`, `Authors`, `CSIRACDate`, `Provenance`, `Significance`, `CSIRACComments`, `Image`) VALUES ('CSIRAC001', 'Hardware Documentation printed', 'Description of CSIRAC hardware prior to transfer to Melbourne', NULL, 'c1949-1955', 9, 3, 'Description of CSIRAC hardware prior to transfer to Melbourne. Copied from Ron Bowles'' collection 2006.\r\nThere were several copies of this document in Melbourne. This was the only one located for the archive.\r\nPhotocopied and bound. Also scanned for CD.\r\n\r\nOriginal material in Museum Victoria.', 'CSIRAC hardware description 1955.pdf');
 INSERT INTO `CSIRAC` (`CSIRACID`, `CSIRACObjectName`, `CSIRACObjectNameQualifier`, `Authors`, `CSIRACDate`, `Provenance`, `Significance`, `CSIRACComments`, `Image`) VALUES ('CSIRAC002', 'Hardware and Software Documentation CD', 'Various Hardware Software etc', NULL, '1947-2005', 1, 3, 'CD of selected hardware and software documentation prepared by John Spencer.\r\nContent details of all the folders on the disc follows:\r\nThe folders on this CD are:\r\nIndex.txt         this file \r\nDrawings         contains the CSIRAC drawings\r\nEmulator         contains DOS and Windows versions of the CSIRAC emulators\r\nExamples        contains a few examples to use with the CSIRAC emulators\r\nFilms                      contains films related to CSIRAC \r\nGames\t                   contains the CSIRAC games\r\nInterprogram      contains the two operative Interprograms T754 and T755, \r\n                                 together with F. Hirst''s 5-hole compiled  Interprogram\r\nLibrary                   contains the CSIRAC program library\r\nManuals                contains digital copies of CSIRAC manuals\r\nMusic                     contains files relating to the Sydney and Melbourne CSIRAC  music\r\nPhotos                   contains photographs related to CSIRAC\r\nSolar Tables         contains  J. Spencer''s programs for Solar Tables (Project  CBR251)\r\nSource                   contains the source code (TurboPascal6 or Delphi4) for the  .exe files in other folders\r\nTape Handling    contains programs for conversion of hex files to .cvt files, and for creating .tsp files \r\n                                 from  .cvt  files\r\nTiming                   contains a document by R. Bowles describing CSIRAC timing \r\nNote.txt               contains a note about read-only attribute of CD files\r\nReadme.txt         contains general notes about file viewing  \r\nView ASCII file.com\t file viewer for ASCII files (DOS Edit renamed)\r\n\r\nFor further details consult the Index.txt files in individual folders.\r\nThe CD occupies about 306 MB \r\nJune 2010\r\nSuperceded by later versions up to 2012 (comment added 20/03/12)', 'CSIRAC002.JPG');
@@ -102,11 +102,11 @@ INSERT INTO `CSIRAC` (`CSIRACID`, `CSIRACObjectName`, `CSIRACObjectNameQualifier
 INSERT INTO `CSIRAC` (`CSIRACID`, `CSIRACObjectName`, `CSIRACObjectNameQualifier`, `Authors`, `CSIRACDate`, `Provenance`, `Significance`, `CSIRACComments`, `Image`) VALUES ('CSIRAC058', 'Reg Ryan Interview', NULL, NULL, '8 April 1999', 1, NULL, 'Interview with Reg Ryan conducted by Doug McCann on April 8 1999.', '');
 INSERT INTO `CSIRAC` (`CSIRACID`, `CSIRACObjectName`, `CSIRACObjectNameQualifier`, `Authors`, `CSIRACDate`, `Provenance`, `Significance`, `CSIRACComments`, `Image`) VALUES ('CSIRAC059', 'Printout of Tape T724', NULL, NULL, NULL, 15, NULL, 'Output from Tape T724 run on the emulator.  For demonstration purposes.', '');
 INSERT INTO `CSIRAC` (`CSIRACID`, `CSIRACObjectName`, `CSIRACObjectNameQualifier`, `Authors`, `CSIRACDate`, `Provenance`, `Significance`, `CSIRACComments`, `Image`) VALUES ('CSIRAC060', 'CSIRO Technical paper No. 17', 'Solar Position and Radiation Tables for Melbourne (Latitude 38°S.)', 'J.W. Spencer', '1965', 15, 3, 'This publication is one of the few surviving examples of output produced by CSIRAC.\r\nJohn Spencer was a staff member at CSIRO Building Research who made use of CSIRAC in his work on solar radiation and other projects. He wrote programs to generate tables of solar position and radiation for Australasian capital cities. \r\nIn order to verify the accuracy of the tables the program was designed to compute every value twice during execution. The program itself was validated by a cross product check at regular intervals. The tables were generated at least twice on different days. The printed outputs were later compared visually, using a light box, before being photographed for publication.', 'VertSolar Tables.JPG');
-# 60 records
+-- 60 records
 
-#
-# Table structure for table 'Hardware'
-#
+--
+-- Table structure for table 'Hardware'
+--
 
 DROP TABLE IF EXISTS `Hardware`;
 
@@ -132,9 +132,9 @@ CREATE TABLE `Hardware` (
 
 SET autocommit=1;
 
-#
-# Dumping data for table 'Hardware'
-#
+--
+-- Dumping data for table 'Hardware'
+--
 
 INSERT INTO `Hardware` (`HardwareID`, `HardwareName`, `HardwareNameQualifier`, `HardwareManufacturer`, `HardwareModel`, `HardwareSerialNumber`, `HdwManufDateQualifier`, `HardwareManufactureDate`, `HardwareSignificance`, `HardwareComments`, `Image_1`, `Image_2`, `Image_3`) VALUES ('Hrd0001', 'Printed Circuit Board', 'Digital PDP11', 'Digital Equipment Corporation', 'P/N1210711', 'M8235', NULL, '29-May-1979', 3, 'Example of memory technology evolution.\r\nStored in carton.', NULL, NULL, 'Hrd0001.2.JPG');
 INSERT INTO `Hardware` (`HardwareID`, `HardwareName`, `HardwareNameQualifier`, `HardwareManufacturer`, `HardwareModel`, `HardwareSerialNumber`, `HdwManufDateQualifier`, `HardwareManufactureDate`, `HardwareSignificance`, `HardwareComments`, `Image_1`, `Image_2`, `Image_3`) VALUES ('Hrd0002', 'Memory Board', 'Digital PDP11', 'National Semiconductor Company', 'PWA980103854-001', 'PL015-082', NULL, '06-Nov-1981', 1, 'Example of memory board evolution.\r\nStored in carton.', NULL, NULL, 'Hrd0002.3.JPG');
@@ -213,11 +213,11 @@ INSERT INTO `Hardware` (`HardwareID`, `HardwareName`, `HardwareNameQualifier`, `
 INSERT INTO `Hardware` (`HardwareID`, `HardwareName`, `HardwareNameQualifier`, `HardwareManufacturer`, `HardwareModel`, `HardwareSerialNumber`, `HdwManufDateQualifier`, `HardwareManufactureDate`, `HardwareSignificance`, `HardwareComments`, `Image_1`, `Image_2`, `Image_3`) VALUES ('Hrd0075', 'CSIRAC Hooter circuit replica', NULL, 'John Spencer', NULL, NULL, NULL, 'April 1999', 3, 'This vacuum tube system replicates the hooter (audio output) system of CSIRAC. The audio cicuit  is constructed from components with the same specification as the original, mounted on an aluminium chassis and equipped with a power supply.\r\nThe unit was constructed in 1999 by John Spencer and used in the project to re-create the music of the CSIR Mk1/CSIRAC. The project team comprised Ron Bowles, Jurij Semkiw, John Spencer, Paul Doornbusch and John Horvath.', NULL, NULL, 'IMG_2911.JPG;Replica Hooter Circuit.tif');
 INSERT INTO `Hardware` (`HardwareID`, `HardwareName`, `HardwareNameQualifier`, `HardwareManufacturer`, `HardwareModel`, `HardwareSerialNumber`, `HdwManufDateQualifier`, `HardwareManufactureDate`, `HardwareSignificance`, `HardwareComments`, `Image_1`, `Image_2`, `Image_3`) VALUES ('Hrd0076', 'Acoustic Coupler', NULL, 'Moore Reed', 'TC301', '277A1812', NULL, 'c1970s', 2, 'Salvaged by Justin Zobel when discarded by RMIT. \r\nOne of three in the collection.\r\nFor description see Hrd0040', NULL, NULL, '');
 INSERT INTO `Hardware` (`HardwareID`, `HardwareName`, `HardwareNameQualifier`, `HardwareManufacturer`, `HardwareModel`, `HardwareSerialNumber`, `HdwManufDateQualifier`, `HardwareManufactureDate`, `HardwareSignificance`, `HardwareComments`, `Image_1`, `Image_2`, `Image_3`) VALUES ('Hrd0077', 'Manual Card Punch', NULL, 'ICT', 'Type 1/8', '40259', NULL, NULL, NULL, 'Salvaged by Justin Zobel when discarded by RMIT.\r\nA manual card punch.  Such card punches were used to punch a few cards without need to gain access to an electric card punch machine. Note that the ICT equipment punches round holes rather than the rectangular hole used in IBM card equipment', NULL, NULL, 'Hrd0077.JPG');
-# 77 records
+-- 77 records
 
-#
-# Table structure for table 'Literature'
-#
+--
+-- Table structure for table 'Literature'
+--
 
 DROP TABLE IF EXISTS `Literature`;
 
@@ -237,9 +237,9 @@ CREATE TABLE `Literature` (
 
 SET autocommit=1;
 
-#
-# Dumping data for table 'Literature'
-#
+--
+-- Dumping data for table 'Literature'
+--
 
 INSERT INTO `Literature` (`LitID`, `HrdID`, `LitPublDate`, `LitTitleQual`, `LitTitle`, `Authors`, `LitComments`, `Publisher`, `LitSignificance`) VALUES ('CScL0001', NULL, '1966', NULL, 'University of Melbourne Research Report 1966', NULL, NULL, 'University of Melbourne', 'Med');
 INSERT INTO `Literature` (`LitID`, `HrdID`, `LitPublDate`, `LitTitleQual`, `LitTitle`, `Authors`, `LitComments`, `Publisher`, `LitSignificance`) VALUES ('CScL0002', NULL, '1967', NULL, 'University of Melbourne Research Report 1967', NULL, NULL, 'University of Melbourne', 'Med');
@@ -1042,11 +1042,11 @@ INSERT INTO `Literature` (`LitID`, `HrdID`, `LitPublDate`, `LitTitleQual`, `LitT
 INSERT INTO `Literature` (`LitID`, `HrdID`, `LitPublDate`, `LitTitleQual`, `LitTitle`, `Authors`, `LitComments`, `Publisher`, `LitSignificance`) VALUES ('CScL0902', NULL, '1974', NULL, 'Finite Element Analysis', 'P.G. Power', NULL, NULL, NULL);
 INSERT INTO `Literature` (`LitID`, `HrdID`, `LitPublDate`, `LitTitleQual`, `LitTitle`, `Authors`, `LitComments`, `Publisher`, `LitSignificance`) VALUES ('CScL0903', NULL, '1976', NULL, 'CALAB', 'John S. Murnane', NULL, NULL, NULL);
 INSERT INTO `Literature` (`LitID`, `HrdID`, `LitPublDate`, `LitTitleQual`, `LitTitle`, `Authors`, `LitComments`, `Publisher`, `LitSignificance`) VALUES ('CScL0904', NULL, '1981', NULL, 'Rubik''s Cube', 'Stephen Guthrie', NULL, NULL, NULL);
-# 801 records
+-- 801 records
 
-#
-# Table structure for table 'Media_Storage'
-#
+--
+-- Table structure for table 'Media_Storage'
+--
 
 DROP TABLE IF EXISTS `Media_Storage`;
 
@@ -1069,9 +1069,9 @@ CREATE TABLE `Media_Storage` (
 
 SET autocommit=1;
 
-#
-# Dumping data for table 'Media_Storage'
-#
+--
+-- Dumping data for table 'Media_Storage'
+--
 
 INSERT INTO `Media` (`MediaID`, `HrdID`, `MediaObjectName`, `MediaObjectNameQualifier`, `MediaManufacturer`, `MediaDate`, `MediaProvenance`, `MediaSignificance`, `Images`, `MediaComments`) VALUES ('CScM0001', NULL, 'Punch/Mark Sense Cards', NULL, NULL, NULL, 1, 1, 'CScM0001.JPG', 'Marked \"Monash University ECS Fortran\".\r\n The Monash University Educational Computer System or \"MONECS\" provided a low cost way of providing computer services for the teaching of programming. The hardware was a PDP -11 (or compatible) computer with a card reader and printer. Approriate compilers for various languages were also provided. The card reader accepted \"push out\" cards or optically read  marked cards \"mark sense cards\" for input. The program could be prepared by the student by pushing out appropriate chads or by marking the squares on mark sense cards. The cards were printed to minimise the effort in marking the cards. \r\nThe systems were generally set up as \"self service\" facility.\r\nAt the University of Melbourne these systems were commonly referred to as  \"SCUBA\" (Small Computer for Undergraduate Batch Applications\" systems \r\nThis is a mark sense card for use when programming in the Fortran language.');
 INSERT INTO `Media` (`MediaID`, `HrdID`, `MediaObjectName`, `MediaObjectNameQualifier`, `MediaManufacturer`, `MediaDate`, `MediaProvenance`, `MediaSignificance`, `Images`, `MediaComments`) VALUES ('CScM0002', 'Hrd0027', 'Push out Sensing Cards (3xboxes)', NULL, NULL, NULL, 1, 1, 'CScM0002.2.JPG', '\r\n The Monash University Educational Computer System or \"MONECS\" provided a low cost way of providing computer services for the teaching of programming. The hardware was a PDP -11 (or compatible) computer with a card reader and printer. Approriate compilers for various languages were also provided. The card reader accepted \"push out\" cards or optically read  marked cards \"mark sense cards\" for input. The program could be prepared by the student by pushing out appropriate chads or by marking the squares on mark sense cards. The cards were printed to minimise the effort in marking the cards. \r\nThe systems were generally set up as \"self service\" facility.\r\nAt the University of Melbourne these systems were commonly referred to as  \"SCUBA\" (Small Computer for Undergraduate Batch Applications\" systems \r\nThis is a \"push out\" card. Students usually equipped themselves with a bent paper clip to push out the chad. Students occasionally  tried to reinsert chads after they had been mistakenly pushed out. This was futile as the chads invariably fell out whilst being fed through the card reader.');
@@ -1104,11 +1104,11 @@ INSERT INTO `Media` (`MediaID`, `HrdID`, `MediaObjectName`, `MediaObjectNameQual
 INSERT INTO `Media` (`MediaID`, `HrdID`, `MediaObjectName`, `MediaObjectNameQualifier`, `MediaManufacturer`, `MediaDate`, `MediaProvenance`, `MediaSignificance`, `Images`, `MediaComments`) VALUES ('CScM0029', NULL, '8-Hole Tapes', NULL, 'Hewlett Packard', '1977', 1, 1, '', '  2 boxes:\r\nDOS DVR15 7261A Binary 24307-16017 1446\r\nHP6261A RTE DVR15 Driver Relo Binary 09601-16021 Rev A');
 INSERT INTO `Media` (`MediaID`, `HrdID`, `MediaObjectName`, `MediaObjectNameQualifier`, `MediaManufacturer`, `MediaDate`, `MediaProvenance`, `MediaSignificance`, `Images`, `MediaComments`) VALUES ('CScM0030', NULL, 'Floppy Disks varioius', NULL, 'Various', '1981-87', 1, 1, '', '3 boxes - disks containing various departmental systems , test, student programs\r\nincluding 2 x 5-1/4\", 2x3-1/2\" double density, 2-3/12\" high density disks (examples) \r\n(Contained in plastic bag)');
 INSERT INTO `Media` (`MediaID`, `HrdID`, `MediaObjectName`, `MediaObjectNameQualifier`, `MediaManufacturer`, `MediaDate`, `MediaProvenance`, `MediaSignificance`, `Images`, `MediaComments`) VALUES ('CScM0031', NULL, 'Data Cartridge', 'DC 200 XL/P', '3M', '1972', 1, 1, 'IMG_2909.JPG', 'Data cartridge used as backup media for a SUN workstation.\r\nUsed in CIS by Dr Lee Naish. The item was  retained by him and provided by him as part of the collection.');
-# 31 records
+-- 31 records
 
-#
-# Table structure for table 'Photographs - CSIRAC'
-#
+--
+-- Table structure for table 'Photographs - CSIRAC'
+--
 
 DROP TABLE IF EXISTS `Photographs - CSIRAC`;
 
@@ -1126,9 +1126,9 @@ CREATE TABLE `Photographs - CSIRAC` (
 
 SET autocommit=1;
 
-#
-# Dumping data for table 'Photographs - CSIRAC'
-#
+--
+-- Dumping data for table 'Photographs - CSIRAC'
+--
 
 INSERT INTO `Photographs - CSIRAC` (`RefNo`, `Title`, `Date`, `Personel`, `Copyright`, `Image`, `Notes`) VALUES ('csiracph001', 'Mercury delay line - showing coupling to external circuitry', '1955', NULL, 'Melb Uni', 'End of mercury delay line c1950 ref 1.jpg', 'End of mercury delay line showing coupling to external circuitry. c1950 Same as 46\r\n*Published in \"The Last of the First - CSIRAC Australia''s First Computer\" copyright 2000');
 INSERT INTO `Photographs - CSIRAC` (`RefNo`, `Title`, `Date`, `Personel`, `Copyright`, `Image`, `Notes`) VALUES ('csiracph002', 'Cathode ray tube displays', '1955', NULL, 'Melb Uni', 'Cathode ray tube displays ref 2 darker shot.jpg', 'Cathode ray tube displays showing contents of registers and the main store.\r\n*Published in \"The Last of the First - CSIRAC Australia''s First Computer\" copyright 2000');
@@ -1302,4 +1302,4 @@ INSERT INTO `Photographs - CSIRAC` (`RefNo`, `Title`, `Date`, `Personel`, `Copyr
 INSERT INTO `Photographs - CSIRAC` (`RefNo`, `Title`, `Date`, `Personel`, `Copyright`, `Image`, `Notes`) VALUES ('csiracph411', 'Layout overview', NULL, NULL, NULL, 'Layout overview p12 no ref.jpg', '*Published in \"The Last of the First - CSIRAC Australia''s First Computer\" copyright 2000');
 INSERT INTO `Photographs - CSIRAC` (`RefNo`, `Title`, `Date`, `Personel`, `Copyright`, `Image`, `Notes`) VALUES ('csiracph412', 'Magnetic Drum Position Selector Unit - Schematic diagram', NULL, NULL, NULL, 'Magnetic Drum Position Selector Unit - Schematic diagram ref.jpg', NULL);
 INSERT INTO `Photographs - CSIRAC` (`RefNo`, `Title`, `Date`, `Personel`, `Copyright`, `Image`, `Notes`) VALUES ('csiracph414', 'Copy of Design Team title page montage', NULL, NULL, NULL, 'Copy of Design Team title page montage p.23.jpg', '*Published in \"The Last of the First - CSIRAC Australia''s First Computer\" copyright 2000');
-# 172 records
+-- 172 records
