@@ -17,7 +17,9 @@ USE `beta`;
 -- Table structure for table 'Users'
 --
 
-CREATE TABLE users (ID MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY, username VARCHAR(60), password VARCHAR(60))
+CREATE TABLE users (ID MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY, username VARCHAR(60), password VARCHAR(60)) ENGINE=innodb DEFAULT CHARSET=utf8;
+
+SET autocommit=1;
 
 --
 -- Table structure for table 'CSIRAC'
