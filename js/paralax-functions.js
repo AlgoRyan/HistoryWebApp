@@ -18,13 +18,22 @@ jQuery(function($) {
     */
     
     setSkrollr($('#welcome'), [[0, 'opacity:1'], [400, 'opacity:0'],]);
-    setSkrollr($('#homesection'), [[0, 'opacity:1'], [800, 'opacity:0'],]);
+    setSkrollr($('#homesection'), [[0, 'opacity:1'], [800, 'opacity:0.5'],]);
     //setSkrollr($('#welcome'), [[0, 'font-size:150%'], [1000, 'font-size:50%'],]); doesn't work
     
+    //setSkrollr($('#homesection'), [[0, 'left:0px'], [800, 'left:30px'],]);
+    
+    // change opacity for slide 1
+   	//setSkrollr($('#slide1'), [[0, 'opacity:0.5'], [800, 'opacity:1'],]);
+    //setSkrollr($('#slide1'), [[800, 'opacity:1'], [1600, 'opacity:0'],]);
+    
+    /* these simply make them slide in from right
     setSkrollr($('#slide1'), [[400, 'margin: 0px 0px 0px 1000px'], [800, 'margin: 0px 0px 0px 120px'],]);
     setSkrollr($('#slide2'), [[800, 'margin: 0px 0px 0px 1000px'], [1600, 'margin: 0px 0px 0px 120px'],]);
     setSkrollr($('#slide3'), [[1600, 'margin: 0px 0px 0px 1000px'], [2400, 'margin: 0px 0px 0px 120px'],]);
     setSkrollr($('#slide4'), [[2400, 'margin: 0px 0px 0px 1000px'], [3200, 'margin: 0px 0px 0px 120px'],]);    
+    */
+    
     
     skrollr.init({
         smoothScrolling: false

@@ -35,7 +35,9 @@ body {
 	background-color:#eeeeee;
 	font-family: 'Droid Sans', 'sans-serif';
     font-size: 48px;
-     background: #fff fixed url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEX4+Pj09PQf/c7fAAAAGklEQVR4Xq3MIQEAAADDIPqX/kvMIMEWEm8O7b0/wewc/NcAAAAASUVORK5CYII=) repeat;
+    /*
+    background: #fff fixed url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgAQMAAABJtOi3AAAABlBMVEX4+Pj09PQf/c7fAAAAGklEQVR4Xq3MIQEAAADDIPqX/kvMIMEWEm8O7b0/wewc/NcAAAAASUVORK5CYII=) repeat;
+	*/
 }
 
 div {
@@ -78,7 +80,7 @@ div {
 	margin: auto;
 	width: 1000px;
 	height: 800px;
-	background-color: rgba(200,190,43,0.3);
+	/*background-color: rgba(200,190,43,0.3);*/
 }
 
 #homesection {
@@ -86,6 +88,20 @@ div {
 	height: fill;
 	overflow: hidden;
 	background-image: url(../img/p1.jpg);
+	background-size: cover;
+}
+
+.bcg {
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	height: 100%;
+	width: 100%;
+}
+
+section {
+	min-width: 960px;
 }
 
 /******* START styling for NAVIGATION Bar *******/
@@ -93,20 +109,24 @@ div {
 nav {
 	width: 100%;
 	height: fill;
-	background-color: rgba(200,190,43,0.3); /* melb uni colour #003466 */
+	background-color: #003466; /* melb uni colour #003466 */
 	text-align: right;
+	opacity: 0;
+	display: none;
 }
 nav p {
-	color: rgba(255,255,255,0.8);
+	color: white;/*rgba(255,255,255,0.8);*/
 	font-size: 30%;
 	padding: 10px 10px 10px 10px;
 	font-family: 'Poiret One', 'cursive';
 }
-
-a:link {text-decoration:none; color: rgba(255,255,255,0.8);}
+a {
+	color: white;
+}
+a:link {text-decoration:none; color: color: white;/*rgba(255,255,255,0.8);*/}
 a:visited {text-decoration:none;}
 a:hover {text-decoration: none; opacity: 0.8;}
-a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
+a:active {text-decoration: none; color: white /*rgba(255,255,255,0.8);*/}
 
 /******* END styling for NAVIGATION Bar *******/
 
@@ -141,11 +161,37 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 	margin: auto;
 }
 
-#slide1 { background-color: rgba(50,100,200,0.3);}
+#section-1 {
+	background-image: url(../img/p2.jpg);
+	background-size: cover;
+}
+
+#section-2 {
+	background-color: rgba(10,10,20,1);
+	/*background-image: url(../img/p3.jpg);
+	background-size: cover;*/
+}
+
+#section-3 {
+	background-image: url(../img/p4.jpg);
+	background-size: cover;
+}
+
+#section-4 {
+	background-image: url(../img/p1.jpg);
+	background-size: cover;
+}
+
+
+/*
+#slide1 { background-color: rgba(50,100,200,0.3);
+	background-image: url(../img/p3.jpg);
+	background-size: cover;
+}
 #slide2 { background-color: rgba(50,100,100,0.3);}
 #slide3 { background-color: rgba(50,100,40,0.3);}
 #slide4 { background-color: rgba(250,100,10,0.3);}
-
+*/
 
 /*\\\\\ START style for he slide-content ////*/
 
