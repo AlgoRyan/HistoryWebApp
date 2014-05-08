@@ -4,9 +4,10 @@
 
 <?php 
 //Connects to your Database 
- mysql_connect("YOUR.database.info.hostedresource.com", "YOURusername", "YOURpassword") or die(mysql_error()); 
- mysql_select_db("YOURdatabase") or die(mysql_error()); 
-
+$con = mysqli_connect("beta", "beta_2014", "beta"); 
+if (mysqli_connect_errno()) {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
 
  //This code runs if the form has been submitted
 
@@ -34,11 +35,11 @@
 
  $usercheck = $_POST['username'];
 
- $check = mysql_query("SELECT username FROM users WHERE username = '$usercheck'") 
+ $check = mysqli_query("SELECT username FROM users WHERE username = '$usercheck'") 
 
-or die(mysql_error());
+or die(mysqli_error());
 
- $check2 = mysql_num_rows($check);
+ $check2 = mysqli_num_rows($check);
 
 
 
@@ -81,7 +82,7 @@ or die(mysql_error());
 
  			VALUES ('".$_POST['username']."', '".$_POST['pass']."')";
 
- 	$add_member = mysql_query($insert);
+ 	$add_member = mysqli_query($con, $insert);
 
  	?>
 
@@ -133,7 +134,3 @@ value="Register"></th></tr> </table>
 
 </body>
 </html>
-
-
-
- 
