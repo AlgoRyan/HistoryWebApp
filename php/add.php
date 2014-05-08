@@ -35,7 +35,7 @@ if (mysqli_connect_errno()) {
 
  $usercheck = $_POST['username'];
 
- $check = mysqli_query("SELECT username FROM users WHERE username = '$usercheck'") 
+ $check = mysqli_query($con, "SELECT username FROM users WHERE username = '$usercheck'") 
 
 or die(mysqli_error());
 
