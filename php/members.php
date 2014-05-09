@@ -1,9 +1,10 @@
 <?php 
 
 //Connects to your Database 
- mysql_connect("YOUR.database.info.hostedresource.com", "YOURusername", "YOURpassword") or die(mysql_error()); 
- mysql_select_db("YOURdatabase") or die(mysql_error()); 
-
+$con = mysqli_connect("beta", "beta_2014", "beta"); 
+if (mysqli_connect_errno()) {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
  
  //checks cookies to make sure they are logged in 
 
@@ -15,9 +16,9 @@
 
  	$pass = $_COOKIE['Key_my_site']; 
 
- 	 	$check = mysql_query("SELECT * FROM users WHERE username = '$username'")or die(mysql_error()); 
+ 	 	$check = mysqli_query($con, "SELECT * FROM users WHERE username = '$username'")or die(mysql_error()); 
 
- 	while($info = mysql_fetch_array( $check )) 	 
+ 	while($info = mysqli_fetch_array( $check )) 	 
 
  		{ 
 
