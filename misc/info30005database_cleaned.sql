@@ -20,8 +20,8 @@ USE `beta`;
 CREATE TABLE `users` (
 	`ID` MEDIUMINT NOT NULL AUTO_INCREMENT,
 	`username` VARCHAR(60),
-	`password` VARCHAR(60)
-	PRIMARY KEY(`ID`),
+	`password` VARCHAR(60),
+	PRIMARY KEY(`ID`)
 ) ENGINE=innodb DEFAULT CHARSET=utf8;
 
 SET autocommit=1;
