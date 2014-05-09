@@ -12,7 +12,7 @@
 		University of Melbourne
 	</div>
 	<div id="nav-login">
-		<a href="index.html"> home</a> | 
+		<a href="index.html"> home</a>
 		<a href="register.php"> sign up </a>
 		<a href="logout.php"> logout </a>
 	</div>
