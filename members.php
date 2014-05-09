@@ -24,7 +24,9 @@ if(isset($_COOKIE['ID_my_site']))
 		//otherwise they are shown the admin area	 
 		else 
 		{ 
-			header("Location: index.html"); 
+			echo "You have successfully logged in!";
+			echo "<a href='index.html'> Click here to return home</a>";
+
 		}
  	}
 
