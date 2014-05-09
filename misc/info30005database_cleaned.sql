@@ -17,7 +17,12 @@ USE `beta`;
 -- Table structure for table 'Users'
 --
 
-CREATE TABLE users (ID MEDIUMINT NOT NULL AUTO_INCREMENT PRIMARY KEY, username VARCHAR(60), password VARCHAR(60)) ENGINE=innodb DEFAULT CHARSET=utf8;
+CREATE TABLE `users` (
+	`ID` MEDIUMINT NOT NULL AUTO_INCREMENT,
+	`username` VARCHAR(60),
+	`password` VARCHAR(60)
+	PRIMARY KEY(`ID`),
+) ENGINE=innodb DEFAULT CHARSET=utf8;
 
 SET autocommit=1;
 
