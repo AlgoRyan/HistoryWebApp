@@ -36,6 +36,7 @@ $past = time() - 100;
 
 setcookie(ID_my_site, gone, $past); 
 setcookie(Key_my_site, gone, $past); 
-header("Location: index.html"); 
+echo "You have successfully logged out!";
+echo "<a href='index.html'> Click here to return home</a>";
 
 ?> 
