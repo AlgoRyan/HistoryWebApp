@@ -26,8 +26,8 @@
 
 <section id="homesection"> <!-- homesection start -->
 	
-	<div id="index-homebg" class='align-center' >
-	<div id="welcome-title"> <!-- welcome start -->
+	<div id="homebg" class='align-center' >
+	<div id="welcome"> <!-- welcome start -->
 		<p id="title">History of CIS</p>
 		<p><i> at the University of Melbourne</i></p>
 	</div> <!-- welcome end -->
@@ -42,7 +42,7 @@
 		<br>
 		<div class='section-heading'><p>"An entry point into the History Computers..."</p></div> <!-- heading for section-->
 		<br>
-		<div id="slide-content" class="slide-content"> <!-- START slide-content -->
+		<div id="slide-content"> <!-- START slide-content -->
 		<a href="http://people.eng.unimelb.edu.au/ammoffat/fifty-years/">
 			<div id="about" class="content-box" >
 			<img src="img/about2.jpg" />
