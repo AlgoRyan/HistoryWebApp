@@ -1,7 +1,7 @@
 <?php 
 
 //Connects to your Database 
-$con = mysqli_connect("info30005.cis.unimelb.edu.au", "beta", "beta_2014", "beta"); 
+$con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta"); 
 if (mysqli_connect_errno()) {
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
@@ -64,4 +64,4 @@ if (mysqli_connect_errno()) {
 
  } 
 
- ?> 
+ ?>
