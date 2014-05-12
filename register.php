@@ -12,13 +12,12 @@
 		University of Melbourne
 	</div>
 	<div id="nav-login">
-		<a href="index.html"> home</a>
-		<a href="register.php"> sign up </a>
-		<a href="logout.php"> logout </a>
+		<a href="index.php"> home</a>
+		<a href="login.php"> log in</a>
 	</div>
 	
-	<a href="mod.html"><div id="moderator" > <p>m</p> </div></a>
-	<a href="add-content.html"><div id="add-content" > <p>a</p> </div></a>
+	<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
+	<a href="add-content.php"><div id="add-content" > <p>a</p> </div></a>
 	
 </nav> <!-- END nav here -->
 
@@ -42,6 +41,7 @@ if (isset($_POST['submit']))
 	if (!$_POST['username'] | !$_POST['pass'] | !$_POST['pass2'] ) 
 	{
 		die('You did not complete all of the required fields');
+		echo "<a href='index.php'> Click here to return home</a>";
  	}
 
  	// checks if the username is in use
@@ -59,11 +59,13 @@ if (isset($_POST['submit']))
  	if ($check2 != 0) 
  	{
  		die('Sorry, the username '.$_POST['username'].' is already in use.');
+ 		echo "<a href='index.php'> Click here to return home</a>";
 	}
 
 	// this makes sure both passwords entered match
  	if ($_POST['pass'] != $_POST['pass2']) {
  		die('Your passwords did not match. ');
+ 		echo "<a href='index.php'> Click here to return home</a>";
  	}
 
  	// here we encrypt the password and add slashes if needed
