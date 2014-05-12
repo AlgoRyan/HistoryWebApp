@@ -12,13 +12,12 @@
 		University of Melbourne
 	</div>
 	<div id="nav-login">
-		<a href="index.html"> home</a>
-		<a href="register.php"> sign up </a>
+		<a href="index.php"> home</a>
 		<a href="logout.php"> logout </a>
 	</div>
 	
-	<a href="mod.html"><div id="moderator" > <p>m</p> </div></a>
-	<a href="add-content.html"><div id="add-content" > <p>a</p> </div></a>
+	<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
+	<a href="add-content.php"><div id="add-content" > <p>a</p> </div></a>
 	
 </nav> <!-- END nav here -->
 
@@ -53,7 +52,7 @@ if(isset($_COOKIE['ID_my_site']))
 		else 
 		{ 
 			echo "You have successfully logged in!";
-			echo "<a href='index.html'> Click here to return home</a>";
+			echo "<a href='index.php'> Click here to return home</a>";
 
 		}
  	}
