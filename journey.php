@@ -12,9 +12,17 @@
 <body>
 <nav> 
 		<p>
-		<a href="index.html"> home</a> 
-		<a href="register.php"> sign up </a>
-		<a href="logout.php"> logout </a>
+		<?php if(isset($_COOKIE['ID_my_site'])){
+			echo "Welcome " .$_COOKIE['ID_my_site']."!";
+			echo "<a href=\"index.php\"> home</a>";
+			echo "<a href=\"logout.php\"> logout </a>";		
+		}
+		else{
+			echo "<a href=\"index.php\"> home</a>";
+			echo "<a href=\"login.php\"> log in</a>";
+			echo "<a href=\"register.php\"> sign up </a>";
+		}
+		?>
 		</p>
 </nav>
 
@@ -54,7 +62,7 @@
 				<p>First ever photo taken in 1955</p>
 			</div>
 			
-			<a href="../add_content/add-content.html"><div class="add-img">+<p>click to add photo</p></div></a>
+			<a href="add-content.php"><div class="add-img">+<p>click to add photo</p></div></a>
 			
 			<div id="content2" class="txt-box">
 			
