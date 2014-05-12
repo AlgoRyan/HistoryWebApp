@@ -10,10 +10,7 @@
 -- Second clean : 06/05/2014
 --
 
-<<<<<<< HEAD
---CREATE DATABASE IF NOT EXISTS `beta`;
---USE `beta`;
-=======
+
 CREATE DATABASE IF NOT EXISTS `beta`;
 USE `beta`;
 
@@ -29,7 +26,6 @@ CREATE TABLE `users` (
 ) ENGINE=innodb DEFAULT CHARSET=utf8;
 
 SET autocommit=1;
->>>>>>> db3f9ba26540bf69054ee0c56c5ce77f688a886d
 
 --
 -- Table structure for table 'CSIRAC'
