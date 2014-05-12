@@ -13,9 +13,17 @@
 		University of Melbourne
 	</div>
 	<div id="nav-login">
-		<a href="index.html"> home</a> 
-		<a href="register.php"> sign up </a>
-		<a href="logout.php"> logout </a>
+		<?php if(isset($_COOKIE['ID_my_site'])){
+			echo "Welcome " .$_COOKIE['ID_my_site']."!";
+			echo "<a href=\"index.php\"> home</a>";
+			echo "<a href=\"logout.php\"> logout </a>";		
+		}
+		else{
+			echo "<a href=\"index.php\"> home</a>";
+			echo "<a href=\"login.php\"> log in</a>";
+			echo "<a href=\"register.php\"> sign up </a>";
+		}
+		?>
 	</div>
 </nav> <!-- END nav here -->
 
