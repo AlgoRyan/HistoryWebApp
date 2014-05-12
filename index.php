@@ -13,13 +13,19 @@
 		University of Melbourne
 	</div>
 	<div id="nav-login">
-		<a href="login.php"> log in</a>
-		<a href="register.php"> sign up </a>
-		<a href="logout.php"> logout </a>
+		<?php if(isset($_COOKIE['ID_my_site'])){
+			echo "Welcome " .$_COOKIE['ID_my_site']."!";
+			echo "<a href=\"logout.php\"> logout </a>";		
+		}
+		else{
+			echo "<a href=\"login.php\"> log in</a>";
+			echo "<a href=\"register.php\"> sign up </a>";
+		}
+		?>
 	</div>
 	
-	<a href="mod.html"><div id="moderator" > <p>m</p> </div></a>
-	<a href="add-content.html"><div id="add-content" > <p>a</p> </div></a>
+	<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
+	<a href="add-content.php"><div id="add-content" > <p>a</p> </div></a>
 	
 </nav> <!-- END nav here -->
 
@@ -51,14 +57,14 @@
 			<p>The History of CIS at the university is quite remarkable, click for a short summary</p>
 			</div>
 		</a>
-		<a href="journey.html">
+		<a href="journey.php">
 			<div id="journey" class="content-box">
 			<img src="img/journey.jpg" />
 			<h2>Journey</h2>
 			<p>journey through the history and add your own story - insert paralax link here -</p>
 			</div>
 		</a>
-		<a href="media-index.html">
+		<a href="media-index.php">
 			<div id="media" class="content-box" onClick=goToURL(http://www.google.com.au)>
 			<img src="img/gallery1.jpg" />
 			<h2>Media Gallery</h2>
