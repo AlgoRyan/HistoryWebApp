@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
-<body>
+<body id="login">
 <nav> <!-- START nav here -->
 	<div id="nav-heading">
 		University of Melbourne
@@ -25,8 +25,8 @@
 
 <div class="wrapper" >
 
+<section id="login-page"> <!-- start Main sectoin -->
 
-<section id="main"> <!-- start Main sectoin -->
 
 <?php 
 
@@ -116,6 +116,7 @@ else
 // if they are not logged in
 ?>
 
+<div id="login-box" class="centerall" >
  <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post"> 
 
  <table border="0"> 
@@ -136,21 +137,20 @@ else
 
  <tr><td colspan="2" align="right"> 
 
- <input type="submit" name="submit" value="Login"> 
-
  </td></tr> 
 
  </table> 
-
+	<input id="submit-button" type="submit" name="submit" value="Login"> 
  </form> 
+	
+ 
+</div>
+
 
  <?php 
 
 } 
-
- 
-
-?> 
+?>
 	
 	
 </section> <!-- end MAIN section -->

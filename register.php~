@@ -94,35 +94,37 @@ else
 ?>
 
 <div id="login-box" class="centerall">
-	
-	<div>
-		<h1>Please choose a new Username and Password</h1>
-	</div>
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
-	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-	
-	<table align="middle" border="0">
-	
-	<tr>
-		<td>Username:</td>
-		<td><input type="text" name="username" maxlength="60"></td>
-	</tr>
-	
-	<tr>
-		<td>Password:</td>
-		<td><input type="password" name="pass" maxlength="10"></td>
-	</tr>
-	
-	<tr>
-		<td>Confirm Password:</td>
-		<td><input type="password" name="pass2" maxlength="10"></td>
-	</tr>
+<table border="0">
 
-	</table>
-	
-	<input id="submit-button" type="submit" name="submit" value="Register">
-	
-	</form>
+<tr><td>Username:</td><td>
+
+<input type="text" name="username" maxlength="60">
+
+</td></tr>
+
+<tr><td>Password:</td><td>
+
+<input type="password" name="pass" maxlength="10">
+
+</td></tr>
+
+<tr><td>Confirm Password:</td><td>
+
+<input type="password" name="pass2" maxlength="10">
+
+</td></tr>
+
+<tr><th colspan=2>
+<input id="submit-button" type="submit" name="submit" 
+value="Register">
+</th></tr> 
+
+</table>
+
+</form>
+
 </div>
 
 <?php

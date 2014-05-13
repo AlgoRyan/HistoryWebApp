@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
-<body id="login">
+<body>
 <nav> <!-- START nav here -->
 	<div id="nav-heading">
 		University of Melbourne
@@ -51,13 +51,10 @@ if(isset($_COOKIE['ID_my_site']))
 		} 
 		//otherwise they are shown the admin area	 
 		else 
-		{ ?>
-<div id="logout" class="centerall">
-	<p>You have successfully logged in!</p>
-	<a href='index.html'> Click here to return home</a>
-</div>
+		{ 
+			echo "You have successfully logged in!";
+			echo "<a href='index.html'> Click here to return home</a>";
 
-<?php
 		}
  	}
 

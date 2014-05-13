@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
-<body id="login">
+<body>
 <nav> <!-- START nav here -->
 	<div id="nav-heading">
 		University of Melbourne
@@ -26,7 +26,7 @@
 <div class="wrapper" >
 
 
-<section> <!-- start Main sectoin -->
+<section id="login"> <!-- start Main sectoin -->
 
 <?php 
 
@@ -36,17 +36,7 @@ $past = time() - 100;
 
 setcookie(ID_my_site, gone, $past); 
 setcookie(Key_my_site, gone, $past); 
+echo "You have successfully logged out!";
+echo "<a href='index.html'> Click here to return home</a>";
 
 ?> 
-
-<div id="logout" class="centerall">
-	<p>You have successfully logged out!</p>
-	<a href='index.html'><p>Click here to return home</p></a>
-</div>
-
-
-<?php 
-
-?> 
-
-
