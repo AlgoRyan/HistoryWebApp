@@ -4,7 +4,7 @@
 <title> History of CIS </title>
 
 <head>
-<link rel="stylesheet" type="text/css" href="css/media-style.css">
+<link rel="stylesheet" type="text/css" href="css/general-styles.css">
 
 </head>
 <body>
@@ -13,7 +13,7 @@
 		University of Melbourne
 	</div>
 	<div id="nav-login">
-		<a href="index.html"> home </a> |
+		<a href="index.html"> home </a> | 
 		<a href="http://www.google.com"> log in</a> | 
 		<a href="http://www.google.com"> sign up </a>
 	</div>
@@ -21,11 +21,11 @@
 
 <div class="wrapper" >
 
-<section id="homesection"> <!-- homesection start -->
+<section id="add-homesection"> <!-- homesection start -->
 	
 	<div id="homebg" class='align-center' >
 	<div id="welcome-title"> <!-- welcome start -->
-		<p id="title">Media Gallery</p>
+		<p id="title">add content</p>
 	</div> <!-- welcome end -->
 	</div> <!-- homebg end -->
 
@@ -55,8 +55,7 @@
 			</div>
 			<br>
 			<button id="add-image-button" class="button" onClick="addImage()">ADD IMAGE</button>
-			<button id="add-images-button" class="button" onClick="addImages()">ADD IMAGES(out of action)</button>
-			<p>there are: <i id="result" opacity="50%">some</i> results</p>
+			<p><i id="result" opacity="50%"></i></p>
 		</div> <!-- END Search-box -->
 		</div> <!-- END img-content -->
 	
@@ -64,44 +63,8 @@
 			
 			<div id="template-img" class="content-box added-image">
 			<img src="img/image-here.jpg" />
-			<h2 id="template-h2">This is a dog</h2>
+			<h2 id="template-h2">This is the first photo</h2>
 			<p id="template-p">This part of will describe the above photo</p>
-			</div>
-			
-			<div id="template-img2" class="content-box added-image">
-			<img src="img/Numbers.jpg" />
-			<h2 id="template-h2">Numbers</h2>
-			<p id="template-p">Just some binary digits</p>
-			</div>
-			
-			<div id="template-img3" class="content-box added-image">
-			<img src="img/Desert.jpg" />
-			<h2 id="template-h2">This is a Desert</h2>
-			<p id="template-p">landscape picture</p>
-			</div>
-			
-			<div id="template-img3" class="content-box added-image">
-			<img src="img/circuits.jpg" />
-			<h2 id="template-h2">Circuit</h2>
-			<p id="template-p">Graphically drawn circuit board</p>
-			</div>
-			
-			<div id="template-img3" class="content-box added-image">
-			<img src="img/pc1.jpg" />
-			<h2 id="template-h2">Compact PC</h2>
-			<p id="template-p">Old compact pc used for stats</p>
-			</div>
-			
-			<div id="template-img3" class="content-box added-image">
-			<img src="img/pc2.jpg" />
-			<h2 id="template-h2">Blue Screen</h2>
-			<p id="template-p">AKA the blue screen of death in modern computers</p>
-			</div>
-			
-			<div id="template-img3" class="content-box added-image">
-			<img src="img/pc3.jpg" />
-			<h2 id="template-h2">1 Terabyte</h2>
-			<p id="template-p">1000 years ago	</p>
 			</div>
 		
 		</div> <!-- END slide-content -->
@@ -110,11 +73,13 @@
 	
 </section> <!-- end MAIN section -->
 
-<!-- all the js scripts used -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/media-functions.js"></script>
 
 </div> <!-- wrapper -->
+
+<!-- all the js scripts used -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/add-functions.js"></script>
+
 </body>
 
 </html>
