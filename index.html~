@@ -104,15 +104,11 @@
  </div>
 
 
-<!-- all the javascript reference
 
 <!-- all the javascript references -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/functions.js"></script>
-<script type="text/javascript" src="php/add.php"></script>
-<script type="text/javascript" src="php/login.php"></script>
-<script type="text/javascript" src="php/logout.php"></script>
-<script type="text/javascript" src="php/members.php"></script>
+
 
 </body>
 
