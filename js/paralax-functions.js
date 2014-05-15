@@ -33,6 +33,8 @@ jQuery(function($) {
     setSkrollr($('#slide3'), [[1600, 'margin: 0px 0px 0px 1000px'], [2400, 'margin: 0px 0px 0px 120px'],]);
     setSkrollr($('#slide4'), [[2400, 'margin: 0px 0px 0px 1000px'], [3200, 'margin: 0px 0px 0px 120px'],]);    
     */
+
+    
     
     
     skrollr.init({
