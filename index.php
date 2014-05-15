@@ -5,6 +5,7 @@
 
 <head>
 <link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/footer-style.css">
 
 </head>
 <body>
@@ -79,6 +80,36 @@
 
 
 </div> <!-- wrapper -->
+
+<!-- footer -->
+<div id="footernav" role="contentinfo">       
+	<div class="wrapper">         
+		<p id="backtotop">
+		<a href="#g-breadcrumb-menu">Back to top</a></p>         
+		<a href="http://unimelb.edu.au" id="footernav-logo">
+		<img src="img/unimelb-logo-lge.png" alt="The University of Melbourne logo"></a>
+  		<dl id="footernav-required">           
+  			<dt>Phone:</dt>
+  			<dd>13 MELB (13 6352) | International: +(61 3) 9035 5511</dd><br>           
+  			<dt>The University of Melbourne ABN:</dt>           
+  			<dd>84 002 705 224</dd><br>           
+  			<dt>CRICOS Provider Code:</dt>           
+  			<dd>00116K <a href="http://www.services.unimelb.edu.au/international/visas/index.html">(visa information)</a></dd><br>           
+  			<dt><a href="http://brand.unimelb.edu.au/web/docs">Web brand guidelines</a> created by <a href="http://marcom.unimelb.edu.au">Marketing</a></dt>           
+  			<dd></dd>         
+  		</dl>         
+  	<ul id="footernav-social">           
+  		<li><a href="http://www.twitter.com/unimelb"><img src="img/icon-twitter.png" alt="Connect with us on Twitter"></a></li>           
+  		<li><a href="http://www.facebook.com/melbuni"><img src="img/icon-facebook.png" alt="Connect with us on Facebook"></a></li>           
+  		<li><a href="http://au.linkedin.com/pub/the-university-of-melbourne/61/430/215"><img src="img/icon-linkedin.png" alt="Connect with us on Facebook"></a></li>       
+  	</ul>        
+   	<ul id="footernav-legals">          
+    	<li><a href="http://www.unimelb.edu.au/disclaimer/">Disclaimer &amp; copyright</a></li>       
+        <li><a href="http://www.unimelb.edu.au/accessibility/index.html">Accessibility</a></li>         
+        <li><a href="http://www.unimelb.edu.au/disclaimer/privacy.html">Privacy</a></li>
+      </ul>
+ 	</div>
+ </div>
 
 <!-- all the javascript references -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
