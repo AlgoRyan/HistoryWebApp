@@ -87,6 +87,7 @@ body {
 	margin: auto;
 	background-image: url(../img/p2.jpg);
 	background-size: cover;
+	box-shadow: 5px 0px 10px rgba(0,0,0,0.4);
 }
 
 #add-homesection {
@@ -213,6 +214,7 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 	background-color: rgba(120,120,120,0.3);
 	width: 1000px;
 	height: fill;
+	box-shadow: 5px 0px 10px rgba(0,0,0,0.4);
 }
 
 /* from add, mod and media in addition to what is already in this file
@@ -436,11 +438,11 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 /******** START styling for Login **********/
 
 #login {
-	background-color: rgba(255,190,0,0.4);
+	background-color:  rgba(33, 99, 164, 1);
 }
 
 #login-box {
-	background-color: rgba(223,150,0,0.5);
+	background-color:rgba(62, 122, 180, 1);
 	color: white;
 	font-size: 40%;
 	font-family: 'Raleway', 'sans-serif';
@@ -469,10 +471,36 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 }
 
 #logout a {
-	color: rgba(10,30,255,0.6);
+	color: rgba(0, 34, 66, 1);
 }
 
 #container {
 	width: 100%;
 	height: 100%;
 }
+
+
+#about-body p {	
+	font-size: 0.5em;
+	color: white;
+	font-family: 'Raleway', 'sans-serif';
+}
+
+#about-body h2{	
+	font-size: 1em;
+	color: white;
+	font-family: 'Raleway', 'sans-serif';
+}
+
+
+
+/* melb uni colours:
+melbourne university colours:
+dark: #002242 - rgba(0, 34, 66, 1)
+medium dark: #13304D - rgba(19, 48, 77, 1)
+normal: #003466 (main) - rgba(0, 52, 102, 1)
+mediumling: #2163A4 - rgba(33, 99, 164, 1)
+light: #3E7AB4 - rgba(62, 122, 180, 1)
+*/
+
+

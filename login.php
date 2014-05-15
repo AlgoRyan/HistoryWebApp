@@ -29,6 +29,7 @@
 
 
 <?php 
+error_reporting(E_ALL ^ E_NOTICE  ^ E_WARNING); // turns off all the notices showing in browser
 
 //Connects to your Database 
 
