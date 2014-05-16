@@ -26,10 +26,14 @@
 		</p>
 </nav>
 <div class = "time-line">
-	<p> <a href="#slide1" >1955</a></p>
-	<p> <a href="#slide2" >1960</a></p>
-	<p> <a href="#slide3" >1965</a></p>
-	<p> <a href="#slide4" >1970</a></p>
+	<p>
+		<ul>
+			<li><a href="/erwinf/HistoryWebApp/journey.php#section-1" >1955</a></li>
+			<li><a href="#section-2" >1960</a></li>
+			<li><a href="#section-3" >1965</a></li>
+			<li><a href="#section-4" >1970</a></li>
+		</ul>
+	</p>
 </div>
 
 <div class="wrapper" >
@@ -140,7 +144,7 @@
 <!-- found from working paralax -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="http://prinzhorn.github.io/skrollr/dist/skrollr.min.js"></script>
-
+<script type="text/javascript" src="http://prinzhorn.github.io/skrollr-menu/src/skrollr.menu.js"
 <script type="text/javascript" src="js/paralax-functions.js"></script>
 
 <!--
