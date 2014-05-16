@@ -38,6 +38,7 @@ jQuery(function($) {
     skrollr.init({
         smoothScrolling: false
     });
+    skrollr.menu.init(s);
 });
 
 
