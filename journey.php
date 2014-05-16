@@ -26,12 +26,11 @@
 		</p>
 </nav>
 <div class = "time-line">
-	<p> <a href="#section-1" >1955</a></p>
-	<p> <a href="#section-2" >1960</a></p>
-	<p> <a href="#section-3" >1965</a></p>
-	<p> <a href="#section-4" >1970</a></p>
+	<p> <a href="#slide1" >1955</a></p>
+	<p> <a href="#slide2" >1960</a></p>
+	<p> <a href="#slide3" >1965</a></p>
+	<p> <a href="#slide4" >1970</a></p>
 </div>
-
 
 <div class="wrapper" >
 
@@ -55,9 +54,6 @@
 
 <section id="section-1" class="bcg"> <!-- START section-1 -->
 	<div id="slide1" class="align-center slide"> <!-- start slide1 -->
-		<div class="time-line">
-			<p>1955</p>
-		</div>
 		
 		<div class='section-heading'><p>This Story begins in 1955....</p></div> <!-- heading for section-->
 	
@@ -89,10 +85,7 @@
 <section id="section-2" class="bcg"> <!-- START section-2 -->	
 	
 	<div id="slide2" class="align-center slide"> <!-- start slide2 -->
-		<div class="time-line">
-			<p>1960</p>
-		</div>
-	
+		
 		<div class='section-heading'><p>This is Lorem Ipsum 2</p></div> <!-- heading for section-->
 	
 		<div class="slide-content"> <!-- START slide-content -->
@@ -125,12 +118,7 @@
 <section id="section-3" class="bcg"> <!-- START section-3 -->
 
 	<div id="slide3" class="align-center slide"> <!-- start slide3 -->
-		<div class="time-line">
-			<p>1965</p>
-			<p>1966</p>
-			<p>1967</p>
-			<p>1969</p>
-		</div>
+		
 		<div class='section-heading'><p>This is Lorem Ipsum three</p></div> <!-- heading for section-->
 	</div> <!-- END slide3 -->	
 	
@@ -139,11 +127,6 @@
 <section id="section-4" class="bcg">	<!-- START section-4 -->
 	
 	<div id="slide4" class="align-center slide"> <!-- start slide4 -->
-		<div class="time-line">
-			<p>1970</p>
-			<p>1971</p>
-			<p>1976</p>
-		</div>
 		<div class='section-heading'><p>This is Lorem Ipsum number 4 is here</p></div> <!-- heading for section-->
 	</div> <!-- END slide4-->	
 	
