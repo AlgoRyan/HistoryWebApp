@@ -25,6 +25,13 @@
 		?>
 		</p>
 </nav>
+<div class = "time-line">
+	<p> <a href="#section-1" >1955</a></p>
+	<p> <a href="#section-2" >1960</a></p>
+	<p> <a href="#section-3" >1965</a></p>
+	<p> <a href="#section-4" >1970</a></p>
+</div>
+
 
 <div class="wrapper" >
 
