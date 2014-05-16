@@ -11,11 +11,30 @@
 <script src="js/dropzone.js"></script>
 
 </head>
-<body>
+<body class='grad'>
 <nav> <!-- START nav here -->
 	<div id="nav-heading">
 		University of Melbourne
 	</div>
+	<div class='user'> <!-- START user image if logged in -->
+		<?php  if(isset($_COOKIE['ID_my_site'])){
+			//this code shows the user's image
+			$con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta"); 
+			if (mysqli_connect_errno()) {
+				echo "Failed to connect to MySQL: " . mysqli_connect_error();
+			}
+			$id = $_COOKIE['ID_my_site'];
+			$sql = "SELECT img FROM users WHERE username = '{$id}'";
+			$sth = $con->query($sql);
+			$result=mysqli_fetch_array($sth);
+			echo '<img class="user-image" src="data:image/jpeg;base64,'.base64_encode( $result['img'] ).'"/>';
+			echo '<h6>logged in as '. $_COOKIE['ID_my_site'] .'</h6>';
+			}
+			else{
+				//echo '<h1 color=red>photo goes here<h1>';
+			}
+		?>
+	</div> <!-- END user image if logged in -->
 
 <!-- melb uni header START -->
 <div id="g-header" role="banner"> <!-- banner div START -->
@@ -58,6 +77,7 @@
            <li><a href="about.php" id="header-about">About Us</a></li>
            <li><a href="journey.php" id="header-journey">Journey</a></li>
            <li><a href="media-index.php" id="header-media">Media Gallery</a></li>
+           
          </ol>
          <hr class="g-clear-floats">
          
@@ -83,7 +103,7 @@
 
 <section id="add-main"> <!-- start Main sectoin -->
 	
-	<div id="slide1" class="align-center"> <!-- start slide1 -->
+	<div id="slide1" class="align-center grad"> <!-- start slide1 -->
 	
 		<div id="img-content"> <!-- START img-content -->
 		
@@ -104,16 +124,19 @@
 			
 			
 			<br>
+			
 			<button id="add-image-button" class="button" onClick="addImage()">ADD IMAGE</button>
+			
 			<p><i id="result" opacity="50%"></i></p>
 						
 			<div id="file-drop">
 			
-				<form id="file-drop-area" action="upload_file.php" class="dropzone" id="my-awesome-dropzone">
-					<input type="submit" name="submit" value="upload">
+				<form id="file-drop-area" action="upload_file2.php" class="dropzone" enctype="multipart/form-data" method="post">
+					<input type="submit" name="submit" id='file' value="upload">
 				</form>
 			
 			</div>
+			
 			
 			
 		</div> <!-- END Search-box -->
@@ -126,7 +149,7 @@
 			<h2 id="template-h2">This is the first photo</h2>
 			<p id="template-p">This part of will describe the above photo</p>
 			</div>
-		
+			
 		</div> <!-- END slide-content -->
 		
 	</div> <!-- END slide1 -->	

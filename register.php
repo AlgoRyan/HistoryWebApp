@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
 
 </head>
-<body id="login">
+<body class="grad">
 <nav> <!-- START nav here -->
 	<div id="nav-heading">
 		University of Melbourne
@@ -80,7 +80,47 @@ if (mysqli_connect_errno()) {
 
 //This code runs if the form has been submitted
 if (isset($_POST['submit']))
-{ 
+{ 	
+	
+	//inserting the user picture
+	$allowedExts = array("gif", "jpeg", "jpg", "png", "JPG");
+	$temp = explode(".", $_FILES["file"]["name"]);
+	$extension = end($temp);
+	
+	// this makes sure the image is in the approved extensions
+	if (
+		(($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg")
+			|| ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/pjpeg")
+			|| ($_FILES["file"]["type"] == "image/x-png") || ($_FILES["file"]["type"] == "image/png")
+			|| ($_FILES["file"]["type"] == "image/JPG")) && ($_FILES["file"]["size"] < 10000000)
+			&& in_array($extension, $allowedExts)
+			) {
+			if ($_FILES["file"]["error"] > 0) {
+				echo "There was an error in the upload - Return Code: " . $_FILES["file"]["error"] . "<br>";
+			}
+			else {
+				
+				//adding the image to the database
+				$image = addslashes(file_get_contents($_FILES['file']['tmp_name'])); // to stop SQL injections
+				$image_name = addslashes($_FILES['image']['name']);
+				//$insert = "INSERT INTO users (img) VALUES ('{$image}')";
+				
+				/*
+				if (!mysqli_query($con, $insert)) { // Error handling
+				//echo "<br><br><h2><i>Something went wrong!</i> :(<h2>";
+				}*/
+				
+			}
+			
+	}
+			
+	// // // // // END adding image // // // // //
+	
+	// this makes sure the image is valid and it is actually there
+	if($_FILES['file']['name']=='') {
+		die("did not work image");
+		echo "FAILED";
+	}
 	
 	//This makes sure they did not leave any fields blank
 	if (!$_POST['username'] | !$_POST['pass'] | !$_POST['pass2'] ) 
@@ -125,8 +165,8 @@ if (isset($_POST['submit']))
 
 
  	// now we insert it into the database
- 	$insert = "INSERT INTO users (username, password)
- 			VALUES ('".$_POST['username']."', '".$_POST['pass']."')";
+ 	$insert = "INSERT INTO users (username, password, img)
+ 			VALUES ('".$_POST['username']."', '".$_POST['pass']."','{$image}')";
  	$add_member = mysqli_query($con, $insert);
  	?>
 
@@ -146,7 +186,7 @@ else
 		<h1>Please choose a new Username and Password</h1>
 	</div>
 
-	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
 	
 	<table align="middle" border="0">
 	
@@ -164,8 +204,14 @@ else
 		<td>Confirm Password:</td>
 		<td><input type="password" name="pass2" maxlength="10"></td>
 	</tr>
+	
+	<tr>
+		<td><input type='file' name='file' id='file'><br></td>
+	</tr>
 
 	</table>
+	
+	
 	
 	<input id="submit-button" type="submit" name="submit" value="Register">
 	

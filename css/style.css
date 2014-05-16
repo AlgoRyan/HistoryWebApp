@@ -23,6 +23,8 @@
 /* font-family: 'Droid Sans', 'sans-serif'; */
 @import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
 /* font-family: 'Permanent Marker', 'cursive'; */
+@import url(http://fonts.googleapis.com/css?family=Philosopher);
+/* font-family: 'Philosopher', sans-serif; */
 
 /* ----------------- Reset all styles ----------------- */
 *{	
@@ -95,7 +97,9 @@ body {
 	height: fill;
 	overflow: hidden;
 	margin: auto;
-	background-color: rgba(252,170,1,0.5);
+	background-color: rgba(0, 34, 66, 1);
+	border-radius: 2px;
+	box-shadow: 5px 0px 10px rgba(0,0,0,0.4);
 }
 
 #media-homesection {
@@ -103,7 +107,7 @@ body {
 	height: fill;
 	overflow: hidden;
 	margin: auto;
-	background-color: rgba(10,50,210,0.3);
+	background-color: rgba(0, 34, 66, 1);
 }
 
 #mod-homesection {
@@ -111,7 +115,15 @@ body {
 	height: fill;
 	overflow: hidden;
 	margin: auto;
-	background-color: rgba(255,0,0,0.3);
+	background-color: rgba(0, 34, 66, 1);
+}
+
+#about-homesection {
+	width: 1000px;
+	height: fill;
+	overflow: hidden;
+	margin: auto;
+	background-color: rgba(0, 34, 66, 1);
 }
 
 /******* START styling for NAVIGATION Bar *******/
@@ -211,10 +223,10 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 
 #slide1 {
 	margin: auto;
-	background-color: rgba(120,120,120,0.3);
+	background-color: rgba(120,120,120,0);
 	width: 1000px;
 	height: fill;
-	box-shadow: 5px 0px 10px rgba(0,0,0,0.4);
+	/* box-shadow: 5px 0px 10px rgba(0,0,0,0.4); */
 }
 
 /* from add, mod and media in addition to what is already in this file
@@ -230,7 +242,7 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 */
 
 #slide1 div { 
-	border-radius: 20px;
+	border-radius: 2px;
 }
 
 
@@ -239,7 +251,7 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 	width: 870px;
 	height: 300px;
 	margin: auto;
-	background-color: rgba(100,100,190,0.2);
+	background-color: white;
 }
 
 #slide-content img {
@@ -329,7 +341,7 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 	margin-left: 180px;
 	width: 400px;
 	height fill;
-	background-color: rgba(1,255,25,0.0);
+	background-color: rgba(1,255,25,0);
 	font-size: 0.4em;
 	color: white;
 	padding: 20px;
@@ -432,24 +444,50 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 	font-style: italic;
 }
 
+.user {
+	position: fixed;
+	height: 100px;
+	width: 200px;	
+}
+
+.user-image {
+	display: inline;
+	left: 0%;
+	width: 50px;
+	height: 50px;
+	margin: 10px 10px 0px 10px;
+	overflow: hidden;
+	border-radius: 250px;
+}
+
+.user h6 {
+	font-size:10px;
+	font-family: 'Raleway', 'sans-serif';
+	display: inline;
+	color: lightblue;
+	font-style: italic;
+	margin: 0px 0px 0px 0px;
+}
+
 /******* END added-content box ************/
 
 
-/******** START styling for Login **********/
+/****** START LOGIN/LOGOUT BOXES ******/
 
 #login {
-	background-color:  rgba(33, 99, 164, 1);
+	background-color:  rgba(0, 52, 102, 1);
 }
 
 #login-box {
-	background-color:rgba(62, 122, 180, 1);
+	background-color: rgba(0, 52, 102, 1);
 	color: white;
 	font-size: 40%;
 	font-family: 'Raleway', 'sans-serif';
 	border-radius: 10px;
 	text-align: center;
 	padding: 10px;
-	width: 400px;
+	width: 600px;
+	height: 400px;
 }
 
 #submit-button {
@@ -478,8 +516,9 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 	width: 800px;
 	min-height: 600px;
 }
+/****** LOGIN/LOGOUT BOXES END ******/
 
-
+/****** styling for the about page START *****/
 #about-body p {	
 	font-size: 0.5em;
 	color: white;
@@ -491,7 +530,28 @@ a:active {text-decoration: none; color: rgba(255,255,255,0.8);}
 	color: white;
 	font-family: 'Raleway', 'sans-serif';
 }
+/****** Styling for the about page END *****/
 
+/****** dropping files start     ************/
+.dropzone {
+	width: 150px;
+	min-height: 150px;
+	background-color: rgba(120,120,120,0.8);
+	border-radius: 5px;
+	box-shadow: 0px 0px 5px 10px rgba(60,60,60,0.5) inset;
+	text-align: center;
+	vertical-align: center;
+	
+}
+/****** dropzone end ********/
+
+.grad
+{
+background: -webkit-linear-gradient(rgba(0, 52, 102, 1),rgba(0, 52, 102, 0)); /*Safari 5.1-6*/
+background: -o-linear-gradient(rgba(0, 52, 102, 1),rgba(0, 52, 102, 0)); /*Opera 11.1-12*/
+background: -moz-linear-gradient(rgba(0, 52, 102, 1),rgba(0, 52, 102, 0)); /*Fx 3.6-15*/
+background: linear-gradient(rgba(0, 52, 102, 1),rgba(0, 52, 102, 0)); /*Standard*/
+}
 
 
 /* melb uni colours:

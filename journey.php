@@ -24,6 +24,7 @@
 		}
 		?>
 		</p>
+		
 </nav>
 <div class = "time-line">
 	<p>
