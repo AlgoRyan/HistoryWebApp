@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 
 <html>
-<title> History of CIS </title>
 
 <head>
-<link rel="stylesheet" type="text/css" href="css/paralax-style.css">
-<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-
+	<title> History of CIS </title>
+	<link rel="stylesheet" type="text/css" href="css/paralax-style.css">
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/nyroModal.css">
 </head>
 
 <body>
 <nav> 
 		<p>
-		<a href="index.html"> home</a> 
-		<a href="register.php"> sign up </a>
-		<a href="logout.php"> logout </a>
+		<?php if(isset($_COOKIE['ID_my_site'])){
+			echo "Welcome " .$_COOKIE['ID_my_site']."!";
+			echo "<a href=\"index.php\"> home</a>";
+			echo "<a href=\"logout.php\"> logout </a>";		
+		}
+		else{
+			echo "<a href=\"index.php\"> home</a>";
+			echo "<a href=\"login.php\"> log in</a>";
+			echo "<a href=\"register.php\"> sign up </a>";
+		}
+		?>
 		</p>
 </nav>
 
@@ -54,7 +62,7 @@
 				<p>First ever photo taken in 1955</p>
 			</div>
 			
-			<a href="../add_content/add-content.html"><div class="add-img">+<p>click to add photo</p></div></a>
+			<a href="add-content.php" class="nyroModal"><div class="add-img">+<p>click to add photo</p></div></a>
 			
 			<div id="content2" class="txt-box">
 			
@@ -140,10 +148,10 @@
 <!-- all the js scripts and libraries used-->
 
 <!-- found from working paralax -->
-<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-<script src="http://prinzhorn.github.io/skrollr/dist/skrollr.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="http://prinzhorn.github.io/skrollr/dist/skrollr.min.js"></script>
 
-<script src="js/paralax-functions.js"></script>
+<script type="text/javascript" src="js/paralax-functions.js"></script>
 
 <!--
 <script type="text/javascript" src="js/skrollr.stylesheets.min.js"\></script>
@@ -151,6 +159,16 @@
 <script type="text/javascript">
     skrollr.init();
 </script> -->
+
+<script type="text/javascript" src="js/jquery.nyroModal.custom.js"></script>
+ <!--[if IE 6]>
+ 	<script type="text/javascript" src="js/jquery.nyroModal-ie6.js"></script>
+ <![endif]-->
+<script type="text/javascript">
+	$(function() {
+	  $('.nyroModal').nyroModal();
+	});
+</script>
 
 </body>
 

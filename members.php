@@ -12,13 +12,12 @@
 		University of Melbourne
 	</div>
 	<div id="nav-login">
-		<a href="index.html"> home</a>
-		<a href="register.php"> sign up </a>
+		<a href="index.php"> home</a>
 		<a href="logout.php"> logout </a>
 	</div>
 	
-	<a href="mod.html"><div id="moderator" > <p>m</p> </div></a>
-	<a href="add-content.html"><div id="add-content" > <p>a</p> </div></a>
+	<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
+	<a href="add-content.php"><div id="add-content" > <p>a</p> </div></a>
 	
 </nav> <!-- END nav here -->
 
@@ -51,13 +50,13 @@ if(isset($_COOKIE['ID_my_site']))
 		} 
 		//otherwise they are shown the admin area	 
 		else 
-		{ ?>
-<div id="logout" class="centerall">
-	<p>You have successfully logged in!</p>
-	<a href='index.html'> Click here to return home</a>
-</div>
 
-<?php
+		{ 
+		    echo '<div id="logout" class="centerall">';
+			echo "<p>You have successfully logged in!</p>";
+			echo "<a href='index.php'><p>Click here to return home</p></a>";
+			echo '</div>';
+
 		}
  	}
 

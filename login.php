@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <title> History of CIS </title>
 
@@ -13,13 +12,13 @@
 		University of Melbourne
 	</div>
 	<div id="nav-login">
-		<a href="index.html"> home</a>
+		<a href="index.php"> home </a> 
 		<a href="register.php"> sign up </a>
-		<a href="logout.php"> logout </a>
+		
 	</div>
 	
-	<a href="mod.html"><div id="moderator" > <p>m</p> </div></a>
-	<a href="add-content.html"><div id="add-content" > <p>a</p> </div></a>
+	<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
+	<a href="add-content.php"><div id="add-content" > <p>a</p> </div></a>
 	
 </nav> <!-- END nav here -->
 
@@ -32,7 +31,6 @@
 error_reporting(E_ALL ^ E_NOTICE  ^ E_WARNING); // turns off all the notices showing in browser
 
 //Connects to your Database 
-
 $con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta");
 if (mysqli_connect_errno()) {
       echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -54,7 +52,7 @@ if(isset($_COOKIE['ID_my_site']))
  		}
  		else
  		{
- 		header("Location: members.php");
+ 			header("Location: members.php");
  		}
  	}
 }
@@ -67,6 +65,7 @@ if (isset($_POST['submit'])) { // if form has been submitted
 	if(!$_POST['username'] | !$_POST['pass']) 
 	{
  		die('You did not fill in a required field.');
+ 		echo "<a href='index.php'> Click here to return home</a>";
  	}
 
  	// checks it against the database
@@ -81,6 +80,7 @@ if (isset($_POST['submit'])) { // if form has been submitted
 	$check2 = mysqli_num_rows($check);
 	if ($check2 == 0) {
 		die('That user does not exist in our database.<a href=register.php>Click Here to Register</a>');
+		echo "<a href='index.php'> Click here to return home</a>";
 	}
 	
 	while($info = mysqli_fetch_array( $check )) 	
@@ -93,6 +93,7 @@ if (isset($_POST['submit'])) { // if form has been submitted
 		if ($_POST['pass'] != $info['password']) 
 		{
 			die('Incorrect password, please try again.');
+			echo "<a href='index.php'> Click here to return home</a>";
 		}
 		else 
 		{
@@ -162,7 +163,6 @@ else
 <!-- all the javascript references -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/functions.js"></script>
-
 <script type="text/javascript" src="php/login.php"></script>
 <script type="text/javascript" src="php/logout.php"></script>
 
