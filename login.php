@@ -16,7 +16,7 @@
 	</div>
 	
 	<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
-	<a href="add-content.php"><div id="add-content" > <p>a</p> </div></a>
+	<a href="controller.php?action=add-content"><div id="add-content" > <p>a</p> </div></a>
 	
 <!-- melb uni header START -->
 <div id="g-header" role="banner"> <!-- banner div START -->
@@ -32,11 +32,11 @@
     
 			    <?php if(isset($_COOKIE['ID_my_site'])){
 					echo "Welcome " . $_COOKIE['ID_my_site']."!";
-					echo '<li><a href="logout.php"> logout </a></li>';		
+					echo '<li><a href="controller.php?action=logout"> logout </a></li>';		
 				}
 				else{
-					echo '<li><a href="login.php"> log in</a></li>';
-					echo '<li><a href="register.php"> sign up </a></li>';
+					echo '<li><a href="controller.php?action=login"> log in</a></li>';
+					echo '<li><a href="controller.php?action=register"> sign up </a></li>';
 				}
 				?>
 			</ul>
@@ -86,7 +86,7 @@ if (mysqli_connect_errno()) {
 }
 
 //Checks if there is a login cookie
-if(isset($_COOKIE['ID_my_site']))
+if($loggedin)
 //if there is, it logs you in and directes you to the members page
 { 
 	$username = $_COOKIE['ID_my_site']; 
@@ -153,7 +153,7 @@ if (isset($_POST['submit'])) { // if form has been submitted
 		//die('That user does not exist in our database.<a href=register.php>Click Here to Register</a>');
 		$msg = 'That user does not exist in our database';
  		echo "<script type='text/javascript'>alert('$msg');</script>";
- 		echo "<a href=register.php>Click Here to Register</a><br>";
+ 		echo "<a href='controller.php?action=register'>Click Here to Register</a><br>";
 		echo "<a href='index.php'> Click here to return home</a>";
 	}
 		// checks it against the database
@@ -209,7 +209,7 @@ else
 ?>
 <div class="container">
 <div id="login-box">
- <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post"> 
+ <form action="<?php echo 'controller.php?action=login'?>" method="post"> 
 
  <table border="0"> 
 
