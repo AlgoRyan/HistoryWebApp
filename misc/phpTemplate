@@ -1,0 +1,44 @@
+displayAttribute.php
+
+<?php
+
+$con=mysqli_connect('127.0.0.1', 'beta', 'beta_2014', 'beta');
+// Check connection
+if (mysqli_connect_errno()) {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$table = GET['table']
+$id = GET['id']
+
+$result = mysqli_query($con,"SELECT * FROM $table WHERE id=$id"); // for more efficiency change * by the attributes u want (optionnal)
+while($row = mysqli_fetch_array($result)) {
+echo $row['CSIRACObjectName'] . ", " . $row['CSIRACObjectNameQualifier']; //and all other attributes u need
+}
+mysqli_close($con);
+?>
+
+
+// in html : <php include (display.php?table='') ?>
+
+
+displayImage.php
+
+<?php
+
+// id check
+
+$table = $_GET['table']
+$id = $_GET['id']
+// Connect to MySQL server
+$con=mysqli_connect('127.0.0.1', 'beta', 'beta_2014', 'beta');
+if (mysqli_connect_errno()) {
+      echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+$result = mysqli_query($con, "SELECT Image FROM $table WHERE CSIRACID=$id");
+	$row = mysqli_fetch_assoc($result);
+	echo $row['Image'];
+mysqli_close($con);
+?>
+
+// in html call <img src=" <php include 'displayimage.php?id=''&table='' ">
