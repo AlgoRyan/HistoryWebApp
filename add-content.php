@@ -35,56 +35,7 @@
 		?>
 	</div> <!-- END user image if logged in -->
 
-<!-- melb uni header START -->
-<div id="g-header" role="banner"> <!-- banner div START -->
 
-       <div class="wrapper"> <!-- wrapper class div start -->
-            <ol id="g-breadcrumb-menu">
-             <li id="g-breadcrumb-home"><a href="//www.unimelb.edu.au/">University Home</a></li>
-            </ol>
-
-        <div id="g-global-search"> <!-- Global Search div START -->
-        	<a href="http://search.unimelb.edu.au/" id="g-search-button" role="button" aria-haspopup="true">Search</a>
-			<ul id="g-audience-links">
-    
-			    <?php if(isset($_COOKIE['ID_my_site'])){
-					echo "Welcome " . $_COOKIE['ID_my_site']."!";
-					echo '<li><a href="logout.php"> logout </a></li>';		
-				}
-				else{
-					echo '<li><a href="login.php"> log in</a></li>';
-					echo '<li><a href="register.php"> sign up </a></li>';
-				}
-				?>
-			</ul>
-	
-           <div id="g-global-search-overlay">
-             <form method="get" action="http://search.unimelb.edu.au/" name="g-searchform" id="g-searchform" role="search">
-               <label for="q"><span>Search the university</span></label>
-               <input accesskey="s" type="search" name="q" id="q" value="" title="Search the University">
-               <input type="submit" name="sa" id="g-global-search-submit" value="Search">
-             </form>
-           </div>
-         
-         </div> <!-- Global Search div START -->
-         
-         <hr>
-         <ol id="g-global-menu" role="navigation" aria-labelledby="g-global-menu-label">
-           <a id="g-global-menu-logo" href="http://www.unimelb.edu.au">The University of Melbourne</a>
-           <li id="g-global-menu-label">Browse the History of CIS Site</li>
-           <li><a href="index.php" id="header-index">Home</a></li>
-           <li><a href="about.php" id="header-about">About Us</a></li>
-           <li><a href="journey.php" id="header-journey">Journey</a></li>
-           <li><a href="media-index.php" id="header-media">Media Gallery</a></li>
-           
-         </ol>
-         <hr class="g-clear-floats">
-         
-       </div> <!-- wrapper class div end -->
-</div> <!-- banner div END -->
-
-<!-- melb uni header END -->
-	
 </nav> <!-- END nav here -->
 
 <div class="wrapper" >
