@@ -31,11 +31,11 @@
     
 			    <?php if(isset($_COOKIE['ID_my_site'])){
 					echo "Welcome " . $_COOKIE['ID_my_site']."!";
-					echo '<li><a href="logout.php"> logout </a></li>';		
+					echo '<li><a href="controller.php?action=logout"> logout </a></li>';		
 				}
 				else{
-					echo '<li><a href="login.php"> log in</a></li>';
-					echo '<li><a href="register.php"> sign up </a></li>';
+					echo '<li><a href="controller.php?action=login"> log in</a></li>';
+					echo '<li><a href="controller.php?action=register"> sign up </a></li>';
 				}
 				?>
 			</ul>
@@ -186,7 +186,7 @@ else
 		<h1>Please choose a new Username and Password</h1>
 	</div>
 
-	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+	<form action="<?php echo 'controller.php?action=register'; ?>" method="post" enctype="multipart/form-data">
 	
 	<table align="middle" border="0">
 	
