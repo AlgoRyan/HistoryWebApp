@@ -41,7 +41,13 @@ jQuery(function($) {
     skrollr.menu.init(s);
 });
 
-
+setTimeout(function() {
+	var s = skrollr.init({
+		forceHeight: false
+	});
+	
+	skrollr.menu.init(s);
+}, 500);
 /*
 $(document).ready(function(){
 		$("#hide").click(function(){

@@ -24,26 +24,22 @@
 		}
 		?>
 		</p>
-		
 </nav>
-<div class = "time-line">
-	<p>
-		<ul>
-			<li><a href="/erwinf/HistoryWebApp/journey.php#section-1" >1955</a></li>
-			<li><a href="#section-2" >1960</a></li>
-			<li><a href="#section-3" >1965</a></li>
-			<li><a href="#section-4" >1970</a></li>
-		</ul>
-	</p>
-</div>
 
-<div class="wrapper" >
+<div class="wrapper" id="skrollr-body">
 
 <!-- for parallax testing
 <div id="box1">box1</div>
 <div id="box2">box2</div>
 <div id="box3">box3</div>
 -->
+<div class = "time-line" >
+	<p><a href="#section-1" >1955</a></p>
+	<p><a href="#section-2" >1960</a></p>
+	<p><a href="#section-3" >1965</a></p>
+	<p><a href="#section-4" >1970</a></p>
+</div>
+
 
 <section id="homesection" class="bcg"> <!-- homesection start -->
 	
@@ -145,7 +141,7 @@
 <!-- found from working paralax -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="http://prinzhorn.github.io/skrollr/dist/skrollr.min.js"></script>
-<script type="text/javascript" src="http://prinzhorn.github.io/skrollr-menu/src/skrollr.menu.js"
+<script type="text/javascript" src="js/skrollr.menu.js"></script>
 <script type="text/javascript" src="js/paralax-functions.js"></script>
 
 <!--
