@@ -34,6 +34,8 @@
 <div id="box3">box3</div>
 -->
 <div class = "time-line" >
+	<p><a href="index.php" >Home</a></p>
+	<p><a href="#homesection" >Top</a></p>
 	<p><a href="#section-1" >1955</a></p>
 	<p><a href="#section-2" >1960</a></p>
 	<p><a href="#section-3" >1965</a></p>

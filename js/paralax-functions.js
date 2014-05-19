@@ -42,11 +42,11 @@ jQuery(function($) {
 });
 
 setTimeout(function() {
-	var s = skrollr.init({
-		forceHeight: false
-	});
-	
-	skrollr.menu.init(s);
+    var s = skrollr.init({
+        forceHeight: false
+    });
+    
+    skrollr.menu.init(s);
 }, 500);
 /*
 $(document).ready(function(){
