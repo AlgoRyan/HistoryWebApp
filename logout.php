@@ -16,12 +16,12 @@
 	</div>
 	<div id="nav-login">
 		<a href="index.php"> home</a>
-		<a href="register.php"> sign up </a>
-		<a href="login.php"> log in</a>
+		<a href="controller.php?action=register"> sign up </a>
+		<a href="controller.php?action=login"> log in</a>
 	</div>
 	
 	<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
-	<a href="add-content.php"><div id="add-content" > <p>a</p> </div></a>
+	<a href="controller.php?action=add-content"><div id="add-content" > <p>a</p> </div></a>
 	
 <!-- melb uni header START -->
 <div id="g-header" role="banner"> <!-- banner div START -->
