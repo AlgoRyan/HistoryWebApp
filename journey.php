@@ -15,12 +15,12 @@
 		<?php if(isset($_COOKIE['ID_my_site'])){
 			echo "Welcome " .$_COOKIE['ID_my_site']."!";
 			echo "<a href=\"index.php\"> home</a>";
-			echo "<a href=\"logout.php\"> logout </a>";		
+			echo "<a href=\"controller.php?action=logout\"> logout </a>";		
 		}
 		else{
 			echo "<a href=\"index.php\"> home</a>";
-			echo "<a href=\"login.php\"> log in</a>";
-			echo "<a href=\"register.php\"> sign up </a>";
+			echo "<a href=\"controller.php?action=login\"> log in</a>";
+			echo "<a href=\"controller.php?action=register\"> sign up </a>";
 		}
 		?>
 		</p>
