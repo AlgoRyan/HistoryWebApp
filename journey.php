@@ -145,7 +145,7 @@
 <!-- found from working paralax -->
 <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="http://prinzhorn.github.io/skrollr/dist/skrollr.min.js"></script>
-<script type="text/javascript" src="http://prinzhorn.github.io/skrollr-menu/src/skrollr.menu.js"
+<script type="text/javascript" src="js/skrollr.menu.js"></script>
 <script type="text/javascript" src="js/paralax-functions.js"></script>
 
 <!--
