@@ -11,7 +11,7 @@
 
 
 </head>
-<body>
+<body class="grad">
 <nav> <!-- START nav here -->
 	<div id="nav-heading">
 		University of Melbourne
@@ -55,10 +55,10 @@
     
 			    <?php if(isset($_COOKIE['ID_my_site'])){
 					echo "Welcome " . $_COOKIE['ID_my_site']."!";
-					echo '<li><a href="controller.php?action=logout"> logout </a></li>';		
+					echo '<li><a href="controller.php?action=logout"> logout </a></li><li></li><li></li> ';		
 				}
 				else{
-					echo '<li><a href="controller.php?action=login"> log in</a></li>';
+					echo '<li><a href="controller.php?action=login"> log in</a></li><li></li><li>|</li>   ';
 					echo '<li><a href="controller.php?action=register"> sign up </a></li>';
 				}
 				?>
@@ -93,7 +93,7 @@
 	
 </nav> <!-- END nav here -->
 
-<div class="wrapper" >
+<div id='index-wrapper' class="wrapper grad-white" >
 
 <section id="homesection"> <!-- homesection start -->
 	
@@ -111,20 +111,22 @@
 	
 	<div id="slide1" class="align-center"> <!-- start slide1 -->
 		<br>
-		<div class='section-heading'><p>"An entry point into the History Computers..."</p></div> <!-- heading for section-->
+		<div class='section-heading'><p>"An entry point into the History of Computing..."</p></div> <!-- heading for section-->
 		<br>
 		<div id="slide-content" class="slide-content"> <!-- START slide-content -->
 		<a href="http://people.eng.unimelb.edu.au/ammoffat/fifty-years/">
 			<div id="about" class="content-box" >
 			<img src="img/about2.jpg" />
 			<h2>About</h2>
+			<hr color='black' size='3px'/>
 			<p>The History of CIS at the university is quite remarkable, click for a short summary</p>
 			</div>
 		</a>
 		<a href="journey.php">
 			<div id="journey" class="content-box">
 			<img src="img/journey.jpg" />
-			<h2>Journey</h2>
+			<h2 margin='5px'>Journey</h2>
+			<hr color='black' size='3px'/>
 			<p>journey through the history and add your own story - insert paralax link here -</p>
 			</div>
 		</a>
@@ -132,6 +134,7 @@
 			<div id="media" class="content-box" onClick=goToURL(http://www.google.com.au)>
 			<img src="img/gallery1.jpg" />
 			<h2>Media Gallery</h2>
+			<hr color='black' size='3px'/>
 			<p>click to see more media</p>
 			</div>
 		</a>

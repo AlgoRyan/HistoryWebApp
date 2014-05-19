@@ -207,41 +207,36 @@ else
 
 // if they are not logged in
 ?>
-<div class="container">
-<div id="login-box">
- <form action="<?php echo 'controller.php?action=login'?>" method="post"> 
+<div id="login-container" class="container">
+    <div id="login-heading">
+        <h1>Login</h1>
+    </div>
 
- <table border="0"> 
-
- <tr><td colspan=2><h1>Login</h1></td></tr> 
-
- <tr><td>Username:</td><td> 
-
- <input type="text" name="username" maxlength="40"> 
-
- </td></tr> 
-
- <tr><td>Password:</td><td> 
-
- <input type="password" name="pass" maxlength="50"> 
-
- </td></tr> 
-
- <tr><td colspan="2" align="right"> 
-
- </td></tr> 
- 
-<?php
-	//require_once('recaptchalib.php');
-	//$publickey = "your_public_key"; // you got this from the signup page
-	//echo recaptcha_get_html($publickey);
-?>
- </table> 
-	<input id="submit-button" type="submit" name="submit" value="Login"> 
- </form> 
-	
- 
-</div>
+    <div id="login-form" class="login-box">
+    
+         <form action="<?php echo 'controller.php?action=login'?>" method="post"> 
+             <table align="center" border="0">
+                <tr>
+                    <td>Username:</td>
+                    <td><input type="text" name="username" maxlength="40"></td>
+                </tr> 
+             <tr>
+                <td>Password:</td>
+                <td><input type="password" name="pass" maxlength="50"></td>
+             </tr> 
+             <?php
+                //require_once('recaptchalib.php');
+                //$publickey = "your_public_key"; // you got this from the signup page
+                //echo recaptcha_get_html($publickey);
+             ?>
+             
+             <tr>
+                <td colspan="1"></td>
+                <td><br><input id="submit-button" type="submit" name="submit" value="Login"></td>
+             </tr>
+             </table>
+         </form> 
+    </div>
 </div>
 
 <?php 

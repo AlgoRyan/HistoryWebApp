@@ -5,6 +5,8 @@
 <body>
 
 <?php 
+
+error_reporting(E_ALL ^ E_NOTICE  ^ E_WARNING); // turns off all the notices showing in browser
 //Connects to your Database 
 $con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta");
 if (mysqli_connect_errno()) {

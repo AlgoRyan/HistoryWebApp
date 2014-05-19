@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
 
 </head>
-<body id="about-body">
+<body id="about-body" class='grad'>
 <nav> <!-- START nav here -->
 	<div id="nav-heading">
 		University of Melbourne
@@ -90,7 +90,7 @@
 	
 </nav> <!-- END nav here -->
 
-<div class="wrapper" >
+<div id="about-wrapper" class="wrapper" >
 
 <section id="about-homesection"> <!-- homesection start -->
 	

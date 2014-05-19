@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
 
 </head>
-<body class="grad">
+<body id="login">
 <nav> <!-- START nav here -->
 	<div id="nav-heading">
 		University of Melbourne
@@ -72,6 +72,8 @@
 <section id="login-page"> <!-- start Main sectoin -->
 
 <?php 
+error_reporting(E_ALL ^ E_NOTICE  ^ E_WARNING); // turns off all the notices showing in browser
+
 //Connects to your Database 
 $con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta"); 
 if (mysqli_connect_errno()) {
@@ -116,17 +118,16 @@ if (isset($_POST['submit']))
 			
 	// // // // // END adding image // // // // //
 	
-	// this makes sure the image is valid and it is actually there
-	if($_FILES['file']['name']=='') {
-		die("did not work image");
-		echo "FAILED";
-	}
-	
 	//This makes sure they did not leave any fields blank
 	if (!$_POST['username'] | !$_POST['pass'] | !$_POST['pass2'] ) 
 	{
-		die('You did not complete all of the required fields');
-		echo "<a href='index.php'> Click here to return home</a>";
+		//die('You did not complete all of the required fields');
+		//echo "<a href='index.php'> Click here to return home</a>";
+		$msg = 'You did not complete all of the required fields';
+ 		echo "<script type='text/javascript'>alert('$msg');</script>";
+ 		displayForm();
+ 		displayFooter();
+ 		exit();
  	}
 
  	// checks if the username is in use
@@ -143,15 +144,36 @@ if (isset($_POST['submit']))
 	//if the name exists it gives an error
  	if ($check2 != 0) 
  	{
- 		die('Sorry, the username '.$_POST['username'].' is already in use.');
- 		echo "<a href='index.php'> Click here to return home</a>";
+ 		//die('Sorry, the username '.$_POST['username'].' is already in use.');
+ 		//echo "<a href='index.php'> Click here to return home</a>";
+ 		$msg = 'Sorry, the username '.$_POST['username'].' is already in use.';
+ 		echo "<script type='text/javascript'>alert('$msg');</script>";
+ 		displayForm();
+ 		displayFooter();
+ 		exit();
 	}
 
 	// this makes sure both passwords entered match
  	if ($_POST['pass'] != $_POST['pass2']) {
- 		die('Your passwords did not match. ');
- 		echo "<a href='index.php'> Click here to return home</a>";
+ 		//die('Your passwords did not match. ');
+ 		//echo "<a href='index.php'> Click here to return home</a>";
+ 		$msg = 'Your passwords did not match. ';
+ 		echo "<script type='text/javascript'>alert('$msg');</script>";
+ 		displayForm();
+ 		displayFooter();
+ 		exit();
  	}
+ 	
+ 	// this makes sure the image is valid and it is actually there
+	if($_FILES['file']['name']=='') {
+		//die("did not work image");
+		//echo "FAILED";
+		$msg = 'The image failed to load';
+ 		echo "<script type='text/javascript'>alert('$msg');</script>";
+ 		displayForm();
+ 		displayFooter();
+ 		exit();
+	}
 
  	// here we encrypt the password and add slashes if needed
  	$_POST['pass'] = md5($_POST['pass']);
@@ -169,60 +191,66 @@ if (isset($_POST['submit']))
  			VALUES ('".$_POST['username']."', '".$_POST['pass']."','{$image}')";
  	$add_member = mysqli_query($con, $insert);
  	?>
-
- 	<h1>Registered</h1>
- 	<p>Thank you, you have registered - you may now <a href="login.php">login</a>.</p>
+    <div class='container'>
+        <h1>Registered</h1>
+        <p>Thank you, you have registered - you may now <a href="login.php">login</a>.</p>
+ 	</div>
  	<?php 
 } 
 
 else 
- 
-{	
-?>
-<div class='container'>
-<div id="login-box">
-	
-	<div>
-		<h1>Please choose a new Username and Password</h1>
-	</div>
-
-	<form action="<?php echo 'controller.php?action=register'; ?>" method="post" enctype="multipart/form-data">
-	
-	<table align="middle" border="0">
-	
-	<tr>
-		<td>Username:</td>
-		<td><input type="text" name="username" maxlength="60"></td>
-	</tr>
-	
-	<tr>
-		<td>Password:</td>
-		<td><input type="password" name="pass" maxlength="10"></td>
-	</tr>
-	
-	<tr>
-		<td>Confirm Password:</td>
-		<td><input type="password" name="pass2" maxlength="10"></td>
-	</tr>
-	
-	<tr>
-		<td><input type='file' name='file' id='file'><br></td>
-	</tr>
-
-	</table>
-	
-	
-	
-	<input id="submit-button" type="submit" name="submit" value="Register">
-	
-	</form>
-</div>
-</div>
-<?php
-
+{
+    displayForm();
+    displayFooter();
 }
 ?>
 
+<?php
+
+function displayForm() {
+    echo '<div class="container">
+    <div id="login-heading">
+        <h1>Please choose a new Username and Password</h1>
+        <i>note this is NOT your Unimelb student or staff account username</i>
+    </div>
+    
+    <div id="register-form"
+     class="login-box">';
+    echo ' <form action=';
+    echo '"controller.php?action=register"';
+    echo 'method="post" enctype="multipart/form-data">
+            <table align="center" border="0">
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="username" maxlength="60"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="pass" maxlength="10"></td>
+            </tr>
+            <tr>
+                <td>Confirm Password:</td>
+                <td><input type="password" name="pass2" maxlength="10"></td>
+            </tr>
+            <tr>
+                <td>Choose User Image :  </td>
+                <td><input type="file" name="file" id="file"><br></td>
+            </tr>
+            
+            <tr>
+                <td colspan="1"></td>
+                <td><input id="submit-button" type="submit" name="submit" value="Register"></td>
+            </tr>    
+            </table>
+                
+        </form>
+    
+    </div>
+</div>';
+}
+
+function displayFooter() {
+echo '
 <!-- unimelb footer START -->
 <div id="footernav" role="contentinfo">       
 	<div class="wrapper">         
@@ -253,7 +281,9 @@ else
  	</div>
  </div>
  
- <!-- unimelb footer END -->
+ <!-- unimelb footer END -->';
+}
+?>
 
 </body>
 </html>

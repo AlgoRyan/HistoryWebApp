@@ -33,13 +33,13 @@
 <div id="box2">box2</div>
 <div id="box3">box3</div>
 -->
-<div class = "time-line" >
+<div class="time-line" >
 	<p><a href="index.php" >Home</a></p>
-	<p><a href="#homesection" >Top</a></p>
-	<p><a href="#section-1" >1955</a></p>
-	<p><a href="#section-2" >1960</a></p>
-	<p><a href="#section-3" >1965</a></p>
-	<p><a href="#section-4" >1970</a></p>
+	<p><a href="#homesection" >Top &times</a></p>
+	<p><a href="#section-1" >1956 &times</a></p>
+	<p><a href="#section-2" >1960 &times</a></p>
+	<p><a href="#section-3" >1969 &times</a></p>
+	<p><a href="#section-4" >1970 &times</a></p>
 </div>
 
 
@@ -58,19 +58,14 @@
 <section id="section-1" class="bcg"> <!-- START section-1 -->
 	<div id="slide1" class="align-center slide"> <!-- start slide1 -->
 		
-		<div class='section-heading'><p>This Story begins in 1955....</p></div> <!-- heading for section-->
+		<div class='section-heading'>
+		    <p>14th June 1956</p>
+		    <p> Australia's first computer... and it begins</p>
+		</div> <!-- heading for section-->
 	
 		<div id="slide1-content" class="slide-content"> <!-- START slide-content -->
 			
-			<div id="content1" class="img-box">
-				<img src="img/p2.jpg" />
-				<h2>Photo 1</h2>
-				<p>First ever photo taken in 1955</p>
-			</div>
-			
-			<a href="add-content.php" class="nyroModal"><div class="add-img">+<p>click to add photo</p></div></a>
-			
-			<div id="content2" class="txt-box">
+			<div id="content1-1" class="txt-box">
 			
 				<img id="userimg" src="img/dijk.jpg"/>
 				<div class="user-info"> Dijkstra</div>
@@ -79,6 +74,14 @@
 				<h2>Summary of the beginnings</h2>
 				<p>On June 16, 2006, the Department of Computer Science and Software Engineering, and the Department of Information Systems at the University of Melbourne celebrated Fifty Years of Computing at The University of Melbourne. The event commemorated was the June 14 1956 re-commissioning of the CSIRAC computer, the first at the University, and, until a few months later, when the Sydney University SILLIAC computer became operational, the only one in the country./p>
 			</div>
+			
+			<div id="content1-2" class="img-box">
+				<img src="img/p2.jpg" />
+				<h2>Photo 1</h2>
+				<p>First ever photo taken in 1955</p>
+			</div>
+			
+			<a href="add-content.php" class="nyroModal"><div class="add-img">+<p>click to add photo</p></div></a>
 		
 		</div> <!-- END slide-content -->
 		</div> <!-- END slide1 -->
@@ -89,30 +92,25 @@
 	
 	<div id="slide2" class="align-center slide"> <!-- start slide2 -->
 		
-		<div class='section-heading'><p>This is Lorem Ipsum 2</p></div> <!-- heading for section-->
+		<div class='section-heading'>
+		    <p>1956 &#45 1971</p>
+		    <p>The First Department</p>
+		</div> <!-- heading for section-->
 	
 		<div class="slide-content"> <!-- START slide-content -->
 			
-			<div id="content1" class="img-box">
-				<img src="img/image-here.jpg" />
-				<h2>The dog of Dijkstra</h2>
-				<p>Remember the day I brought my dog in...</p>
+			<div id="content2-1" class="txt-box">
+				
+				<h2>&#126 Computational Department</h2>
+                <p> During the period 1956–1971, academic computing operations in the University were conducted by
+the Computation Laboratory, subsequently renamed the Computation Department.
+2During the 1960s, new computing subjects were developed and provided as part of the BSc degree.
+Undergraduate exposure to computing expanded as courses migrated from later year specialist subjects
+to second, and ultimately, by 1970, to ﬁrst year.</p>
+                
 			</div>
 			
-			<div class="added-content"> <!-- START added-content -->
-				
-				<div id="user-div">
-					<img id="userimg" src="img/dijk.jpg"/>
-					<div class="user-info"> Dijkstra</div>
-					<div class="date">2-May-2014 @ 00:11:22 </div>
-				</div>
-				<div id="details">
-					<p> the user added a new photo </p>
-				</div>
-				
-			</div> <!-- END added-content -->
-			
-		</div> <!-- START slide-content -->
+		</div> <!-- END slide-content -->
 	
 	</div> <!-- END slide2 -->
 
@@ -122,7 +120,32 @@
 
 	<div id="slide3" class="align-center slide"> <!-- start slide3 -->
 		
-		<div class='section-heading'><p>This is Lorem Ipsum three</p></div> <!-- heading for section-->
+		<div class='section-heading'>
+		    <p>1969 ~ The Split</p>
+		    <p>The Information System Department</p>
+		    
+		</div> <!-- heading for section-->
+		
+		<div class="slide-content"> <!-- START slide-content -->
+           
+            <div id="content3-1" class="txt-box">
+                <p>
+                In 1969 the University took the decision to split the Department into two components – a computing
+                services component, and a teaching unit to be known as the Department of Information Science,
+                located in the Faculty of Science. At this time, Dr. Frank Hirst (by now a Reader) was invited to take
+                up the foundation chair in computing at the University of Adelaide, creating vacancies at the top of
+                both units. Bill Flower was appointed as Acting Head of Information Science, the other academic
+                staff being Rex Harris, and Peter Thorne (who, after his undergraduate Physics degree, had worked
+                with Hirst to complete another of the ﬁrst computing PhDs in Australia, in 1967). Ian Robinson was
+                appointed as a further staff member in 1971. He had completed his undergraduate study at Melbourne,
+                including several subjects in computation during 1965–1967, and completed a PhD in 1973 under Dr
+                B.W. Thompson, in the Department of Mathematics. Robinson moved to La Trobe University in
+                August 1975, where he is now Head of the School of Engineering and Mathematical Sciences.
+                </p>
+            </div> 
+		
+		</div> <!-- END slide-content -->
+		
 	</div> <!-- END slide3 -->	
 	
 </section> <!-- end section-3 -->

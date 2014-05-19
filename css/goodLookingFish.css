@@ -1,0 +1,27 @@
+.simpleFishLook {
+border-radius:10px; 
+box-shadow: 5px 5px 5px #888888;
+position: absolute; 
+border: thick solid rgb(200, 0, 0);
+
+top: 0;
+left: 0;
+height: 100px;
+-webkit-transition-duration: 2s;
+transition-duration: 2s;
+}
+
+.simpleFishTitleLook {
+background: -webkit-linear-gradient(left,rgba(255,0,0,1),rgba(255,0,0,0.5)); /*Safari*/
+background: -o-linear-gradient(right,rgba(255,0,0,1),rgba(255,0,0,0.5)); /*Opera 11-12*/
+background: -moz-linear-gradient(right,rgba(255,0,0,1),rgba(255,0,0,0.5)); /*Fx 3.6-15*/
+background: linear-gradient(to right, rgba(255,0,0,1), rgba(255,0,0,0.5)); /*Standard*/
+margin:5px 5px; 
+border-radius:5px; 
+white-space:nowrap; 
+overflow:hidden; 
+text-overflow:ellipsis;
+height:1em;
+color:yellow;
+padding:5px;
+}
