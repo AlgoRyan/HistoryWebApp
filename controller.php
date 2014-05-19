@@ -1,6 +1,10 @@
-//This file is not working yet, just a template if someone wants to work on it
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
 
-<?php
+<?php 
 //Connects to your Database 
 $con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta");
 if (mysqli_connect_errno()) {
@@ -8,33 +12,35 @@ if (mysqli_connect_errno()) {
 }
 
 //Checks if there is a login cookie
-$loggedin = (isset($_COOKIE['ID_my_site']));
-$redirection = $GET['action'];
+$loggedin = (isset($_COOKIE['ID_my_site'])); 
+$redirection =  $_GET['action'];
 
 switch($redirection) {
 	case "addcontent":
 		if ($loggedin == True) {
-			include 'addcontent.php';
+			require_once 'add-content.php';
 		} else {
-			include 'register.php';
+			require_once 'login.php';
 		} break;
 	case "login": 
 		if ($loggedin == True) {
-			echo "already logged in!";
+			echo '<script type="text/javascript">alert("You are already logged in");location="index.php";</script>';
 		} else {
-			include 'login.php';
+			require_once 'login.php';
 		} break;
 	case "register":
 		if ($loggedin == True) {
-			echo "already logged in!";
+			echo '<script type="text/javascript">alert("You are already logged in");location="index.php";</script>';
 		} else {
-			include 'register.php';
+			require_once 'register.php';
 		} break;
 	case "logout":
 		if ($loggedin == True) {
-			include 'logout.php';
+			require_once 'logout.php';
 		} else {
-			echo 'You are not logged in';
+			echo '<script type="text/javascript">alert("You are not logged in");location="index.php";</script>';
 		} break;
-	}
+	} 
 ?>
+</body>
+</html>
