@@ -89,8 +89,7 @@ setcookie(ID_my_site, gone, $past);
 setcookie(Key_my_site, gone, $past); 
 
 echo "<div class='container'><div id='logout'>";
-echo "<div id='logout'><p>You have successfully logged out</p>
-	<p><a href='index.php'> Click here to return home</a></p></div>"
+echo "<script type=text/javascript>alert('You have successfully logged out');location='index.php';</script> ";
 echo '</div></div>';
 
 ?>
