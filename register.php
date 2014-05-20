@@ -190,12 +190,11 @@ if (isset($_POST['submit']))
  	$insert = "INSERT INTO users (username, password, img)
  			VALUES ('".$_POST['username']."', '".$_POST['pass']."','{$image}')";
  	$add_member = mysqli_query($con, $insert);
- 	?>
-    <div class='container'>
-        <h1>Registered</h1>
-        <p>Thank you, you have registered - you may now <a href="login.php">login</a>.</p>
- 	</div>
- 	<?php 
+
+	echo '<script type="text/javascript">
+        	alert("Thank you, you have registered - you may now login");location="controller.php?action=login";
+        </script>';
+
 } 
 
 else 
