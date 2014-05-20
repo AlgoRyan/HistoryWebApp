@@ -126,18 +126,10 @@ if (isset($_POST['submit'])) { // if form has been submitted
 		 // makes sure they filled it in
 		if(!$_POST['username'] | !$_POST['pass']) 
 		{
-			die('You did not fill in a required field.');
-			echo "<a href='index.php'> Click here to return home</a>";
-		}
-	
-	// makes sure they filled it in
-	if(!$_POST['username'] | !$_POST['pass']) 
-	{
- 		//die('You did not fill in a required field.');
- 		$msg = 'You did not fill in a required field.';
- 		echo "<script type='text/javascript'>alert('$msg');</script>";
- 		//echo "<a href='index.php'> Click here to return home</a>";
- 	}
+			$msg = 'You did not fill in a required field.';
+			echo "<script type='text/javascript'>alert('$msg');location='controller.php?action=login';</script>";
+			die();
+		}	
 
  	// checks it against the database
  	if (!get_magic_quotes_gpc()) 
@@ -150,11 +142,8 @@ if (isset($_POST['submit'])) { // if form has been submitted
 	//Gives error if user dosen't exist
 	$check2 = mysqli_num_rows($check);
 	if ($check2 == 0) {
-		//die('That user does not exist in our database.<a href=register.php>Click Here to Register</a>');
 		$msg = 'That user does not exist in our database';
- 		echo "<script type='text/javascript'>alert('$msg');</script>";
- 		echo "<a href='controller.php?action=register'>Click Here to Register</a><br>";
-		echo "<a href='index.php'> Click here to return home</a>";
+ 		echo "<script type='text/javascript'>alert('$msg');location='controller.php?action=login';</script>";
 	}
 		// checks it against the database
 		if (!get_magic_quotes_gpc()) 
@@ -164,13 +153,7 @@ if (isset($_POST['submit'])) { // if form has been submitted
 	
 		$check = mysqli_query($con, "SELECT * FROM users WHERE username = '".$_POST['username']."'")or die(mysqli_error());
 	
-		//Gives error if user dosen't exist
-		$check2 = mysqli_num_rows($check);
-		if ($check2 == 0) {
-			die('That user does not exist in our database.<a href=register.php>Click Here to Register</a>');
-			echo "<a href='index.php'> Click here to return home</a>";
-		}
-		
+	
 		while($info = mysqli_fetch_array( $check )) 	
 		{
 			$_POST['pass'] = stripslashes($_POST['pass']);
@@ -180,8 +163,8 @@ if (isset($_POST['submit'])) { // if form has been submitted
 			//gives error if the password is wrong
 			if ($_POST['pass'] != $info['password']) 
 			{
-				die('Incorrect password, please try again.');
-				echo "<a href='index.php'> Click here to return home</a>";
+				$msg = 'Incorrect password, please try again.';
+				echo "<script type='text/javascript'>alert('$msg');location='controller.php?action=login';</script>";
 			}
 			else 
 			{
@@ -235,7 +218,13 @@ else
                 <td><br><input id="submit-button" type="submit" name="submit" value="Login"></td>
              </tr>
              </table>
-         </form> 
+         </form>
+    </div>
+    
+    <div id="register-redirect">
+    	<form action="register.php"> <!--For some reason controller.php?action=register does not work. But if this page is displayed it means the user state has been verified already-->
+    		<button id="register-redirect-button" type="submit" value="Go to register page">Not registered yet?<button>
+    	</form>
     </div>
 </div>
 
