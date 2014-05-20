@@ -49,11 +49,11 @@
     
 			    <?php if(isset($_COOKIE['ID_my_site'])){
 					echo "Welcome " . $_COOKIE['ID_my_site']."!";
-					echo '<li><a href="logout.php"> logout </a></li>';		
+					echo '<li><a href="controller.php?action=logout"> logout </a></li>';		
 				}
 				else{
-					echo '<li><a href="login.php"> log in</a></li>';
-					echo '<li><a href="register.php"> sign up </a></li>';
+					echo '<li><a href="controller.php?action=login"> log in</a></li>';
+					echo '<li><a href="controller.php?action=register"> sign up </a></li>';
 				}
 				?>
 			</ul>
