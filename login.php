@@ -174,8 +174,9 @@ if (isset($_POST['submit'])) { // if form has been submitted
 				setcookie(ID_my_site, $_POST['username'], $hour); 
 				setcookie(Key_my_site, $_POST['pass'], $hour);	 
 				 
-				//then redirect them to the members area
-				header("Location: members.php"); 	
+				// redirect them to the index page. Might be changed for member profile when created or to previous page
+				$msg = 'You have successfully logged in!';
+				echo "<script type='text/javascript'>alert('$msg');location='index.php';</script>";
 			} 
 		} 
   	//}
