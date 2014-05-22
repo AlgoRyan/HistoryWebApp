@@ -26,7 +26,12 @@
 @import url(http://fonts.googleapis.com/css?family=Philosopher);
 /* font-family: 'Philosopher', sans-serif; */
 
-
+@font-face
+{ font-family: rc; src: url(../fonts/rc.ttf); }
+@font-face
+{ font-family: lakes; src: url(../fonts/lakes.ttf); }
+@font-face
+{ font-family: japan; src: url(../fonts/Japan.ttf); }
 
 
 /* funky for title */
@@ -65,7 +70,7 @@ body {
 }
 
 #index-wrapper {
-	width: 80%;
+	width: 1000px;
 	background-color: rgba(255,255,255,0);
 }
 
@@ -75,17 +80,18 @@ body {
 }
 
 #welcome-title {
-	position: relative;
-	left: 20%; /* this could potentially cause problems */
+	position: absolute;
+	left: 25%; /* this could potentially cause problems */
 	width: 600px;
 	height: fill;
-	top: 30%;
+	top: 150px;
 	background-color: rgba(150,70,90,0); /* currently not being used */
 	text-align: center;
-	font-family: 'Quicksand', 'sans-serif';
-	color: white;
-	font-size: 100%;
+	font-family: japan;
+	color: rgba(62, 122, 230, 1);
+	font-size: 2em;
 	text-shadow: 1px 1px 3px black;
+	z-index: 100;
 	/*background-image: url(../img/Desert.jpg);*/
 }
 
@@ -110,18 +116,58 @@ body {
 #index-homebg {
 	margin: auto;
 	width: 1000px;
-	height: 400px;
+	height: 450px;
 }
 
 #homesection {
 	width: 1000px;
 	height: fill;
-	overflow: hidden;
 	margin: auto;
-	background-image: url(../img/p1.jpg);
-	background-size: cover;
-	box-shadow: 5px 0px 10px rgba(0,0,0,0.4);
 }
+
+
+/********* START FOR SLIDESHOW *************/
+
+#ulss {
+    list-style:none;
+    margin: 20px 0px 0px 450px;
+    padding:0px;
+}
+
+#ulss li {
+    float:left;
+    border-radius:10px;
+    width:10px;
+    height:10px;
+    margin: 0px 5px 0px 5px;
+    /* border:1px solid grey; */
+    background:white;
+}
+#ulss li.active {
+    background-color:black;
+}
+
+#slideshow {
+	margin: auto;
+    position: relative;
+	width: 1000px;
+	height: 100%;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+}
+#slideshow > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+#slideshow img {
+    max-width: 120%;
+    min-width: 100%;
+}
+
+/********* FOR SLIDESHOW END *************/
 
 #add-homesection {
 	width: 1000px;

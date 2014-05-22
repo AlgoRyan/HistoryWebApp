@@ -8,6 +8,8 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/unimelb.css">
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/slideshow.js"></script>
 
 
 </head>
@@ -98,14 +100,39 @@
 <section id="homesection"> <!-- homesection start -->
 	
 	<div id="index-homebg" class='align-center' >
+	
 	<div id="welcome-title"> <!-- welcome start -->
 		<p id="title">History of CIS</p>
 		<p><i> at the University of Melbourne</i></p>
 	</div> <!-- welcome end -->
+	
+	<div id="slideshow"> <!-- START slideshow div -->
+        <div>
+            <img class='centerall' src="img/ss1.jpg">
+        </div>
+        <div>
+            <img class='centerall' src="img/ss2.jpg">
+        </div>
+        <div>
+            <img class='centerall' src="img/ss3.jpg">
+        </div>
+        <div>
+            <img class='centerall' src="img/ss4.jpg">
+        </div>
+        <div>
+            <img class='centerall' src="img/ss5.jpg">
+        </div>
+        <div>
+            <img class='centerall' src="img/ss6.jpg">
+        </div>
+    
+    </div> <!-- END slideshow div -->
+
+    <ul id="ulss"></ul> <!-- items for slideshow -->
+
 	</div> <!-- homebg end -->
 
 </section> <!-- homesection end -->
-
 
 <section id="main"> <!-- start Main sectoin -->
 	
