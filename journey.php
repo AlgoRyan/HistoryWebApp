@@ -81,7 +81,7 @@
 				<p>First ever photo taken in 1955</p>
 			</div>
 			
-			<a href="add-content.php" class="nyroModal"><div class="add-img">+<p>click to add photo</p></div></a>
+			<a href="controller.php?action=addcontent" class="nyroModal"><div class="add-img">+<p>click to add photo</p></div></a>
 		
 		</div> <!-- END slide-content -->
 		</div> <!-- END slide1 -->
@@ -164,7 +164,7 @@ to second, and ultimately, by 1970, to ﬁrst year.</p>
 <!-- all the js scripts and libraries used-->
 
 <!-- found from working paralax -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="http://prinzhorn.github.io/skrollr/dist/skrollr.min.js"></script>
 <script type="text/javascript" src="js/skrollr.menu.js"></script>
 <script type="text/javascript" src="js/paralax-functions.js"></script>
