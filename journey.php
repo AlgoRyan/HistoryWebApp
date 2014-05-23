@@ -154,9 +154,33 @@ to second, and ultimately, by 1970, to ﬁrst year.</p>
 <section id="section-4" class="bcg">	<!-- START section-4 -->
 	
 	<div id="slide4" class="align-center slide"> <!-- start slide4 -->
-		<div class='section-heading'><p>This is Lorem Ipsum number 4 is here</p></div> <!-- heading for section-->
-	</div> <!-- END slide4-->	
-	
+		
+		<div class='section-heading'>
+		    <p>1969 ~ The Other Half</p>
+		    <p>Department of Computer Science</p>
+		    
+		</div> <!-- heading for section-->
+		
+		<div class="slide-content"> <!-- START slide-content -->
+           
+            <div id="content4-1" class="txt-box">
+                <p>
+                Professor Peter C. Poole commenced in August 1975 as the foundation chair of computing at the University.
+                Poole had completed an undergraduate science degree (Physics) at the University of Queensland,
+                and a PhD at the University of Sydney in 1964 under the supervision of Professor C.B.A. McCushen,
+                working on SILLIAC computer. Two well-known contemporaries of Poole's at Sydney
+                were Professor John Bennett, the first Australian Chair of Computing; and fellow PhD student Christ
+                Wallace, who went on to become Professor and Head of Computer Science at Monash University in
+                Melbourne, and one of Australia's most notable academics in the area. On Wallace's death in 2004, the
+                Computing Research and Education (CORE) prize for Research Excellence was renamed the Wallace
+                Award, in recognition of his long-term and seminal contributions to Australian computing.
+                </p>
+
+            </div> 
+		
+		</div> <!-- END slide-content -->
+		
+	</div> <!-- END slide4 -->
 </section> <!-- end section-4 -->
 
 

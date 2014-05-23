@@ -165,19 +165,19 @@ a:active {text-decoration: none; color: white /*rgba(255,255,255,0.8);*/}
 
 #section-1 {
     background-color: rgba(0, 42, 92, 0.8);
-	/* background-image: url(../img/p2.jpg);*/
+	 background-image: url(../img/p4.jpg);
 	background-size: cover;
 }
 
 #section-2 {
 	background-color: rgba(10,10,20,1);
-	/*background-image: url(../img/p3.jpg);
-	background-size: cover;*/
+	background-image: url(../img/p3.jpg);
+	background-size: cover;
 }
 
 #section-3 {
     background-color: rgba(250,250,255,1);
-	/*background-image: url(../img/p4.jpg);*/
+	background-image: url(../img/p4.jpg);
 	background-size: cover;
 }
 
@@ -187,7 +187,7 @@ a:active {text-decoration: none; color: white /*rgba(255,255,255,0.8);*/}
 
 #section-4 {
     background-color: rgba(0,20,48,0.8);
-    /* background-image: url(../img/p1.jpg); */
+    background-image: url(../img/p1.jpg); 
 	background-size: cover;
 }
 
