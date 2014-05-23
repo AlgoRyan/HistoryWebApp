@@ -177,6 +177,8 @@ to second, and ultimately, by 1970, to ﬁrst year.</p>
     skrollr.init();
 </script> -->
 
+
+<!-- To display in a Modal box -->
 <script type="text/javascript" src="js/jquery.nyroModal.custom.js"></script>
  <!--[if IE 6]>
  	<script type="text/javascript" src="js/jquery.nyroModal-ie6.js"></script>
@@ -186,6 +188,19 @@ to second, and ultimately, by 1970, to ﬁrst year.</p>
 	  $('.nyroModal').nyroModal();
 	});
 </script>
+
+<!--Visitors with out-dated browser will be informed by a little, undisturbing bar, that his browser is not up-to-date and it is recommended to update (JS Source : http://www.browser-update.org/)-->
+<script type="text/javascript"> 
+	var $buoop = {}; 
+	$buoop.ol = window.onload; 
+	window.onload=function(){ 
+	 try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+	 var e = document.createElement("script"); 
+	 e.setAttribute("type", "text/javascript"); 
+	 e.setAttribute("src", "//browser-update.org/update.js"); 
+	 document.body.appendChild(e); 
+	} 
+</script> 
 
 </body>
 
