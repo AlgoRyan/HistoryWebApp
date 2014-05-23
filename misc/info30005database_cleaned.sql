@@ -1315,3 +1315,24 @@ INSERT INTO `Photographs - CSIRAC` (`RefNo`, `Title`, `Date`, `Personel`, `Copyr
 INSERT INTO `Photographs - CSIRAC` (`RefNo`, `Title`, `Date`, `Personel`, `Copyright`, `ImageLocation`, `Notes`) VALUES ('csiracph412', 'Magnetic Drum Position Selector Unit - Schematic diagram', NULL, NULL, NULL, 'db_img/Magnetic Drum Position Selector Unit - Schematic diagram ref.jpg', NULL);
 INSERT INTO `Photographs - CSIRAC` (`RefNo`, `Title`, `Date`, `Personel`, `Copyright`, `ImageLocation`, `Notes`) VALUES ('csiracph414', 'Copy of Design Team title page montage', NULL, NULL, NULL, 'db_img/Copy of Design Team title page montage p.23.jpg', '*Published in \"The Last of the First - CSIRAC Australia''s First Computer\" copyright 2000');
 -- 172 records
+
+--
+-- Table structure for table 'UserContent'
+--
+
+DROP TABLE IF EXISTS `UserContent`;
+
+CREATE TABLE `UserContent` (
+  `ID` MEDIUMINT NOT NULL AUTO_INCREMENT,
+  `UserID` MEDIUMINT NOT NULL REFERENCES `Users` (`UserID`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  `Category` VARCHAR(255),
+  `Title` VARCHAR(255), 
+  `Date` VARCHAR(255), 
+  `Description` LONGTEXT,  
+  `contentDirectory` VARCHAR(100), 
+  PRIMARY KEY (`ID`), 
+  UNIQUE (`ID`)
+  
+) ENGINE=innodb DEFAULT CHARSET=utf8;
+
+SET autocommit=1;
