@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html>
-<title> upload file </title>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8">
+	<title> upload file </title>
+</head>
 
 <body>
 

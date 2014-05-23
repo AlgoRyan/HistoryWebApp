@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 
-<html>
-
+<html lang="en">
 <head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8">
 	<title> History of CIS </title>
 	<link rel="stylesheet" type="text/css" href="css/paralax-style.css">
 	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>

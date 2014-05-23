@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8">
 </head>
 <body>
 

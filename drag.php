@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<!-- created on 28/4/14 by Cornelis -->
-<html>
-<title> History of CIS </title>
-
+<html lang="en">
 <head>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/unimelb.css">
-<link rel="stylesheet" type="text/css" href="css/footer-style.css">
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8">
 
-<script src="js/dropzone.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/unimelb.css">
+	<link rel="stylesheet" type="text/css" href="css/footer-style.css">
+	
+	<title> History of CIS </title>
 
 </head>
 <body class='grad'>
@@ -153,6 +153,7 @@
 <!-- all the js scripts used -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/add-functions.js"></script>
+<script src="js/dropzone.js"></script>
 
 </body>
 

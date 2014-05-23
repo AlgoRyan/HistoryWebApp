@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 
-<html>
-
-
+<html lang="en">
 <head>
-<title> History of CIS </title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/unimelb.css">
-<link rel="stylesheet" type="text/css" href="css/footer-style.css">
+	<meta http-equiv="Content-Type" content="text/html">
+	<meta charset="utf-8">
+	
+	<title> History of CIS </title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/unimelb.css">
+	<link rel="stylesheet" type="text/css" href="css/footer-style.css">
 
 
 </head>
