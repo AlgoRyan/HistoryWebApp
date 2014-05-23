@@ -8,8 +8,6 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/unimelb.css">
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="js/slideshow.js"></script>
 
 
 </head>
@@ -141,7 +139,7 @@
 		<div class='section-heading'><p>"An entry point into the History of Computing..."</p></div> <!-- heading for section-->
 		<br>
 		<div id="slide-content" class="slide-content"> <!-- START slide-content -->
-		<a href="http://people.eng.unimelb.edu.au/ammoffat/fifty-years/">
+		<a href="about.php">
 			<div id="about" class="content-box" >
 			<img src="img/about2.jpg" />
 			<h2>About</h2>
@@ -209,6 +207,7 @@
 <!-- all the javascript references -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/functions.js"></script>
+<script src="js/slideshow.js"></script>
 
 </body>
 
