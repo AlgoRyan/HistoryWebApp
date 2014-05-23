@@ -210,6 +210,19 @@
 <script src="js/functions.js"></script>
 <script src="js/slideshow.js"></script>
 
+<!--Visitors with out-dated browser will be informed by a little, undisturbing bar, that his browser is not up-to-date and it is recommended to update (JS Source : http://www.browser-update.org/)-->
+<script type="text/javascript"> 
+	var $buoop = {}; 
+	$buoop.ol = window.onload; 
+	window.onload=function(){ 
+	 try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
+	 var e = document.createElement("script"); 
+	 e.setAttribute("type", "text/javascript"); 
+	 e.setAttribute("src", "//browser-update.org/update.js"); 
+	 document.body.appendChild(e); 
+	} 
+</script> 
+
 </body>
 
 </html>
