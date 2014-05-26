@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
+<title> History of CIS </title>
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html">
-	<meta charset="utf-8">
-	
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/unimelb.css">
-	<link rel="stylesheet" type="text/css" href="css/footer-style.css">
-	<title> History of CIS </title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/unimelb.css">
+<link rel="stylesheet" type="text/css" href="css/footer-style.css">
+
 </head>
 <body id="about-body" class='grad'>
 <nav> <!-- START nav here -->
@@ -95,9 +94,10 @@
 
 <section id="about-homesection"> <!-- homesection start -->
 	
-	<div id="homebg">
+	<div id="homebg" class='align-center' >
 	<div id="welcome-title"> <!-- welcome start -->
-		<h6>About Us<br></h6>
+		<p id="title">About</p>
+		<p><i> CIS at the University of Melbourne </i></p>
 	</div> <!-- welcome end -->
 	</div> <!-- homebg end -->
 
@@ -107,7 +107,7 @@
 	
 	<div id="slide1" class="align-center"> <!-- start slide1 -->
 		<br>
-		<div class='section-heading'><p> <i> CIS at the University of Melbourne </i> </p></div> <!-- heading for section-->
+		<div class='section-heading'><p> Section heading here </p></div> <!-- heading for section-->
 		<div class="slide-content">
 		<h2> Summary </h2>
 		<p> On June 16, 2006, the Department of Computer Science and Software Engineering, and the Department of Information Systems at the University of Melbourne celebrated Fifty Years of Computing at The University of Melbourne. The event commemorated was the June 14 1956 re-commissioning of the CSIRAC computer, the first at the University, and, until a few months later, when the Sydney University SILLIAC computer became operational, the only one in the country.

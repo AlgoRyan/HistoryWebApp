@@ -1,9 +1,7 @@
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta http-equiv="Content-Type" content="text/html">
-	<meta charset="utf-8">
+<html>
+  <head>
     <title>iFish 6</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/goodLookingFish.css">

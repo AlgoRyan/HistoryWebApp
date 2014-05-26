@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html">
-	<meta charset="utf-8">
 	<title> History of CIS </title>
 	<link rel="stylesheet" type="text/css" href="css/paralax-style.css">
 	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -82,7 +81,7 @@
 				<p>First ever photo taken in 1955</p>
 			</div>
 			
-			<a href="controller.php?action=addcontent" class="nyroModal"><div class="add-img">+<p>click to add photo</p></div></a>
+			<a href="add-content.php" class="nyroModal"><div class="add-img">+<p>click to add photo</p></div></a>
 		
 		</div> <!-- END slide-content -->
 		</div> <!-- END slide1 -->
@@ -154,33 +153,9 @@ to second, and ultimately, by 1970, to ﬁrst year.</p>
 <section id="section-4" class="bcg">	<!-- START section-4 -->
 	
 	<div id="slide4" class="align-center slide"> <!-- start slide4 -->
-		
-		<div class='section-heading'>
-		    <p>1969 ~ The Other Half</p>
-		    <p>Department of Computer Science</p>
-		    
-		</div> <!-- heading for section-->
-		
-		<div class="slide-content"> <!-- START slide-content -->
-           
-            <div id="content4-1" class="txt-box">
-                <p>
-                Professor Peter C. Poole commenced in August 1975 as the foundation chair of computing at the University.
-                Poole had completed an undergraduate science degree (Physics) at the University of Queensland,
-                and a PhD at the University of Sydney in 1964 under the supervision of Professor C.B.A. McCushen,
-                working on SILLIAC computer. Two well-known contemporaries of Poole's at Sydney
-                were Professor John Bennett, the first Australian Chair of Computing; and fellow PhD student Christ
-                Wallace, who went on to become Professor and Head of Computer Science at Monash University in
-                Melbourne, and one of Australia's most notable academics in the area. On Wallace's death in 2004, the
-                Computing Research and Education (CORE) prize for Research Excellence was renamed the Wallace
-                Award, in recognition of his long-term and seminal contributions to Australian computing.
-                </p>
-
-            </div> 
-		
-		</div> <!-- END slide-content -->
-		
-	</div> <!-- END slide4 -->
+		<div class='section-heading'><p>This is Lorem Ipsum number 4 is here</p></div> <!-- heading for section-->
+	</div> <!-- END slide4-->	
+	
 </section> <!-- end section-4 -->
 
 
@@ -189,7 +164,7 @@ to second, and ultimately, by 1970, to ﬁrst year.</p>
 <!-- all the js scripts and libraries used-->
 
 <!-- found from working paralax -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
 <script type="text/javascript" src="http://prinzhorn.github.io/skrollr/dist/skrollr.min.js"></script>
 <script type="text/javascript" src="js/skrollr.menu.js"></script>
 <script type="text/javascript" src="js/paralax-functions.js"></script>
@@ -201,8 +176,6 @@ to second, and ultimately, by 1970, to ﬁrst year.</p>
     skrollr.init();
 </script> -->
 
-
-<!-- To display in a Modal box -->
 <script type="text/javascript" src="js/jquery.nyroModal.custom.js"></script>
  <!--[if IE 6]>
  	<script type="text/javascript" src="js/jquery.nyroModal-ie6.js"></script>
@@ -212,19 +185,6 @@ to second, and ultimately, by 1970, to ﬁrst year.</p>
 	  $('.nyroModal').nyroModal();
 	});
 </script>
-
-<!--Visitors with out-dated browser will be informed by a little, undisturbing bar, that his browser is not up-to-date and it is recommended to update (JS Source : http://www.browser-update.org/)-->
-<script type="text/javascript"> 
-	var $buoop = {}; 
-	$buoop.ol = window.onload; 
-	window.onload=function(){ 
-	 try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
-	 var e = document.createElement("script"); 
-	 e.setAttribute("type", "text/javascript"); 
-	 e.setAttribute("src", "//browser-update.org/update.js"); 
-	 document.body.appendChild(e); 
-	} 
-</script> 
 
 </body>
 

@@ -7,6 +7,15 @@ else {
 	echo "Worked fine connecting<br>";
 }
 
+$username = $_COOKIE['ID_my_site']; 
+$pass = $_COOKIE['Key_my_site'];
+$id = mysqli_query($con, "SELECT id FROM users WHERE username = '$username'")or die(mysqli_error());
+echo "the id is: " . $id;
+
+$array = array(addslashes($_POST['category']),addslashes($_POST['title']),addslashes($_POST['description']),addslashes($_POST[__DIR__]));
+
+insertSQL($con, $id, $array);
+
 //error_reporting(E_ALL ^ E_NOTICE); // turns off all the notices showing in browser
 $allowedExts = array("gif", "jpeg", "jpg", "png", "JPG");
 $temp = explode(".", $_FILES["file"]["name"]);
@@ -37,7 +46,6 @@ if (
 				$image = addslashes(file_get_contents($_FILES['file']['tmp_name']));
 				$image_name = addslashes($_FILES['image']['name']);
 				
-				$insert = "INSERT INTO users (img) VALUES ('{$image}')";
 				
 				//$insert = "INSERT INTO users (username, password, img) VALUES ('usernamehere', 'pword', '{$image}')";
 				//$insert = "INSERT INTO users (username, password, img) VALUES ('usernamehere', 'pword', '{$_FILES["file"]["tmp_name"]}')";
@@ -79,5 +87,26 @@ echo "</pre>";
 
 // old path "/Users/cornelisbosua/HistoryWebApp/uploads/"
 
+function insertSQL($con, $user, $ar) {
+	echo "<br>into the funciton<br>";
+	
+	//$insert = "INSERT INTO UserContent (UserID, Category, Title, Date, Description, contentDirectory) 
+	//	VALUES (".$user.",".$ar[0].",".$ar[1].",".date('l jS \of F Y h:i:s A').",".$ar[2].",".$ar[3].")";
+	$insert = "INSERT INTO UserContent (UserID, Category, Title, Date, Description, contentDirectory) 
+		VALUES ($user,'t','t','t','t','t')";
+	
+	//$insert = "INSERT INTO users (username, password, img)
+	//VALUES (41, 'test',NULL)";
+	
+		if (!mysqli_query($con, $insert)) { // Error handling
+			echo "<br><br><h2><i>Something went wrong!</i> :(<h2>"; 
+		} else {
+			echo "just inserted<br>";
+		}
+		
+	
+}
+
 ?>
+
 

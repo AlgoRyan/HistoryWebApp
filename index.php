@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
+
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html">
-	<meta charset="utf-8">
-	
-	<title> History of CIS </title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/unimelb.css">
-	<link rel="stylesheet" type="text/css" href="css/footer-style.css">
+<title> History of CIS </title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/unimelb.css">
+<link rel="stylesheet" type="text/css" href="css/footer-style.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/slideshow.js"></script>
 
 
 </head>
@@ -100,7 +101,7 @@
 	
 	<div id="index-homebg" class='align-center' >
 	
-	<div id="welcome-title"> <!-- welcome start -->
+	<div id="welcome-title-index"> <!-- welcome start -->
 		<p id="title">History of CIS</p>
 		<p><i> at the University of Melbourne</i></p>
 	</div> <!-- welcome end -->
@@ -140,7 +141,7 @@
 		<div class='section-heading'><p>"An entry point into the History of Computing..."</p></div> <!-- heading for section-->
 		<br>
 		<div id="slide-content" class="slide-content"> <!-- START slide-content -->
-		<a href="about.php">
+		<a href="http://people.eng.unimelb.edu.au/ammoffat/fifty-years/">
 			<div id="about" class="content-box" >
 			<img src="img/about2.jpg" />
 			<h2>About</h2>
@@ -208,20 +209,6 @@
 <!-- all the javascript references -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/functions.js"></script>
-<script src="js/slideshow.js"></script>
-
-<!--Visitors with out-dated browser will be informed by a little, undisturbing bar, that his browser is not up-to-date and it is recommended to update (JS Source : http://www.browser-update.org/)-->
-<script type="text/javascript"> 
-	var $buoop = {}; 
-	$buoop.ol = window.onload; 
-	window.onload=function(){ 
-	 try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
-	 var e = document.createElement("script"); 
-	 e.setAttribute("type", "text/javascript"); 
-	 e.setAttribute("src", "//browser-update.org/update.js"); 
-	 document.body.appendChild(e); 
-	} 
-</script> 
 
 </body>
 

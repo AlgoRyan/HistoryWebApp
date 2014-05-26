@@ -16,19 +16,21 @@ function addImage() {
 	results++;
 	adjustDivHeight("#slide-content",results,290,3);
 }
-// needs some work
-function addImages() {
-	var xmlDoc = xmlLoader("img_template.xml");
-	var x = xmlDoc.getElementsByTagName("title");
-	
-	var item = $("#template-img").clone();
+
+
+function addContent() {
+	var aDataId = "template-img";
+	var item = $("#template-img").clone(
 	var title = $("#add-img-title").val();
 	var descript = $("#add-img-description").val();
-	item.attr("id", x);
-	item.find("#template-h2").html(x[0].childNodes[0].nodeValue);
+	item.attr("id", aDataId);
+	item.find("#template-h2").html(title);
 	item.find("#template-p").html(descript);
 	item.appendTo("#slide-content");
+	results++;
+	adjustDivHeight("#slide-content",results,290,3);
 }
+
 
 function test() {
 	document.getElementById("template-p").innerHTML=document.getElementById("filter-img").value;

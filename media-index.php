@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- created on 28/4/14 by Cornelis -->
+<html>
+<title> History of CIS </title>
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html">
-	<meta charset="utf-8">
-	
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/unimelb.css">
-	<link rel="stylesheet" type="text/css" href="css/footer-style.css">
-	<title> History of CIS </title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/unimelb.css">
+<link rel="stylesheet" type="text/css" href="css/footer-style.css">
+
 </head>
 <body class='about-body grad'>
 <nav> <!-- START nav here -->
@@ -87,7 +87,7 @@
 
 </nav> <!-- END nav here -->
 
-<div class="wrapper" >
+<div id='media-wrapper' class="wrapper" >
 
 <section id="media-homesection"> <!-- homesection start -->
 	
@@ -123,54 +123,67 @@
 			</div>
 			<br>
 			<button id="add-image-button" class="button" onClick="addImage()">ADD IMAGE</button>
-			<button id="add-images-button" class="button" onClick="addImages()">ADD IMAGES(out of action)</button>
 			<p>there are: <i id="result" opacity="50%">some</i> results</p>
 		</div> <!-- END Search-box -->
 		</div> <!-- END img-content -->
 	
 		<div id="slide-content"> <!-- START slide-content -->
+
+			<?php
+			$con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta"); 
+			if (mysqli_connect_errno()) {
+				echo "Failed to connect to MySQL: " . mysqli_connect_error();
+			}
 			
-			<div id="template-img" class="content-box added-image">
-			<img src="img/image-here.jpg" />
-			<h2 id="template-h2">This is a dog</h2>
-			<p id="template-p">This part of will describe the above photo</p>
-			</div>
+			$sql = "SELECT * FROM Hardware";
+			//$result = $mysqli->($sql);
+			$result = mysqli_query($con, $sql);
+			if (!$result) {
+				die('Query Failed: ' . mysqli_error());	
+			}
 			
-			<div id="template-img2" class="content-box added-image">
-			<img src="img/Numbers.jpg" />
-			<h2 id="template-h2">Numbers</h2>
-			<p id="template-p">Just some binary digits</p>
-			</div>
+			// getting column data
+			$i = 0;
 			
-			<div id="template-img3" class="content-box added-image">
-			<img src="img/Desert.jpg" />
-			<h2 id="template-h2">This is a Desert</h2>
-			<p id="template-p">landscape picture</p>
-			</div>
+			while ($i < mysqli_num_rows($result)) {
+				$row = $result->fetch_array(MYSQLI_ASSOC);
+				
+				if (!$row) {
+					echo '<h5> No info available</h5><br>';
+				}
+				
+				//echo '<pre>' . $row['HardwareID'] . '</pre><br>';
+				
+				$exploded = multiexplode(array(";"),$row['ImageLocation']);
+				$count = count($exploded);
+				$comments = $row['HardwareComments'];
+				
+				foreach ( $exploded as $dir) {
+					if ($dir != NULL) {
+						makeContentDiv($dir,$row['HardwareID'],$comments,$i);
+					}
+				}
+				
+				$i++;
+			}
 			
-			<div id="template-img3" class="content-box added-image">
-			<img src="img/circuits.jpg" />
-			<h2 id="template-h2">Circuit</h2>
-			<p id="template-p">Graphically drawn circuit board</p>
-			</div>
+			mysqli_free_result($result);
 			
-			<div id="template-img3" class="content-box added-image">
-			<img src="img/pc1.jpg" />
-			<h2 id="template-h2">Compact PC</h2>
-			<p id="template-p">Old compact pc used for stats</p>
-			</div>
+			function makeContentDiv($url, $id, $descript,$i) {
+				echo "<div id='img". $i ."' class='content-box'><img src='" . $url . "' />";
+				echo "<h2 margin='5px'>" . $id . "</h2>";
+				echo "<hr color='black' size='3px'/>";
+				echo "<p>". $descript . "</p></div>";
+			}
 			
-			<div id="template-img3" class="content-box added-image">
-			<img src="img/pc2.jpg" />
-			<h2 id="template-h2">Blue Screen</h2>
-			<p id="template-p">AKA the blue screen of death in modern computers</p>
-			</div>
+			function multiexplode ($delimiters,$string) {
+				
+				$ready = str_replace($delimiters, $delimiters[0], $string);
+				$launch = explode($delimiters[0], $ready);
+				return  $launch;
+			}
 			
-			<div id="template-img3" class="content-box added-image">
-			<img src="img/pc3.jpg" />
-			<h2 id="template-h2">1 Terabyte</h2>
-			<p id="template-p">1000 years ago	</p>
-			</div>
+			?>
 		
 		</div> <!-- END slide-content -->
 		
@@ -181,6 +194,7 @@
 <!-- all the js scripts used -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/media-functions.js"></script>
+
 
 </div> <!-- wrapper -->
 
