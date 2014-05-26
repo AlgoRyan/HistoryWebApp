@@ -7,7 +7,49 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/unimelb.css">
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
+<script>
+function search() {
+	var found_id;
+	var len = document.getElementById("filter-img").value.length;
+	
+	var search_string = document.getElementById("filter-img").value;
+	//document.getElementById("template-p").innerHTML = search_string;
+	var myPattern = new RegExp(search_string, "i");
+	
+	console.log(myPattern);
+	var array_len = document.getElementsByClassName("added-image").length;
+	var results_count = 0;
+	
+	for (var n=0; n < array_len; n++) {
+		var z =(myPattern.test(document.getElementsByClassName("added-image")[n].innerHTML) && len > 0);
+		console.log(z);
+		
+		if (myPattern.test(document.getElementsByClassName("added-image")[n].innerHTML) && len >= 0) {
+			//document.getElementsByClassName("added-image")[n].style.visibility = "visible";
+			document.getElementsByClassName("added-image")[n].style.display = "block";
+			
+		} else {
+			//document.getElementsByClassName("added-image")[n].style.visibility = "hidden";
+			document.getElementsByClassName("added-image")[n].style.display = "none";
+		}
+		
+	}
+	
+	for (var n=0; n < array_len; n++) {
+		if (document.getElementsByClassName("added-image")[n].style.display === "block") {
+			results_count++;
+		}
+	}
+	
+	//results_count = countByClass("added-image");
+	
+	document.getElementById("result").innerHTML = "There are: " + results_count + " results";
+	
+	adjustDivHeight("#slide-content",results_count,290,3);
 
+}
+
+</script>
 </head>
 <body class='about-body grad'>
 <nav> <!-- START nav here -->
@@ -108,21 +150,11 @@
 		
 		<div id="search-box"><!-- START search-box -->
 			<div>
-				<span>Filter images</span>
+				<span>Search images: </span>
 				<input id="filter-img" class='search-bar' onkeyup="search()" type="search"/> <!--search bar-->
 			</div>
 			
-			<div>
-				<span>Image Title</span>
-				<input id="add-img-title" class='search-bar' type="search"/> <!--search bar-->
-			</div>
-			
-			<div>
-				<span>Image Description</span>
-				<input id="add-img-description" class='search-bar' type="search"/> <!--search bar-->
-			</div>
 			<br>
-			<button id="add-image-button" class="button" onClick="addImage()">ADD IMAGE</button>
 			<p>there are: <i id="result" opacity="50%">some</i> results</p>
 		</div> <!-- END Search-box -->
 		</div> <!-- END img-content -->
@@ -136,12 +168,18 @@
 			}
 			
 			$sql = "SELECT * FROM Hardware";
-			//$result = $mysqli->($sql);
 			$result = mysqli_query($con, $sql);
-			if (!$result) {
+			$sql = "SELECT * FROM `Photographs - CSIRAC`;";
+			$CSIRAC_array = mysqli_query($con, $sql);
+			
+			if (!$result || !$CSIRAC_array) {
 				die('Query Failed: ' . mysqli_error());	
 			}
 			
+			displayArray($result,'HardwareID','HardwareComments');
+			displayArray($CSIRAC_array,'Title','Notes');
+			
+			/*
 			// getting column data
 			$i = 0;
 			
@@ -168,12 +206,43 @@
 			}
 			
 			mysqli_free_result($result);
+			*/
+			function displayArray($result_ar, $_title, $_comments) {
+                // getting column data
+                $i = 0;
+            
+                while ($i < mysqli_num_rows($result_ar)) {
+                    $row = $result_ar->fetch_array(MYSQLI_ASSOC);
+                
+                    if (!$row) {
+                        echo '<h5> No info available</h5><br>';
+                    }
+                
+                    //echo '<pre>' . $row[$_title] . '</pre><br>';
+                
+                    $exploded = multiexplode(array(";"),$row['ImageLocation']);
+                    $comments = $row[$_comments];
+                    
+                    foreach ( $exploded as $dir) {
+                        if ($dir != NULL) {
+                            $title = $row[$_title];
+                            makeContentDiv($dir,$title,$comments,$i);
+                        }
+                    }
+                
+                    $i++;
+                }
+            
+                mysqli_free_result($result);
+			}
 			
 			function makeContentDiv($url, $id, $descript,$i) {
-				echo "<div id='img". $i ."' class='content-box'><img src='" . $url . "' />";
+			    echo "<div class='added-image'>";
+				echo "<div id='img". $i ."' class='content-box'>
+				    <div><img src='" . $url . "' /></div>";
 				echo "<h2 margin='5px'>" . $id . "</h2>";
 				echo "<hr color='black' size='3px'/>";
-				echo "<p>". $descript . "</p></div>";
+				echo "<p>". $descript . "</p></div></div>";
 			}
 			
 			function multiexplode ($delimiters,$string) {
@@ -193,7 +262,6 @@
 
 <!-- all the js scripts used -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/media-functions.js"></script>
 
 
 </div> <!-- wrapper -->

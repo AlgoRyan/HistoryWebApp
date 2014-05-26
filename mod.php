@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/unimelb.css">
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
-
+<?php checkLogged(); ?>
 </head>
 <body>
 <nav> <!-- START nav here -->
@@ -28,9 +28,6 @@
 			$result=mysqli_fetch_array($sth);
 			echo '<img class="user-image" src="data:image/jpeg;base64,'.base64_encode( $result['img'] ).'"/>';
 			echo '<h6>logged in as '. $_COOKIE['ID_my_site'] .'</h6>';
-			}
-			else{
-				echo '<h1 color=red>photo goes here<h1>';
 			}
 		?>
 	</div> <!-- END user image if logged in -->
@@ -115,29 +112,11 @@
 		</div> <!-- END Search-box -->
 		</div> <!-- END img-content -->
 	
-		<div id="slide-content"> <!-- START slide-content -->
+                <?php
+				    displayAllContent();
+				?>
 			
-			<div class="item">
-			<div id="template-img" class="content-box added-image"> <!-- START content-box -->
-				
-				<img src="img/image-here.jpg" />
-				<h2 id="template-h2">My dog</h2>
-				<p id="template-p">Remember that day bring your dog to work... good memories</p>
-			
-			</div> <!-- END content-box -->
-			
-			<div class="added-content"> <!-- START added-content -->
-				
-				<div id="user-div">
-					<img id="userimg" src="img/dijk.jpg"/>
-					<span id="user-span"> Dijkstra</span>
-					<span id="date-span">1-May-2014 @ 00:11:22 </span>
-				</div>
-				<div id="details">
-					<p> the user added a new photo </p>
-				</div>
-				
-			</div> <!-- END added-content -->
+		
 			
 			<div class="mod-buttons"> <!-- START mod-buttons -->
 				
@@ -145,8 +124,7 @@
 				<div id="mod-reject" onClick="function()">x</div>
 			
 			</div>  <!-- END mod-buttons -->
-			</div>
-		</div> <!-- END slide-content -->
+			
 		
 	</div> <!-- END slide1 -->	
 	
@@ -190,6 +168,107 @@
 <!-- all the js scripts used -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/mod-functions.js"></script>
+
+<?php
+
+function checkLogged() {
+    $con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta");
+    
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+    $username = $_COOKIE['ID_my_site'];
+
+    if (!$username) {
+        header("location:controller.php?action=login");
+    }
+}
+
+function displayLatestContent() {
+	$con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta");
+	if (mysqli_connect_errno()) {
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+	
+	$sql = "SELECT * FROM UserContent WHERE ID = (SELECT MAX(ID) FROM UserContent);";
+	$sth = $con->query($sql);
+	$result = mysqli_fetch_array($sth);
+	
+	$userid = $result['UserID'];
+	$category = $result['Category'];
+	$date = $result['Date'];
+	$title = $result['Title'];
+	$year = $result['year'];
+	$description = $result['Description'];
+	
+	$sql = "SELECT * FROM users WHERE ID = '{$userid}'";
+	$sth = $con->query($sql);
+	$result2 = mysqli_fetch_array($sth);
+	$username = $result2['username'];
+	$img = $result2['img'];
+	
+	echo '<div class="container"><div id="content1-1" class="txt-box">
+    
+    <img class="user-image" src="data:image/jpeg;base64,'.base64_encode( $img ).'"/>
+	<div class="user-info">'.$username.'</div> 
+	<div class="date">Added on <i>'.$date.' </i> </div>
+	
+	<h2>'. $title  . ' - ' .  $year . '  </h2>
+	<p>'.$description.'</p>
+	</div></div>';
+}
+
+function displayContent($con, $no) {
+	//getting the array with the details
+	$sql = "SELECT * FROM UserContent WHERE ID = $no;";
+	$sth = $con->query($sql);
+	$result = mysqli_fetch_array($sth);
+	
+	// storing them as variables
+	$userid = $result['UserID'];
+	$category = $result['Category'];
+	$date = $result['Date'];
+	$title = $result['Title'];
+	$year = $result['year'];
+	$description = $result['Description'];
+	
+	//getting the details from users table (username and image)
+	$sql = "SELECT * FROM users WHERE ID = '{$userid}'";
+	$sth = $con->query($sql);
+	$result2 = mysqli_fetch_array($sth);
+	$username = $result2['username'];
+	$img = $result2['img'];
+	
+	echo '<div class="container"><div id="content1-1" class="txt-box">
+    
+    <img class="user-image" src="data:image/jpeg;base64,'.base64_encode( $img ).'"/>
+	<div class="user-info">'.$username.'</div> 
+	<div class="date">Added on <i>'.$date.' </i> </div>
+	
+	<h2>'. $title  . ' - ' .  $year . '  </h2>
+	<p>'.$description.'</p>
+	</div></div>';
+}
+
+function displayAllContent() {
+	$con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta");
+	if (mysqli_connect_errno()) {
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+	
+	$sql = "SELECT MAX(ID) from UserContent;";
+	$sth = $con->query($sql);
+	$result = mysqli_fetch_array($sth);
+	$max = $result[0];
+	
+    for ($i = 0 ; $i < $max ; $i++ ) {
+        displayContent($con, $i);
+    }
+	
+}
+
+?>
+
 </body>
 
 </html>

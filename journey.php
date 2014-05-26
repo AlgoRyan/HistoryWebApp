@@ -25,6 +25,7 @@
 		?>
 		</p>
 </nav>
+<a href="add-content.php" class="nyroModal"><div class="add-content-button">+<p>click to add photo</p></div></a>
 
 <div class="wrapper" id="skrollr-body">
 
@@ -40,6 +41,7 @@
 	<p><a href="#section-2" >1960 &times</a></p>
 	<p><a href="#section-3" >1969 &times</a></p>
 	<p><a href="#section-4" >1970 &times</a></p>
+	<p><a href="#2006" >2006 &times</a></p>
 </div>
 
 
@@ -54,7 +56,6 @@
 	
 </section> <!-- homesection end -->
 
-
 <section id="section-1" class="bcg"> <!-- START section-1 -->
 	<div id="slide1" class="align-center slide"> <!-- start slide1 -->
 		
@@ -65,24 +66,25 @@
 	
 		<div id="slide1-content" class="slide-content"> <!-- START slide-content -->
 			
+			<div id='2006'/>
 			<div id="content1-1" class="txt-box">
-			
+			    
+			    <!-- not used just for show
 				<img id="userimg" src="img/dijk.jpg"/>
 				<div class="user-info"> Dijkstra</div>
 				<div class="date">1-May-2014 @ 16:42:01 </div>
+				-->
 				
 				<h2>Summary of the beginnings</h2>
-				<p>On June 16, 2006, the Department of Computer Science and Software Engineering, and the Department of Information Systems at the University of Melbourne celebrated Fifty Years of Computing at The University of Melbourne. The event commemorated was the June 14 1956 re-commissioning of the CSIRAC computer, the first at the University, and, until a few months later, when the Sydney University SILLIAC computer became operational, the only one in the country./p>
+				<p>On June 16, 2006, the Department of Computer Science and Software Engineering, and the Department of Information Systems at the University of Melbourne celebrated Fifty Years of Computing at The University of Melbourne. The event commemorated was the June 14 1956 re-commissioning of the CSIRAC computer, the first at the University, and, until a few months later, when the Sydney University SILLIAC computer became operational, the only one in the country.</p>
 			</div>
 			
 			<div id="content1-2" class="img-box">
 				<img src="img/p2.jpg" />
-				<h2>Photo 1</h2>
-				<p>First ever photo taken in 1955</p>
+				<h2>Random Photo</h2>
+				<p>random photo for show</p>
 			</div>
-			
-			<a href="add-content.php" class="nyroModal"><div class="add-img">+<p>click to add photo</p></div></a>
-		
+					
 		</div> <!-- END slide-content -->
 		</div> <!-- END slide1 -->
 		

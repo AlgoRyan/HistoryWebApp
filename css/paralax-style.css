@@ -268,7 +268,7 @@ a:active {text-decoration: none; color: white /*rgba(255,255,255,0.8);*/}
 
 .txt-box {
 	width: 710px;
-	height: 250px;
+	height: fill;
 	float:left;
 	display:inline;
 	overflow: hidden;
@@ -294,16 +294,18 @@ a:active {text-decoration: none; color: white /*rgba(255,255,255,0.8);*/}
 }
 
 
-.add-img{
+.add-content-button {
+    position: fixed;
 	width: 50px;
 	height: 50px;
-	float:left;
+	float: left;
 	display:inline;
 	overflow: hidden;
-	background-color: rgba(0,255,0,0.4	);
-	margin: 20px;
+	background-color: rgba(0,200,0,0.6);
+	margin: 10px 20px 20px 65px;
 	font-family: 'Raleway', 'sans-serif';
-	border-radius: 5px;
+	border-radius: 25px;
+	z-index:10;
 }
 
 .add-img {

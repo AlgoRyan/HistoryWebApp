@@ -26,6 +26,9 @@
 @import url(http://fonts.googleapis.com/css?family=Philosopher);
 /* font-family: 'Philosopher', sans-serif; */
 
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+/* font-family: 'Oswald', sans-serif; */
+
 @font-face
 { font-family: rc; src: url(../fonts/rc.ttf); }
 @font-face
@@ -60,13 +63,14 @@
 body {
 	background-color:#eeeeee;
 	/*font-family: "Nova Square", cursive;*/
-        font-size: 48px;
+    font-size: 48px;
+    min-height: 800px;
 }
 
 .wrapper {
 	margin: auto;
 	width: 95%;
-	height: auto;
+	min-height: auto;
 }
 
 #index-wrapper {
@@ -80,7 +84,7 @@ body {
 }
 
 #media-wrapper {
-	background-color: white;
+	background-color: none;
 	height: fill;
 }
 
@@ -89,10 +93,9 @@ body {
 	left: 150px; /* this could potentially cause problems */
 	width: 600px;
 	height: fill;
-	top: 30px;
 	background-color: rgba(150,70,90,0); /* currently not being used */
 	text-align: center;
-	font-family: japan;
+	font-family:'Oswald', sans-serif;
 	color: rgba(62, 122, 230, 1);
 	font-size: 1.5em;
 	text-shadow: 1px 1px 3px black;
@@ -100,18 +103,23 @@ body {
 	/*background-image: url(../img/Desert.jpg);*/
 }
 
+#welcome-title-index-container {
+    position: relative;
+    margin: auto;
+}
+
 #welcome-title-index {
 	position: absolute;
 	left: 150px; /* this could potentially cause problems */
 	width: 600px;
 	height: fill;
-	top: 150px;
+	top: 50px;
 	background-color: rgba(150,70,90,0); /* currently not being used */
 	text-align: center;
-	font-family: japan;
+	font-family: 'Oswald', sans-serif, bold;
 	color: white;
-	font-size: 1.5em;
-	text-shadow: 1px 1px 3px black;
+	font-size: 1.2em;
+	text-shadow: 0px 0px 20px black;
 	z-index: 100;
 	/*background-image: url(../img/Desert.jpg);*/
 }
@@ -275,6 +283,10 @@ nav {
 	background-color: rgba(0,35,255,0.3);
 }
 
+.add-content-body {
+    background-color: rgba(0,42,90,0.9);
+}
+
 #moderator p {
 	margin: auto;
 	text-align: center:
@@ -289,20 +301,7 @@ a:active {text-decoration: none; color:black;}
 
 
 /***** styling the aside's within the sections ****/
-.content-box {
-	width: 250px;
-	height: 250px;
-	float:left;
-	display:inline;
-	overflow: hidden;
-	background-color: rgba(100,100,100,0.5);
-	margin: 20px;
-	font-family: 'Raleway', 'sans-serif';
-}
 
-.content-box:hover {
-	opacity: 0.999;
-}
 .section-heading p{
 	text-align: center;
 	/*font-family: 'Lobster', 'cursive'; */
@@ -311,11 +310,6 @@ a:active {text-decoration: none; color:black;}
 	font-size: 70%;
 	color: white;
 }
-
-.align-center {
-	margin: auto 0px 0px 0px 0px;
-}
-
 
 /***** Slide styling ******/
 
@@ -382,6 +376,7 @@ a:active {text-decoration: none; color:black;}
 	color: rgba(30,10,255,0.5);
 	text-align: center;
 }
+
 /********** END styling for img-content ************/
 
 /** general styling **/
@@ -396,14 +391,18 @@ a:active {text-decoration: none; color:black;}
 	float:left;
 	display:inline;
 	overflow: hidden;
-	background-color: rgba(90,90,90,0);
+	background-color: rgba(100,100,100,0);
 	margin: 20px;
 	font-family: 'Raleway', 'sans-serif';
 	border-radius: 20px;
+	background-size: contain;
+}
+
+.content-box:hover {
+	opacity: 0.999;
 }
 
 .content-box img {
-	width: 230px;
 	height: 180px;
 	margin: 10px 10px 0px 10px;
 	overflow: hidden;
@@ -425,7 +424,7 @@ a:active {text-decoration: none; color:black;}
 	height fill;
 	background-color: rgba(1,255,25,0);
 	font-size: 0.4em;
-	color: white;
+	color: black;
 	padding: 20px;
 }
 
@@ -529,7 +528,8 @@ a:active {text-decoration: none; color:black;}
 .user {
 	position: fixed;
 	height: 100px;
-	width: 200px;	
+	width: 200px;
+	z-index: 11;	
 }
 
 .user-image {
@@ -560,7 +560,7 @@ a:active {text-decoration: none; color:black;}
 	background-color:  rgba(0, 52, 102, 1);
 }
 
-.login-box {
+.login-box, .add-content-box {
 	background-color: rgba(0, 44, 94, 0.8);
 	/* background-color: rgba(255, 255, 255, 0.2);*/
 	color: white;
@@ -569,12 +569,19 @@ a:active {text-decoration: none; color:black;}
 	border-radius: 0px 0px 10px 10px;
 	text-align: center;
 	padding: 10px;
-	width: 500px;
-	margin: 5px 10px 10px 10px;
+	margin: auto;
 	box-shadow: 0px 0px 10px rgba(0, 40, 90, 1) inset;
 }
 
-#login-heading {
+.login-box {
+    width: 550px;
+}
+
+.add-content-box {
+    width: 800px
+}
+
+#login-heading, #add-content-heading {
 	text-align: center;
 	background-color: rgba(0, 44, 94, 0.8);
 	box-shadow: 0px 0px 10px rgba(0, 40, 90, 1) inset;
@@ -582,10 +589,37 @@ a:active {text-decoration: none; color:black;}
 	font-size: 30%;
 	font-family: 'Raleway', 'sans-serif';
 	padding: 10px;
-	width: 500px;
 	border-radius: 10px 10px 0px 0px;
-	margin: 10px 10px 5px 10px;
+	margin: auto;
 }
+
+#login-heading {
+    width: 550px;
+}
+
+#add-content-heading {
+    width: 800px
+}
+
+input {
+	float:left;
+	width: 200px;	
+}
+
+.container {
+	/* background-color: rgba(255, 254, 94, 0.3);  for testing */
+	position: relative;
+	margin: auto;
+	margin-top:10px;
+	width: 820px;
+	min-height: 300px;
+	padding: 10px;
+}
+
+.container form {
+	margin-left: 100px;
+}
+
 
 #register-redirect {
 	padding: 10px;
@@ -651,18 +685,6 @@ a:active {text-decoration: none; color:black;}
 	color: rgba(0, 34, 66, 1);
 }
 
-.container {
-	position: relative;
-	margin: 100px;
-	left: 15%;
-	width: 800px;
-	min-height: 300px;
-}
-
-.container form {
-	margin-left: 20%;
-}
-
 /****** LOGIN/LOGOUT BOXES END ******/
 
 /****** styling for the about page START *****/
@@ -708,6 +730,63 @@ background: -moz-linear-gradient(rgba(0, 52, 102, 0.7)rgba(0, 52, 102, 1), rgba(
 background: linear-gradient(rgba(0, 52, 102, 0.7),rgba(255, 255, 255, 0)); /*Standard*/
 }
 
+.txt-box {
+	width: 710px;
+	height: 250px;
+	float:left;
+	display:inline;
+	overflow: hidden;
+	background-color: rgba(80,90,255,0.4);
+	margin: 20px;
+	font-family: 'Raleway', 'sans-serif';
+	border-radius: 20px;
+}
+
+.txt-box h2 {
+	color: white;
+	font-size: 50%;
+	font-family: 'Raleway', 'sans-serif';
+	text-align: center;
+	margin: 10px;
+}
+
+.txt-box p {
+	color: white;
+	font-size: 30%;
+	font-family: 'Raleway', 'sans-serif';
+	margin: 10px;
+}
+
+
+#userimg {
+	border-radius: 50px;
+	width: 80px;
+	height: 80px;
+	margin: 10px 10px 0px 10px;
+	overflow: hidden;
+}
+
+#user-span {
+	color: rgba(255,255,0,0.7);
+	font-style: italic;
+}
+
+.txt-box span {
+	color: white;
+	font-size: 30%;
+}
+
+.user-info {
+	font-size: 30%;
+	color: rgba(255,255,0,0.7);
+	display: inline;
+}
+
+.date {
+	color: lightblue;
+	font-size: 30%;
+	display: inline;
+}
 
 /* melb uni colours:
 melbourne university colours:
@@ -717,5 +796,3 @@ normal: #003466 (main) - rgba(0, 52, 102, 1)
 mediumling: #2163A4 - rgba(33, 99, 164, 1)
 light: #3E7AB4 - rgba(62, 122, 180, 1)
 */
-
-

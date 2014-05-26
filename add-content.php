@@ -11,7 +11,7 @@
 <script src="js/dropzone.js"></script>
 
 </head>
-<body class='grad'>
+<body class='add-content-body'>
 <nav> <!-- START nav here -->
 	<div id="nav-heading">
 		University of Melbourne
@@ -103,16 +103,15 @@
 
 <section id="add-main"> <!-- start Main sectoin -->
 	
-	<div id="slide1" class="align-center grad"> <!-- start slide1 -->
+	<div id="slide1" class="align-center"> <!-- start slide1 -->
 	
-		<div id="img-content"> <!-- START img-content -->
-		
+				
 		<?php
 		displayForm();
+		
 		?>
 		
-		</div> <!-- END img-content -->
-	
+		
 		<div id="slide-content"> <!-- START slide-content -->
 			
 			<!-- empty -->
@@ -134,30 +133,37 @@
 <?php
 
 function displayForm() {
+	$username = $_COOKIE['ID_my_site'];
+	if ($username) {
     echo '<div class="container">
-    <div id="login-heading">
+    <div id="add-content-heading">
         <h1>Enter the details of the content you would like to add</h1>
     </div>
     
-    <div id="register-form"
-     class="login-box">';
+    <div id="register-form" class="add-content-box">';
     echo ' <form action="add-content.php" ';
     echo 'method="post" enctype="multipart/form-data">
             <table align="center" border="0">
             <tr>
-                <td>Category</td>
-                <td><input type="text" name="category" maxlength="60"></td>
+                <td>Category*</td>
+                <td><input type="text" name="category" maxlength="60" width="100px"></td>
             </tr>
             <tr>
-                <td>Title</td>
+                <td>Title*</td>
                 <td><input type="text" name="title" maxlength="60"></td>
             </tr>
             <tr>
-                <td>Description</td>
-                <td><input type="text" name="description" width="500px"></td>
+                <td>Year*</td>
+                <td><input type="text" name="year" maxlength="60" cols="50"></td>
             </tr>
             <tr>
-                <td>Choose User Image :  </td>
+                <td>Description*</td>
+                <td>
+                <textarea name="description" rows="5" cols="50"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Add Image :  </td>
                 <td><input type="file" name="file" id="file"><br></td>
             </tr>
             
@@ -168,9 +174,9 @@ function displayForm() {
             </table>
                 
         </form>
-    
+    <i> *required </i>
     </div>
-</div>';
+</div>';}
 }
 
 function displayFooter() {
@@ -214,15 +220,21 @@ if (mysqli_connect_errno()) {
 echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
 else {
-	echo "Worked fine connecting<br>";
+	//echo "Worked fine connecting<br>";
 }
 
 $username = $_COOKIE['ID_my_site'];
 
-if (!$username || !($_POST['category'] || $_POST['title'] || $_POST['description'])) {
-	
+if (!$username) {
+	header("location:controller.php?action=login");
 } else {
-	echo "in the else state<br>";
+	
+	if (!$_POST['category'] || !$_POST['title'] || !$_POST['description'] || !$_POST['year']) {
+		jsalert("please enter details into required fields");
+		//exit();
+	}
+	
+	//echo "in the else state<br>";
 	$sql = "SELECT ID FROM users WHERE username = '{$id}'";
 	$sth = $con->query($sql);
 	$result = mysqli_fetch_array($sth);
@@ -248,16 +260,18 @@ if (!$username || !($_POST['category'] || $_POST['title'] || $_POST['description
 				echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
 			}
 			else {
+				echo "<script type='text/javascript'>alert('";
 				echo "Upload: " . $_FILES["file"]["name"] . "<br>";
 				echo "Type: " . $_FILES["file"]["type"] . "<br>";
 				echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
 				echo "Temp file: " . $_FILES["file"]["tmp_name"] . C;
+				echo "');</script>";
 				$dir = $_FILES["file"]["tmp_name"];
 				if (file_exists("upload/" . $_FILES["file"]["name"])) {
 					echo $_FILES["file"]["name"] . " already exists. ";
 				} 
 				else {
-					echo "<br><br>trying to add now";
+					//echo "<br><br>trying to add now";
 					$origin = $_FILES["file"]["tmp_name"];
 					$destination = __DIR__ . "/uploads/". $_FILES["file"]["name"]; //__DIR__ . $_FILES["file"]["name"]);
 					
@@ -272,26 +286,28 @@ if (!$username || !($_POST['category'] || $_POST['title'] || $_POST['description
 					//"http:\\info30005.cis.unimelb.edu.au\cbosua\home\www\HistoryWebApp\ZWWWWWOOOOOOOOOW.jpg");
 					//echo "<br>Stored in: " . __DIR__ . "/uploads/" . $_FILES["file"]["name"];
 					//echo "<br><br> Server Name: " . $_SERVER['DOCUMENT_ROOT'];
+					
+					/*
 					echo "<br>origin = " . $origin;
 					echo "<br>destination = " . $destination;
 					echo "<br>dirname = " . dirname(__DIR__);
 					echo "<br>server = " . $_SERVER['DOCUMENT_ROOT'];
-					
+					*/					
 					
 				}
 			}
 	}	
 	else {
-		echo "Invalid file";
-		echo "\n file type is - " . $_FILES["file"]["size"];
+		//echo "Invalid file";
+		//echo "\n file type is - " . $_FILES["file"]["size"];
 	}
 
-	$array = array(addslashes($_POST['category']),addslashes($_POST['title']),addslashes($_POST['description']),addslashes($dir));
+	$array = array(addslashes($_POST['category']),addslashes($_POST['title']),addslashes($_POST['description']),addslashes($dir),$_POST['year']);
 	
 	//print_r($array);
-	
-	//insertSQL($con, $id, $array);
-	
+	 
+	insertSQL($con, $id_no, $array);
+	header("location:add-content.php");
 }
 
 
@@ -299,21 +315,27 @@ if (!$username || !($_POST['category'] || $_POST['title'] || $_POST['description
 displayFooter();
 
 function insertSQL($con, $user, $ar) {
-	echo "<br>into the funciton<br>";
+	//echo "<br>into the funciton<br>";
 	$today = date("D F j, Y, g:i a");  
+	$boo = false;
 	
 	//$insert = "INSERT INTO UserContent (UserID, Category, Title, Date, Description, contentDirectory) 
 	//	VALUES (".$user.",".$ar[0].",".$ar[1].",".date('l jS \of F Y h:i:s A').",".$ar[2].",".$ar[3].")";
-	$insert = "INSERT INTO UserContent (UserID, Category, Title, Date, Description, contentDirectory) 
-	VALUES ('{$user}','{$ar[0]}','{$ar[1]}','{$today}','{$ar[2]}','{$ar[3]}')";
+	$insert = "INSERT INTO UserContent (UserID, Category, Title, Date, Description, contentDirectory, year, moderated) 
+	VALUES ('{$user}','{$ar[0]}','{$ar[1]}','{$today}','{$ar[2]}','{$ar[3]}','{$ar[4]}','{$boo}')";
 	
 	if (!mysqli_query($con, $insert)) { // Error handling
-		echo "<br><br><h2><i>Something went wrong!</i> :(<h2>"; 
+		//echo "<br><br><h2><i>Something went wrong!</i> :(<h2>";
+		jsalert("Something went wrong!");
 	} else {
-		echo "just inserted<br>";
+		//jsalert("just inserted");
 	}
 	
 	
+}
+
+function jsalert($msg) {
+	echo "<script type='text/javascript'>alert('{$msg}');</script>";
 }
 
 ?>

@@ -100,12 +100,12 @@
 <section id="homesection"> <!-- homesection start -->
 	
 	<div id="index-homebg" class='align-center' >
-	
-	<div id="welcome-title-index"> <!-- welcome start -->
-		<p id="title">History of CIS</p>
-		<p><i> at the University of Melbourne</i></p>
-	</div> <!-- welcome end -->
-	
+	<div id="welcome-title-index">
+        <div id="welcome-title-index"> <!-- welcome start -->
+            <p id="title">History of CIS</p>
+            <p><i> at the University of Melbourne</i></p>
+        </div> <!-- welcome end -->
+	</div>
 	<div id="slideshow"> <!-- START slideshow div -->
         <div>
             <img class='centerall' src="img/ss1.jpg">

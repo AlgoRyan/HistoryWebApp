@@ -42,29 +42,6 @@ function writeMessage()
 	document.getElementById("result").innerHTML=document.getElementById("filter-img").value;
 	//document.getElementById("template-p").innerHTML = "weeeeeeeeeeeeeeee";
 }
-/*
-function searchFriends() {
-	var x, xmlDoc = xmlLoader("friends.xml");
-	x = xmlDoc.getElementsByTagName("name");
-	
-	document.getElementById("fs").innerHTML = x[0].childNodes[0].nodeValue;
-	//document.getElementById("fs").innerHTML = document.getElementById("gs").value;
-	
-}
-
-function xmlLoader(filename) {
-	if (window.XMLHttpRequest)
-	{
-		xhttp=new XMLHttpRequest();
-	}
-	else // code for IE5 and IE6
-	{
-		xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	xhttp.open("GET",filename,false);
-	xhttp.send();
-	return xhttp.responseXML;
-}*/
 
 function search() {
 	var found_id;
@@ -106,16 +83,6 @@ function search() {
 	adjustDivHeight("#slide-content",results_count,290,3);
 
 }
-/*
-function countByClass(id) {
-	sum = 0;
-	for (var n=0; n < array_len; n++) {
-		if (document.getElementsByClassName(id)[n].style.display === "block") {
-			sum++;
-		}
-	}
-	return sum;
-}*/
 
 function adjustDivHeight(id, num, x,i) {
 	if (num === 0) {
