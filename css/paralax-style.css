@@ -159,23 +159,23 @@ a:active {text-decoration: none; color: white /*rgba(255,255,255,0.8);*/}
 
 .slide {
 	width: 1000px;
-	Height: 800px;
+	min-height: 400px;
 	margin: auto;
 }
 
-#section-1 {
+#section-1, #section-5,#section-9 {
     background-color: rgba(0, 42, 92, 0.8);
 	/* background-image: url(../img/p2.jpg);*/
 	background-size: cover;
 }
 
-#section-2 {
+#section-2, #section-6, #section-10 {
 	background-color: rgba(10,10,20,1);
 	/*background-image: url(../img/p3.jpg);
 	background-size: cover;*/
 }
 
-#section-3 {
+#section-3, #section-7 {
     background-color: rgba(250,250,255,1);
 	/*background-image: url(../img/p4.jpg);*/
 	background-size: cover;
@@ -185,7 +185,11 @@ a:active {text-decoration: none; color: white /*rgba(255,255,255,0.8);*/}
     color: black;
 }
 
-#section-4 {
+#section-7 p {
+    color: black;
+}
+
+#section-4, #section-8  {
     background-color: rgba(0,20,48,0.8);
     /* background-image: url(../img/p1.jpg); */
 	background-size: cover;
@@ -207,7 +211,7 @@ a:active {text-decoration: none; color: white /*rgba(255,255,255,0.8);*/}
 .slide-content {
 	position: relative;
 	width: 750px;
-	height: 600px;
+	min-height: 200px;
 	margin: 37px 50px 50px 200px; 
 	background-color: rgba(0, 52, 102, 0);	
 	border-radius: 15px;
@@ -377,10 +381,10 @@ a:active {text-decoration: none; color: white /*rgba(255,255,255,0.8);*/}
 
 .time-line p {
 	text-align: center;
-	font-size: 0.4em;
+	font-size: 0.3em;
 	font-family: 'Raleway', 'sans-serif';
 	/* color: rgba(50,100,200,0.3);*/
-	margin: 10px 0px 20px 0px;
+	margin: 5px 0px 5px 0px;
 }
 
 .time-line a {

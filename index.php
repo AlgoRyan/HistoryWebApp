@@ -141,7 +141,7 @@
 		<div class='section-heading'><p>"An entry point into the History of Computing..."</p></div> <!-- heading for section-->
 		<br>
 		<div id="slide-content" class="slide-content"> <!-- START slide-content -->
-		<a href="http://people.eng.unimelb.edu.au/ammoffat/fifty-years/">
+		<a href="about.php">
 			<div id="about" class="content-box" >
 			<img src="img/about2.jpg" />
 			<h2>About</h2>

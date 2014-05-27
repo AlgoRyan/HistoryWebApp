@@ -95,31 +95,53 @@
 <section id="about-homesection"> <!-- homesection start -->
 	
 	<div id="homebg" class='align-center' >
-	<div id="welcome-title"> <!-- welcome start -->
-		<p id="title">About</p>
-		<p><i> CIS at the University of Melbourne </i></p>
+	<div id="welcome-title" class='align-center'> <!-- welcome start -->
+		<h1 id="about-title">About</h1>
 	</div> <!-- welcome end -->
 	</div> <!-- homebg end -->
 
 </section> <!-- homesection end -->
 
-<section id="main"> <!-- start Main sectoin -->
+<section id="main" class='section-about'> <!-- start Main sectoin -->
 	
 	<div id="slide1" class="align-center"> <!-- start slide1 -->
 		<br>
-		<div class='section-heading'><p> Section heading here </p></div> <!-- heading for section-->
+		<div class='section-heading'><h2> CIS at the University of Melbourne </h2></div> <!-- heading for section-->
 		<div class="slide-content">
-		<h2> Summary </h2>
-		<p> On June 16, 2006, the Department of Computer Science and Software Engineering, and the Department of Information Systems at the University of Melbourne celebrated Fifty Years of Computing at The University of Melbourne. The event commemorated was the June 14 1956 re-commissioning of the CSIRAC computer, the first at the University, and, until a few months later, when the Sydney University SILLIAC computer became operational, the only one in the country.
-		</p>
+			
+			<p> On June 16, 2006, the Department of Computer Science and Software Engineering, 
+			and the Department of Information Systems at the University of Melbourne celebrated Fifty Years 
+			of Computing at The University of Melbourne. The event commemorated was the June 14 1956 
+			re-commissioning of the CSIRAC computer, the first at the University, and, until a few months 
+			later, when the Sydney University SILLIAC computer became operational, the only one in the 
+			country.
+			</p>
+			<p>
+			Since then much has happened and Computing at the University of Melbourne has grown to become
+			one of the world's best places to study IT. With student interest in IT growing rapidly the
+			Department now has to try and keep up with the demand. The Computer and Information System
+			Department finds itself under the School of Engineering, currently headed by Professor 
+			Justin Zobel shown below.
+			</p>
+			<hr width='5px'>
+			<img src='http://www.cis.unimelb.edu.au/lib/images/justin-zobel.jpg'>
+			<div class='caption'> Professor Justin Zobel - current head of CIS </div>
+			
+			<p>
+			Below is a photograph of one of the early staff groups at the department.
+			</p>
+			<div>
+				<img src="img/p2.jpg">
+				<div class='caption'> Staff and students of the Department of Computer Science, approximately 1984
+				</div>
+			</div>
+			
+			<p> The University was also part of the history of owning the first computer of Australia, CSIRAC. There is already quie extensive information about CSIRAC, some of which can be seen from clicking on the following link:
+			<a href="http://www.cis.unimelb.edu.au/about/csirac/index.html">
+				<i>Link to the University of Melbourne CSIRAC ~ Australia's First Computer</i>
+			</a>
 		
-		<img src="img/p1.jpg">
-		
-		<p>
-		Dr Frank Hirst, Head of the Computation Laboratory and Computation Department 1955-1970, at the controls of CSIRAC on June 15, 1956. Standing (l to r): Ron Bowles, CSIRAC engineer; Trevor Pearcey, CSIRAC designer and builder; and E. Palfreman, an early programmer. [Photo credit: digital image supplied by Peter Thorne.]
-		</p>
-		
-		<div>
+		</div>
 		
 	</div> <!-- END slide1 -->	
 	
