@@ -109,7 +109,7 @@ body {
 
 #welcome-title-index {
 	position: absolute;
-	left: 25%;
+	left: 150px; /* this could potentially cause problems */
 	width: 600px;
 	height: fill;
 	top: 50px;
@@ -208,7 +208,7 @@ body {
 }
 
 #media-homesection {
-	width: 1000px;
+	width: 870px;
 	height: fill;
 	overflow: hidden;
 	margin: auto;
@@ -216,7 +216,7 @@ body {
 }
 
 #mod-homesection {
-	width: 1000px;
+	width: 870px;
 	height: fill;
 	overflow: hidden;
 	margin: auto;
@@ -273,6 +273,12 @@ nav {
 	height: 50px;
 	text-align: center:
 	border-radius: 10px;
+}
+
+#mod-heading {
+	color: grey;
+	font-size: 80%;
+	text-align: center;
 }
 
 #moderator {background-color: rgba(255,12,10,0.5);}
@@ -456,14 +462,15 @@ a:active {text-decoration: none; color:black;}
 }
 
 .mod-buttons {
-	width: 100px;
-	height: 250px;
-	float: right;
+	margin: 10px 250px 20px 250px;
+	width: fill;
+	height: fill;
 	display:inline;
 	overflow: hidden;
-	background-color: rgba(255,255,0,0.0);
-	margin: 20px 10px 20px 0px;
+	background-color: rgba(255,255,0,0);
 	font-family: 'Raleway', 'sans-serif';
+	color: white;
+	font-size: 30%;
 }
 
 
@@ -473,12 +480,10 @@ a:active {text-decoration: none; color:black;}
 	display: inline;
 	font-family: 'Raleway', 'sans-serif';
 	text-align: center;
-	float: right;
 	width: 70px;
 	height: 100px;
 	border-radius: 50px;
-	margin: 10px;
-	right: 10%;
+	padding: 10px;
 }
 
 #mod-reject { background-color: rgba(250,100,60,0.5); }
@@ -512,10 +517,6 @@ a:active {text-decoration: none; color:black;}
 	font-size: 80%;
 }
 
-.added-content span {
-	color: white;
-	font-size: 30%;
-}
 
 
 #userimg {
@@ -765,12 +766,13 @@ background: linear-gradient(rgba(0, 52, 102, 0.7),rgba(255, 255, 255, 0)); /*Sta
 }
 
 .txt-box {
+	position: relative;
 	width: 710px;
-	height: 250px;
+	height: fill;
 	float:left;
 	display:inline;
 	overflow: hidden;
-	background-color: rgba(80,90,255,0.4);
+	background-color: rgba(0,0,0,0.5);
 	margin: 20px;
 	font-family: 'Raleway', 'sans-serif';
 	border-radius: 20px;
@@ -805,10 +807,6 @@ background: linear-gradient(rgba(0, 52, 102, 0.7),rgba(255, 255, 255, 0)); /*Sta
 	font-style: italic;
 }
 
-.txt-box span {
-	color: white;
-	font-size: 30%;
-}
 
 .user-info {
 	font-size: 30%;

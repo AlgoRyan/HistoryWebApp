@@ -23,11 +23,17 @@
 				echo "Failed to connect to MySQL: " . mysqli_connect_error();
 			}
 			$id = $_COOKIE['ID_my_site'];
+			
+			echo '<img class="user-image" src="userimg/'.$id.'.jpg"/>';
+			echo '<h6>logged in as '. $id .'</h6>';
+			
+			/*
 			$sql = "SELECT img FROM users WHERE username = '{$id}'";
 			$sth = $con->query($sql);
 			$result=mysqli_fetch_array($sth);
 			echo '<img class="user-image" src="data:image/jpeg;base64,'.base64_encode( $result['img'] ).'"/>';
 			echo '<h6>logged in as '. $_COOKIE['ID_my_site'] .'</h6>';
+			*/
 			}
 			else{
 				//echo '<h1 color=red>photo goes here<h1>';

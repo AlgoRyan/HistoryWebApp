@@ -8,6 +8,133 @@
 <link rel="stylesheet" type="text/css" href="css/unimelb.css">
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
 <?php checkLogged(); ?>
+
+<script>
+function search() {
+	var found_id;
+	var len = document.getElementById("filter-img").value.length;
+	
+	var search_string = document.getElementById("filter-img").value;
+	//document.getElementById("template-p").innerHTML = search_string;
+	var myPattern = new RegExp(search_string, "i");
+	
+	console.log(myPattern);
+	
+	var array_len = document.getElementsByClassName("added-image").length;
+	var results_count = 0;
+	
+	for (var n=0; n < array_len; n++) {
+		var z =(myPattern.test(document.getElementsByClassName("added-image")[n].innerHTML) && len > 0);
+		console.log(z);
+		
+		if (myPattern.test(document.getElementsByClassName("added-image")[n].innerHTML) && len >= 0) {
+			//document.getElementsByClassName("added-image")[n].style.visibility = "visible";
+			document.getElementsByClassName("added-image")[n].style.display = "block";
+			
+		} else {
+			//document.getElementsByClassName("added-image")[n].style.visibility = "hidden";
+			document.getElementsByClassName("added-image")[n].style.display = "none";
+		}
+		
+	}
+	
+	for (var n=0; n < array_len; n++) {
+		if (document.getElementsByClassName("added-image")[n].style.display === "block") {
+			results_count++;
+		}
+	}
+	
+	//results_count = countByClass("added-image");
+	
+	document.getElementById("result").innerHTML = "There are: " + results_count + " results";
+	
+	//adjustDivHeight("#slide-content",results_count,290,3);
+
+}
+
+function acceptItem(item) {
+	var $parent = $(item).parent().parent();
+	
+}
+
+function accept(item) {
+	// get the parent and iniate variables
+	console.log($(item).parent().parent().attr("id"));
+	var $parent = $(item).parent().parent();
+	$parent_id = $parent.attr('id');
+	$n = $parent_id.split('-')[1];
+	$no = parseInt($n);
+	
+	// for debugging
+	console.log('Parents class is ' + $parent.attr('class'));
+	console.log('Parents ID is ' + $parent.attr('id'));
+	console.log('Content ID is ' + $no);
+	
+	//$parent.style.background = 'green';
+	document.getElementById($parent_id).style.backgroundColor="green";
+	
+	// add it to an array
+	var accepted_ids = [];
+	accepted_ids.push($no);
+	accepted_ids.push(1);
+	
+	for(var i=0 ; i < accepted_ids.length ; i++ ) {
+		console.log(accepted_ids[i]);
+	}
+	
+	$.ajax({
+            url: "mod.php",
+            type: "POST",
+            data: {
+                'arrayID': accepted_ids
+            }
+     });
+    
+    // send the array value to the php function to update the sql
+    <?php acceptThis($_POST['arrayID'],1); ?>
+    
+	}
+
+function reject(item) {
+	// get the parent and iniate variables
+	console.log($(item).parent().parent().attr("id"));
+	var $parent = $(item).parent().parent();
+	$parent_id = $parent.attr('id');
+	$n = $parent_id.split('-')[1];
+	$no = parseInt($n);
+	
+	// for debugging
+	console.log('Parents class is ' + $parent.attr('class'));
+	console.log('Parents ID is ' + $parent.attr('id'));
+	console.log('Content ID is ' + $no);
+	
+	//$parent.style.background = 'green';
+	document.getElementById($parent_id).style.backgroundColor="red";
+	
+	// add it to an array
+	var accepted_ids = [];
+	accepted_ids.push($no);
+	
+	for(var i=0 ; i < accepted_ids.length ; i++ ) {
+		console.log(accepted_ids[i]);
+	}
+	
+	$.ajax({
+            url: "mod.php",
+            type: "POST",
+            data: {
+                'arrayID': accepted_ids
+            }
+     });
+    
+    // send the array value to the php function to update the sql
+    <?php acceptThis($_POST['arrayID'],0); ?>
+    
+	}
+
+</script>
+
+
 </head>
 <body>
 <nav> <!-- START nav here -->
@@ -23,11 +150,8 @@
 				echo "Failed to connect to MySQL: " . mysqli_connect_error();
 			}
 			$id = $_COOKIE['ID_my_site'];
-			$sql = "SELECT img FROM users WHERE username = '{$id}'";
-			$sth = $con->query($sql);
-			$result=mysqli_fetch_array($sth);
-			echo '<img class="user-image" src="data:image/jpeg;base64,'.base64_encode( $result['img'] ).'"/>';
-			echo '<h6>logged in as '. $_COOKIE['ID_my_site'] .'</h6>';
+			echo '<img class="user-image" src="userimg/'.$id.'.jpg"/>';
+			echo '<h6>logged in as '. $id .'</h6>';
 			}
 		?>
 	</div> <!-- END user image if logged in -->
@@ -101,7 +225,7 @@
 	<div id="slide1" class="align-center"> <!-- start slide1 -->
 	
 		<div id="img-content"> <!-- START img-content -->
-		
+		<h2 id='mod-heading'> Items yet to be moderated </h2>
 		<div id="search-box"><!-- START search-box -->
 			<div>
 				<span>Filter Items</span>
@@ -113,24 +237,27 @@
 		</div> <!-- END img-content -->
 	
                 <?php
+                	displayLatestContent();
 				    displayAllContent();
 				?>
 			
 		
 			
-			<div class="mod-buttons"> <!-- START mod-buttons -->
+			<div class="mod-submit"> <!-- START mod-buttons --
 				
-				<div id="mod-accept" onClick="function()">a</div> 
-				<div id="mod-reject" onClick="function()">x</div>
+				<div id="mod-accept" onClick="">a</div> 
+				<div id="mod-reject" onClick="">x</div>
 			
-			</div>  <!-- END mod-buttons -->
+			</div>  <!-- END mod-buttons -- 
+			
 			
 		
 	</div> <!-- END slide1 -->	
 	
 </section> <!-- end MAIN section -->
-
-
+<?php
+//acceptContent();
+?>
 </div> <!-- wrapper -->
 
 <!-- unimelb footer START -->
@@ -167,7 +294,6 @@
 
 <!-- all the js scripts used -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/mod-functions.js"></script>
 
 <?php
 
@@ -200,6 +326,7 @@ function displayLatestContent() {
 	$title = $result['Title'];
 	$year = $result['year'];
 	$description = $result['Description'];
+	$moderated = $result['moderated'];
 	
 	$sql = "SELECT * FROM users WHERE ID = '{$userid}'";
 	$sth = $con->query($sql);
@@ -207,47 +334,26 @@ function displayLatestContent() {
 	$username = $result2['username'];
 	$img = $result2['img'];
 	
-	echo '<div class="container"><div id="content1-1" class="txt-box">
+	echo '
+	<div class="added-image">
+		<div class="container">
+		<div id="content-" class="txt-box">
     
-    <img class="user-image" src="data:image/jpeg;base64,'.base64_encode( $img ).'"/>
-	<div class="user-info">'.$username.'</div> 
-	<div class="date">Added on <i>'.$date.' </i> </div>
-	
-	<h2>'. $title  . ' - ' .  $year . '  </h2>
-	<p>'.$description.'</p>
-	</div></div>';
-}
-
-function displayContent($con, $no) {
-	//getting the array with the details
-	$sql = "SELECT * FROM UserContent WHERE ID = $no;";
-	$sth = $con->query($sql);
-	$result = mysqli_fetch_array($sth);
-	
-	// storing them as variables
-	$userid = $result['UserID'];
-	$category = $result['Category'];
-	$date = $result['Date'];
-	$title = $result['Title'];
-	$year = $result['year'];
-	$description = $result['Description'];
-	
-	//getting the details from users table (username and image)
-	$sql = "SELECT * FROM users WHERE ID = '{$userid}'";
-	$sth = $con->query($sql);
-	$result2 = mysqli_fetch_array($sth);
-	$username = $result2['username'];
-	$img = $result2['img'];
-	
-	echo '<div class="container"><div id="content1-1" class="txt-box">
-    
-    <img class="user-image" src="data:image/jpeg;base64,'.base64_encode( $img ).'"/>
-	<div class="user-info">'.$username.'</div> 
-	<div class="date">Added on <i>'.$date.' </i> </div>
-	
-	<h2>'. $title  . ' - ' .  $year . '  </h2>
-	<p>'.$description.'</p>
-	</div></div>';
+			<img class="user-image" src="userimg/'.$username.'.jpg"/>
+			<div class="user-info">'.$username.'</div> 
+			<div class="date">Added on <i>'.$date.' </i> </div>
+		
+			<h2>Title: ' . $title  . '  </h2>
+			<p>Year: '. $year . '  </p>
+			<p>Category: '. $category . '  </p>
+			<p>Date Added: '. $date  . '  </p>
+			<p>'.$description.'</p>
+			<div class="mod-buttons"><span id="mod-accept">accept</span><span id="mod-reject">reject</span></div>
+			
+			</div>
+		</div>
+	</div>
+		';
 }
 
 function displayAllContent() {
@@ -256,16 +362,89 @@ function displayAllContent() {
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	
-	$sql = "SELECT MAX(ID) from UserContent;";
-	$sth = $con->query($sql);
-	$result = mysqli_fetch_array($sth);
-	$max = $result[0];
+	// get the array in descending order
+	$sql = "SELECT * FROM UserContent ORDER BY `id` DESC";
+	$result = mysqli_query($con, $sql);
 	
-    for ($i = 0 ; $i < $max ; $i++ ) {
-        displayContent($con, $i);
-    }
+	// display all the info
+	displayArray($result);
 	
 }
+
+function displayArray($result_ar) {
+	// getting column data
+	$i = 0;
+	
+	while ($i < mysqli_num_rows($result_ar)) {
+		$row = $result_ar->fetch_array(MYSQLI_ASSOC);
+			
+		$userid = $row['UserID'];
+		$category = $row['Category'];
+		$date = $row['Date'];
+		$title = $row['Title'];
+		$year = $row['year'];
+		$description = $row['Description'];
+		$moderated = $row['moderated'];
+		
+		if (!$row || $moderated != NULL) {
+			//echo '<h5> No info available</h5><br>';
+		}
+		else {
+			echo '
+		<div class="added-image">
+			<div class="container">
+			<div id="content-'.$row['ID'].'" class="txt-box">
+		
+				<img class="user-image" src="userimg/'.$username.'.jpg"/>
+				<div class="user-info">'.$username.'</div> 
+				<div class="date">Added on <i>'.$date.' </i> </div>
+			
+				<h2>Title: ' . $title  . '  </h2>
+				<p>Year: '. $year . '  </p>
+				<p>Category: '. $category . '  </p>
+				<p>Date Added: '. $date  . '  </p>
+				<p>'.$description.'</p>
+				<div class="mod-buttons">
+					<div id="mod-accept" onClick="accept(this)">accept</div>
+					<div id="mod-reject" onClick="reject(this)">reject</div>
+				</div>
+				
+				</div>
+			</div>
+		</div>
+			';
+		}
+		$i++;
+	}
+	
+	mysqli_free_result($result);
+}
+
+function acceptThis($ar, $mod) {
+	$con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta");
+    
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+    
+    $array = $ar;
+    
+    foreach ( $array as $no ){
+    	
+    	$i = intval($no);
+    	$j = $ar[1];
+    	if ($j == 1) {
+    		$sql = "UPDATE UserContent SET moderated = 1 WHERE ID = {$i}";
+    		
+    	} else if ($j == 0) {
+    		$sql = "UPDATE UserContent SET moderated = 0 WHERE ID = {$i}";
+    		
+    	}
+		mysqli_query($con, $sql);
+		//echo "THIS HAS BEEN DONE<br>";
+	}
+}
+
 
 ?>
 

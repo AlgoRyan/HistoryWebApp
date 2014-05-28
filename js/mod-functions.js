@@ -67,3 +67,7 @@ function adjustDivHeight(id,num,x,i) {
 		$(id).height(parseInt((num+2)/i)*x);
 	}
 }
+
+function accept() {
+		console.log(this.parent().attr('class').value)
+}

@@ -24,11 +24,8 @@
 				echo "Failed to connect to MySQL: " . mysqli_connect_error();
 			}
 			$id = $_COOKIE['ID_my_site'];
-			$sql = "SELECT * FROM users WHERE username = '{$id}'";
-			$sth = $con->query($sql);
-			$result=mysqli_fetch_array($sth);
-			echo '<img class="user-image" src="data:image/jpeg;base64,'.base64_encode( $result['img'] ).'"/>';
-			echo '<h6>logged in as '. $_COOKIE['ID_my_site'] .'</h6>';
+			echo '<img class="user-image" src="userimg/'.$id.'.jpg"/>';
+			echo '<h6>logged in as '. $id .'</h6>';
 			}
 			else{
 				//echo '<h1 color=red>photo goes here<h1>';
@@ -229,85 +226,74 @@ if (!$username) {
 	header("location:controller.php?action=login");
 } else {
 	
-	if (!$_POST['category'] || !$_POST['title'] || !$_POST['description'] || !$_POST['year']) {
+	if($_SERVER['REQUEST_METHOD'] == 'POST') {
+	} else { exit(); }
+	
+	if ($_POST['category'] && $_POST['title'] && $_POST['description'] && $_POST['year']) {
+		
+		//echo "in the else state<br>";
+		$sql = "SELECT ID FROM users WHERE username = '{$id}'";
+		$sth = $con->query($sql);
+		$result = mysqli_fetch_array($sth);
+		
+		$id_no =  $result[0];
+		// echo "<h2> id = " . $id_no . "</h2>";
+		
+		
+		//error_reporting(E_ALL ^ E_NOTICE); // turns off all the notices showing in browser
+		$allowedExts = array("gif", "jpeg", "jpg", "png", "JPG");
+		$temp = explode(".", $_FILES["file"]["name"]);
+		$extension = end($temp);
+		$dir = 'none';
+		
+		if (
+			(($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg")
+				|| ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/pjpeg")
+				|| ($_FILES["file"]["type"] == "image/x-png") || ($_FILES["file"]["type"] == "image/png")
+				|| ($_FILES["file"]["type"] == "image/JPG")) && ($_FILES["file"]["size"] < 1000000)
+				&& in_array($extension, $allowedExts)
+				) {
+		if ($_FILES["file"]["error"] > 0) {
+			echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
+		}
+		else {
+			echo "<script type='text/javascript'>alert('";
+			echo "Upload: " . $_FILES["file"]["name"] . "<br>";
+			echo "Type: " . $_FILES["file"]["type"] . "<br>";
+			echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
+			echo "Temp file: " . $_FILES["file"]["tmp_name"] . C;
+			echo "');</script>";
+			
+			if (file_exists("upload/" . $_FILES["file"]["name"])) {
+				echo $_FILES["file"]["name"] . " already exists. ";
+			} 
+			else {
+				//echo "<br><br>trying to add now";
+				$origin = $_FILES["file"]["tmp_name"];
+				$destination = __DIR__ . "/uploads/". $_FILES["file"]["name"]; //__DIR__ . $_FILES["file"]["name"]);
+				
+				// need to add error handling
+				move_uploaded_file($origin, $destination);
+				
+			}
+		}
+				}	
+				else {
+					//echo "Invalid file";
+					//echo "\n file type is - " . $_FILES["file"]["size"];
+				}
+				
+				$array = array(addslashes($_POST['category']),addslashes($_POST['title']),addslashes($_POST['description']),addslashes($destination),$_POST['year']);
+				
+				//print_r($array);
+				
+				insertSQL($con, $id_no, $array);
+				header("location:add-content.php");
+	} else {
+		// need to make this only show AFTER the first load not upon opening
 		jsalert("please enter details into required fields");
 		//exit();
 	}
-	
-	//echo "in the else state<br>";
-	$sql = "SELECT ID FROM users WHERE username = '{$id}'";
-	$sth = $con->query($sql);
-	$result = mysqli_fetch_array($sth);
-	
-	$id_no =  $result[0];
-	// echo "<h2> id = " . $id_no . "</h2>";
-
-	
-	//error_reporting(E_ALL ^ E_NOTICE); // turns off all the notices showing in browser
-	$allowedExts = array("gif", "jpeg", "jpg", "png", "JPG");
-	$temp = explode(".", $_FILES["file"]["name"]);
-	$extension = end($temp);
-	$dir = 'none';
-	
-	if (
-		(($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg")
-			|| ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/pjpeg")
-			|| ($_FILES["file"]["type"] == "image/x-png") || ($_FILES["file"]["type"] == "image/png")
-			|| ($_FILES["file"]["type"] == "image/JPG")) && ($_FILES["file"]["size"] < 1000000)
-			&& in_array($extension, $allowedExts)
-			) {
-			if ($_FILES["file"]["error"] > 0) {
-				echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
-			}
-			else {
-				echo "<script type='text/javascript'>alert('";
-				echo "Upload: " . $_FILES["file"]["name"] . "<br>";
-				echo "Type: " . $_FILES["file"]["type"] . "<br>";
-				echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-				echo "Temp file: " . $_FILES["file"]["tmp_name"] . C;
-				echo "');</script>";
-				$dir = $_FILES["file"]["tmp_name"];
-				if (file_exists("upload/" . $_FILES["file"]["name"])) {
-					echo $_FILES["file"]["name"] . " already exists. ";
-				} 
-				else {
-					//echo "<br><br>trying to add now";
-					$origin = $_FILES["file"]["tmp_name"];
-					$destination = __DIR__ . "/uploads/". $_FILES["file"]["name"]; //__DIR__ . $_FILES["file"]["name"]);
-					
-					/*
-					$destination = '//info30005.cis.unimelb.edu.au/home/www/cbosua/HistoryWebApp/uploads/AWWWWWWWWWWWWW.jpg';
-					$destination = "../uploads/" . basename( $_FILES['file']['name']);
-					$destination = __DIR__ . $_FILES["file"]["name"];
-					*/
-					move_uploaded_file($origin, $destination);
-					
-					//"//info30005.cis.unimelb.edu.au/cbosua/www/test.jpg");
-					//"http:\\info30005.cis.unimelb.edu.au\cbosua\home\www\HistoryWebApp\ZWWWWWOOOOOOOOOW.jpg");
-					//echo "<br>Stored in: " . __DIR__ . "/uploads/" . $_FILES["file"]["name"];
-					//echo "<br><br> Server Name: " . $_SERVER['DOCUMENT_ROOT'];
-					
-					/*
-					echo "<br>origin = " . $origin;
-					echo "<br>destination = " . $destination;
-					echo "<br>dirname = " . dirname(__DIR__);
-					echo "<br>server = " . $_SERVER['DOCUMENT_ROOT'];
-					*/					
-					
-				}
-			}
-	}	
-	else {
-		//echo "Invalid file";
-		//echo "\n file type is - " . $_FILES["file"]["size"];
-	}
-
-	$array = array(addslashes($_POST['category']),addslashes($_POST['title']),addslashes($_POST['description']),addslashes($dir),$_POST['year']);
-	
-	//print_r($array);
-	 
-	insertSQL($con, $id_no, $array);
-	header("location:add-content.php");
 }
 
 

@@ -88,35 +88,7 @@ if (isset($_POST['submit']))
 	$allowedExts = array("gif", "jpeg", "jpg", "png", "JPG");
 	$temp = explode(".", $_FILES["file"]["name"]);
 	$extension = end($temp);
-	
-	// this makes sure the image is in the approved extensions
-	if (
-		(($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg")
-			|| ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/pjpeg")
-			|| ($_FILES["file"]["type"] == "image/x-png") || ($_FILES["file"]["type"] == "image/png")
-			|| ($_FILES["file"]["type"] == "image/JPG")) && ($_FILES["file"]["size"] < 10000000)
-			&& in_array($extension, $allowedExts)
-			) {
-			if ($_FILES["file"]["error"] > 0) {
-				echo "There was an error in the upload - Return Code: " . $_FILES["file"]["error"] . "<br>";
-			}
-			else {
-				
-				//adding the image to the database
-				$image = addslashes(file_get_contents($_FILES['file']['tmp_name'])); // to stop SQL injections
-				$image_name = addslashes($_FILES['image']['name']);
-				//$insert = "INSERT INTO users (img) VALUES ('{$image}')";
-				
-				/*
-				if (!mysqli_query($con, $insert)) { // Error handling
-				//echo "<br><br><h2><i>Something went wrong!</i> :(<h2>";
-				}*/
-				
-			}
-			
-	}
-			
-	// // // // // END adding image // // // // //
+
 	
 	//This makes sure they did not leave any fields blank
 	if (!$_POST['username'] | !$_POST['pass'] | !$_POST['pass2'] ) 
@@ -168,11 +140,14 @@ if (isset($_POST['submit']))
 	if($_FILES['file']['name']=='') {
 		//die("did not work image");
 		//echo "FAILED";
-		$msg = 'The image failed to load';
+		$msg = 'There was an error with the image';
  		echo "<script type='text/javascript'>alert('$msg');</script>";
- 		displayForm();
- 		displayFooter();
- 		exit();
+ 		
+ 		/* gets the file to upload to database - no longer doing that
+ 		$file = file_get_contents('./img/no-user-image4.jpg');
+ 		$image = addslashes($file);
+ 		
+ 		*/
 	}
 
  	// here we encrypt the password and add slashes if needed
@@ -184,12 +159,53 @@ if (isset($_POST['submit']))
  		$_POST['username'] = addslashes($_POST['username']);
  	}
 
-
-
  	// now we insert it into the database
- 	$insert = "INSERT INTO users (username, password, img)
- 			VALUES ('".$_POST['username']."', '".$_POST['pass']."','{$image}')";
+ 	$insert = "INSERT INTO users (username, password)
+ 			VALUES ('".$_POST['username']."', '".$_POST['pass']."')";
  	$add_member = mysqli_query($con, $insert);
+ 	
+ 	// // // // // START adding image // // // // //
+	
+	$max_size = 100000000; //(in bytes = 10 mega bytes)
+	// this makes sure the image is in the approved extensions
+	if (
+		(($_FILES["file"]["type"] == "image/gif") || ($_FILES["file"]["type"] == "image/jpeg")
+			|| ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/pjpeg")
+			|| ($_FILES["file"]["type"] == "image/x-png") || ($_FILES["file"]["type"] == "image/png")
+			|| ($_FILES["file"]["type"] == "image/JPG")) && ($_FILES["file"]["size"] < $max_size)
+			&& in_array($extension, $allowedExts)
+			) {
+			if ($_FILES["file"]["error"] > 0) {
+				$msg = 'There was an error with the image upload. Please try another image';
+				echo "<script type='text/javascript'>alert('$msg');</script>";
+			}
+			else {
+				
+				//adding the image to the database
+				/* the following prepares for adding to the database but doesn't
+				   fully upload images that are big for some reason...
+				$image = addslashes(file_get_contents($_FILES['file']['tmp_name'])); // to stop SQL injections
+				$image_name = addslashes($_FILES['image']['name']);
+				*/
+				
+				$origin = $_FILES["file"]["tmp_name"];
+				$destination = __DIR__ . "/userimg/". $_POST['username'] . '.jpg'; //__DIR__ . $_FILES["file"]["name"]);
+
+				move_uploaded_file($origin, $destination);
+				
+				//$insert = "INSERT INTO users (img) VALUES ('{$image}')";
+				
+				/*
+				if (!mysqli_query($con, $insert)) { // Error handling
+				//echo "<br><br><h2><i>Something went wrong!</i> :(<h2>";
+				}*/
+				
+			}
+			
+	}
+			
+	// // // // // END adding image // // // // //
+ 	
 
 	echo '<script type="text/javascript">
         	alert("Thank you, you have registered - you may now login");location="controller.php?action=login";
