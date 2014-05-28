@@ -329,7 +329,7 @@ a:active {text-decoration: none; color:black;}
 	margin: auto;
 	background-color: rgba(120,120,120,0);
 	max-width: fill;
-	height: fill;
+	height: 100%;
 	/* box-shadow: 5px 0px 10px rgba(0,0,0,0.4); */
 }
 
@@ -341,9 +341,9 @@ a:active {text-decoration: none; color:black;}
 #slide-content {
 	position: relative;
 	width: 870px;
-	height: 300px;
+	height: 100%;
 	margin: auto;
-	background-color: rgba(255,255,255,0);
+	background-color: rgba(255,255,255,1);
 }
 
 #slide-content img {
@@ -368,6 +368,13 @@ a:active {text-decoration: none; color:black;}
 #slide-content h2{
 	font-size: 35%;
 	text-align: center;
+}
+
+#end-res {
+    position: relative;
+    height: fill;
+    width: 870px;
+    text-align: center;
 }
 
 /****** END Slide styling  **************/
@@ -399,7 +406,7 @@ a:active {text-decoration: none; color:black;}
 
 .content-box {
 	width: 250px;
-	height: auto;
+	height: 260px;
 	float:left;
 	display:inline;
 	overflow: hidden;
@@ -436,8 +443,12 @@ a:active {text-decoration: none; color:black;}
 	height fill;
 	background-color: rgba(1,255,25,0);
 	font-size: 0.4em;
-	color: black;
+	color: white;
 	padding: 20px;
+}
+
+#search-box p {
+    color: white;
 }
 
 .search-bar {
@@ -721,7 +732,7 @@ input {
 
 .slide-content {
 	width: 100%;
-	min-height: 300px;
+	min-height: fill;
 	background-color: rgba(120,120,0,0);
 	text-align: center;
 }
