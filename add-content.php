@@ -267,13 +267,21 @@ if (!$username) {
 			echo "Temp file: " . $_FILES["file"]["tmp_name"] . C;
 			echo "');</script>";
 			
-			if (file_exists("upload/" . $_FILES["file"]["name"])) {
+			if (file_exists("uploads/" . $_FILES["file"]["name"])) {
 				echo $_FILES["file"]["name"] . " already exists. ";
+				
+				$origin = $_FILES["file"]["tmp_name"];
+				$destination = __DIR__ . "/uploads/x". $_FILES["file"]["name"]; 
+				$dir = "uploads/x". $_FILES["file"]["name"];
+				
+				// need to add error handling
+				move_uploaded_file($origin, $destination);
 			} 
 			else {
 				//echo "<br><br>trying to add now";
 				$origin = $_FILES["file"]["tmp_name"];
-				$destination = __DIR__ . "/uploads/". $_FILES["file"]["name"]; //__DIR__ . $_FILES["file"]["name"]);
+				$destination = __DIR__ . "/uploads/". $_FILES["file"]["name"];
+				$dir = "uploads/". $_FILES["file"]["name"];
 				
 				// need to add error handling
 				move_uploaded_file($origin, $destination);
@@ -286,7 +294,7 @@ if (!$username) {
 					//echo "\n file type is - " . $_FILES["file"]["size"];
 				}
 				
-				$array = array(addslashes($_POST['category']),addslashes($_POST['title']),addslashes($_POST['description']),addslashes($destination),$_POST['year']);
+				$array = array(addslashes($_POST['category']),addslashes($_POST['title']),addslashes($_POST['description']),addslashes($dir),$_POST['year']);
 				
 				//print_r($array);
 				

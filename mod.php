@@ -20,31 +20,31 @@ function search() {
 	
 	console.log(myPattern);
 	
-	var array_len = document.getElementsByClassName("added-image").length;
+	var array_len = document.getElementsByClassName("added-content-mod").length;
 	var results_count = 0;
 	
 	for (var n=0; n < array_len; n++) {
-		var z =(myPattern.test(document.getElementsByClassName("added-image")[n].innerHTML) && len > 0);
+		var z =(myPattern.test(document.getElementsByClassName("added-content-mod")[n].innerHTML) && len > 0);
 		console.log(z);
 		
-		if (myPattern.test(document.getElementsByClassName("added-image")[n].innerHTML) && len >= 0) {
-			//document.getElementsByClassName("added-image")[n].style.visibility = "visible";
-			document.getElementsByClassName("added-image")[n].style.display = "block";
+		if (myPattern.test(document.getElementsByClassName("added-content-mod")[n].innerHTML) && len >= 0) {
+			//document.getElementsByClassName("added-content-mod")[n].style.visibility = "visible";
+			document.getElementsByClassName("added-content-mod")[n].style.display = "block";
 			
 		} else {
-			//document.getElementsByClassName("added-image")[n].style.visibility = "hidden";
-			document.getElementsByClassName("added-image")[n].style.display = "none";
+			//document.getElementsByClassName("added-content-mod")[n].style.visibility = "hidden";
+			document.getElementsByClassName("added-content-mod")[n].style.display = "none";
 		}
 		
 	}
 	
 	for (var n=0; n < array_len; n++) {
-		if (document.getElementsByClassName("added-image")[n].style.display === "block") {
+		if (document.getElementsByClassName("added-content-mod")[n].style.display === "block") {
 			results_count++;
 		}
 	}
 	
-	//results_count = countByClass("added-image");
+	//results_count = countByClass("added-content-mod");
 	
 	document.getElementById("result").innerHTML = "There are: " + results_count + " results";
 	
@@ -334,10 +334,9 @@ function displayLatestContent() {
 	$sth = $con->query($sql);
 	$result2 = mysqli_fetch_array($sth);
 	$username = $result2['username'];
-	$img = $result2['img'];
 	
 	echo '
-	<div class="added-image">
+	<div class="added-content-mod">
 		<div class="container">
 		<div id="content-" class="txt-box">';
     
@@ -370,11 +369,11 @@ function displayAllContent() {
 	$result = mysqli_query($con, $sql);
 	
 	// display all the info
-	displayArray($result);
+	displayArray($con, $result);
 	
 }
 
-function displayArray($result_ar) {
+function displayArray($con, $result_ar) {
 	// getting column data
 	$i = 0;
 	
@@ -387,14 +386,20 @@ function displayArray($result_ar) {
 		$title = $row['Title'];
 		$year = $row['year'];
 		$description = $row['Description'];
+		$dir = $row['contentDirectory'];
 		$moderated = $row['moderated'];
+		
+		$sql = "SELECT * FROM users WHERE ID = '{$userid}'";
+        $sth = $con->query($sql);
+        $result2 = mysqli_fetch_array($sth);
+        $username = $result2['username'];
 		
 		if (!$row || $moderated != NULL) {
 			//echo '<h5> No info available</h5><br>';
 		}
 		else {
 			echo '
-		<div class="added-image">
+		<div class="added-content-mod">
 			<div class="container">
 			<div id="content-'.$row['ID'].'" class="txt-box">';
     
@@ -407,7 +412,9 @@ function displayArray($result_ar) {
 				<p>Year: '. $year . '  </p>
 				<p>Category: '. $category . '  </p>
 				<p>Date Added: '. $date  . '  </p>
-				<p>'.$description.'</p>
+				<p>'.$description.'</p>';
+			 displayAddedImg($dir);	
+		echo		'
 				<div class="mod-buttons">
 					<div id="mod-accept" onClick="accept(this)">accept</div>
 					<div id="mod-reject" onClick="reject(this)">reject</div>
@@ -454,6 +461,12 @@ function displayUserImg($username) {
         echo '<img class="user-image" src="userimg/'.$username.'.jpg"/>';
     } else {
         echo '<img class="user-image" src="userimg/no-user-image4.jpg"/>';
+    }
+}
+
+function displayAddedImg($dir) {
+    if (file_exists($dir)) {
+        echo '<img class="added-content-mod" src="'.$dir.'"/>';
     }
 }
 

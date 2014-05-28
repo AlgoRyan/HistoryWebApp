@@ -7,6 +7,37 @@
 	<link rel="stylesheet" type="text/css" href="css/paralax-style.css">
 	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/nyroModal.css">
+<script type="text/javascript">
+/* for url popup
+<!--
+function popup(url) 
+{
+ var width  = 300;
+ var height = 200;
+ var left   = (screen.width  - width)/2;
+ var top    = (screen.height - height)/2;
+ var params = 'width='+width+', height='+height;
+ params += ', top='+top+', left='+left;
+ params += ', directories=no';
+ params += ', location=no';
+ params += ', menubar=no';
+ params += ', resizable=no';
+ params += ', scrollbars=no';
+ params += ', status=no';
+ params += ', toolbar=no';
+ newwin=window.open(url,'windowname5', params);
+ if (window.focus) {newwin.focus()}
+ return false;
+}
+// -->
+
+and this goed in html:
+			<a href="javascript: void(0)" onclick="popup('display-content.php')">Centered popup window</a>
+
+
+*/
+</script>
+	
 </head>
 
 <body>
@@ -48,6 +79,13 @@
 	<p><a href="#1970" >1970 &times</a></p>
 	<p><a href="#1976" >1976 &times</a></p>
 	<p><a href="#1980" >1980 &times</a></p>
+	<p><a href="#2014" >1989 &times</a></p>
+	<p><a href="#1990" >1990 &times</a></p>
+	<p><a href="#1994" >1994 &times</a></p>
+	<p><a href="#1999" >1999 &times</a></p>
+	<p><a href="#2002" >2002 &times</a></p>
+	<p><a href="#2013" >2013 &times</a></p>
+	<p><a href="#2014" >2014 &times</a></p>
 </div>
 
 
@@ -93,6 +131,11 @@
 			</div>
 					
 		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('1950');?>
+		</div>
+		
 		</div> <!-- END slide1 -->
 		
 </section> <!-- end section-1 -->
@@ -122,8 +165,14 @@
 				<h2>CSIRAC and Trevor Pearcy</h2>
 				<p>Trevor Pearcey in front of CSIR Mk1 in Sydney 1952 ref 67</p>
 			</div>
+
 					
 		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('1954');?>
+		</div>
+		
 		</div> <!-- END slide2 -->
 		
 </section> <!-- end section-2-->
@@ -161,7 +210,13 @@
 				<p> CSIRAC being loaded Uni of Sydney 1955 ref 55 </p>
 			</div>
 					
+			
 		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('1955');?>
+		</div>
+		
 		</div> <!-- END slide3 -->
 		
 </section> <!-- end section-3 -->
@@ -242,9 +297,14 @@
 				<h2>Ron Bowles</h2>
 				<p>Ron Bowles adjusting Main Clock frequency 15 June 1956 ref 4</p>
 			</div>
-			
+
 			
 		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('1956');?>
+		</div>
+		
 		</div> <!-- END slide4 -->
 		
 </section> <!-- end section-4 -->
@@ -278,8 +338,13 @@
 
 				</p>
 			</div>
-					
+
 		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('1961');?>
+		</div>
+		
 		</div> <!-- END slide5 -->
 		
 </section> <!-- end section-5 -->
@@ -333,7 +398,13 @@
 				</p>
 			</div>
 			
+			
 		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('1964');?>
+		</div>
+		
 		</div> <!-- END slide6 -->
 		
 </section> <!-- end section-6 -->
@@ -385,6 +456,11 @@
 			</div>
 			
 		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('1966');?>
+		</div>
+		
 		</div> <!-- END slide7 -->
 		
 </section> <!-- end section-7 -->
@@ -414,8 +490,13 @@
 				component has not been settled with this arrangment.
 				</p>
 			</div>
-								
+		    
 		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('1969');?>
+		</div>
+		
 		</div> <!-- END slide8 -->
 		
 </section> <!-- end section-8 -->
@@ -446,14 +527,13 @@
 
 				</p>
 			</div>
-			
-			<div class="img-box">
-				<img src="img/ss1.jpg" />
-				<h2>title here</h2>
-				<p>description</p>
-			</div>
 					
 		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('1970');?>
+		</div>
+		
 		</div> <!-- END slide9 -->
 		
 </section> <!-- end section-9 -->
@@ -515,6 +595,9 @@
 			</div>
 			
 		</div> <!-- END slide-content -->
+		<div class='user-content'>
+			    <?php displayYearContent('1976');?>
+		</div>
 		</div> <!-- END slide10 -->
 		
 </section> <!-- end section-10 -->
@@ -581,7 +664,27 @@
 				<p>Vice-Chancellor of the University of Melbourne from 1988 to 1995</p>
 			</div>
 			
-			<div class="txt-box">
+			
+			
+		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('1980');?>
+		</div>
+		
+		</div> <!-- END slide11 -->
+</section> <!-- end section-11 -->
+
+<section id="section-12" class="bcg"> <!-- START section-12 -->
+	<div id="slide12" class="align-center slide"> <!-- start slide12 -->
+		<div id='1989'/>
+		<div class='section-heading'>
+		    <p> 1989 </p>
+		</div> <!-- heading for section-->
+	
+		<div id="slide12-content" class="slide-content"> <!-- START slide-content -->
+			
+		<div class="txt-box">
 				
 				<h2> One computer for every desk (1989)</h2>
 				<p>
@@ -601,72 +704,258 @@
 				</p>
 			</div>
 			
-			Vice-Chancellor of the University of Melbourne from 1988 to 1995
 					
 		</div> <!-- END slide-content -->
-		</div> <!-- END slide11 -->
 		
-</section> <!-- end section-11 -->
+		<div class='user-content'>
+			    <?php displayYearContent('1989');?>
+		</div>
+		
+		</div> <!-- END slide12 -->
+		
+</section> <!-- end section-12 -->
 
-<section id="section-12" class="bcg"> <!-- START section-12 -->
-	<div id="slide12" class="align-center slide"> <!-- start slide12 -->
-		<div id='#year'/>
+<section id="section-13" class="bcg"> <!-- START section-13 -->
+	<div id="slide13" class="align-center slide"> <!-- start slide13 -->
+		<div id='1990'/>
 		<div class='section-heading'>
-		    <p> #year </p>
+		    <p> 1990 </p>
 		</div> <!-- heading for section-->
 	
-		<div id="slide#-content" class="slide-content"> <!-- START slide-content -->
+		<div id="slide13-content" class="slide-content"> <!-- START slide-content -->
 			
 			
 			<div class="txt-box">
 				
-				<h2>title</h2>
+				<h2> Computing under Faculty of Engineering </h2>
 				<p>
-				text here
+				Professor Poole was involved in a review of the Department of Electrical Engineering. The review suggested a revamp to the management structure of the electrical engineering area. It was suggested that a School of Information Technology and Electrical Engineering (SITEE) be formed within the Faculty Engineering.   
 				</p>
 			</div>
 			
-			
+			<div class="txt-box">
+				
+				<h2>World-Class Facilities</h2>
+				<p>
+				In 1990, Peter Throne became the new head of the Department of Computer Science. 
+One of Thorne’s most important contributions during the early 1990s was his work with the architects designing a new building for the Department. Throughout the 1980s the Department had jostled and jousted with the Departments of Mathematics and Statistics in the Richard Berry Building, with space acquired in a range of “deals”, and sometimes by adverse possession. The new building, in Bouverie Street, was a chance to obtain world-class facilities for staff and students, and Thorne (as- sisted by technical staff Robert Elz, David Hornsby, and Andrew Peel) invested enormous effort into the design, construction, and the eventual move in July 1993.
+				</p>
+				
+			</div>
+					
 			<div class="img-box">
-				<img src="img/ss1.jpg" />
-				<h2>title here</h2>
-				<p>description</p>
+				<img src="img/peter_thorne.jpg" />
+				<h2>Peter Thorne (1999)</h2>
+				<p>The Head of the CS department from 1990</p>
 			</div>
 					
 		</div> <!-- END slide-content -->
-		</div> <!-- END slide# -->
 		
-</section> <!-- end section-# -->
+		<div class='user-content'>
+			    <?php displayYearContent('1990');?>
+		</div>
+		
+		</div> <!-- END slide13 -->
+		
+</section> <!-- end section-13 -->
 
-<section id="section-#" class="bcg"> <!-- START section-# -->
-	<div id="slide#" class="align-center slide"> <!-- start slide# -->
-		<div id='#year'/>
+<section id="section-14" class="bcg"> <!-- START section-14 -->
+	<div id="slide14" class="align-center slide"> <!-- start slide14 -->
+		<div id='1994'/>
 		<div class='section-heading'>
-		    <p> #year </p>
+		    <p> 1994 </p>
 		</div> <!-- heading for section-->
 	
-		<div id="slide#-content" class="slide-content"> <!-- START slide-content -->
+		<div id="slide14-content" class="slide-content"> <!-- START slide-content -->
 			
 			
 			<div class="txt-box">
 				
-				<h2>title</h2>
+				<h2>Department of Information Systems</h2>
 				<p>
-				text here
+				The Department of Information Systems was formed in the Faculty of Science, with the focus of teaching Information Systems. The first students of the department were enrolled in 1995.
+				</p>
+				
+			</div>
+					
+			 
+					
+		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('1994');?>
+		</div>
+		
+		</div> <!-- END slide14 -->
+		
+</section> <!-- end section-14 -->
+
+<section id="section-15" class="bcg"> <!-- START section-15 -->
+	<div id="slide15" class="align-center slide"> <!-- start slide15 -->
+		<div id='1999'/>
+		<div class='section-heading'>
+		    <p> 1999 </p>
+		</div> <!-- heading for section-->
+	
+		<div id="slide15-content" class="slide-content"> <!-- START slide-content -->
+			
+			
+			<div class="txt-box">
+				
+				<h2>The emerging of Software Engineering</h2>
+				<p>
+				Another department name change came in 1999. The new name – Computer Science and Software Engineering – reflected a growing acceptance of the positioning of the Department within the Faculty of Engineering, and a growing maturity in its understanding of the educational requirements of software engineers. The BE(SE) program was provisionally accredited by IEAust (now Engineers Australia) in late 1993, and fully accredited in November 1996; and was the first such program in Australia to be accredited. 
+				</p>
+			</div>
+					
+			
+			<div class="txt-box">
+				
+				<h2>December The Melbourne IT</h2>
+				<p>
+                Elz’s success in establishing guidelines and system for internet domain name registration was an essential part in the sucess of the company Melbourne IT. The company started with an original investment of $350.000. In December 1999, the company raised nearly 80 million dollars for the University at the height of the internet boom.
+				</p>
+			</div>
+					
+					
+
+			 
+					
+		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('1999');?>
+		</div>
+		
+		</div> <!-- END slide15 -->
+		
+</section> <!-- end section-15 -->
+
+<section id="section-16" class="bcg"> <!-- START section-16 -->
+	<div id="slide16" class="align-center slide"> <!-- start slide16 -->
+		<div id='2002'/>
+		<div class='section-heading'>
+		    <p> 2002 </p>
+		</div> <!-- heading for section-->
+	
+		<div id="slide16-content" class="slide-content"> <!-- START slide-content -->
+			
+			
+			<div class="txt-box">
+				
+				<h2>New Head of Department: Professor Rao Kotagiri </h2>
+				<p>
+				Kotagiri’s experience as a researcher led in 2004 to the establishment of a NICTA (National ICT Australia) node at the University, jointly housed with the Department of Electrical and Electronics Engineering. This large research initiative, with multiple linkages, and the ability to support both additional research staff and postgraduate students, was a considerable coup, and provided the potential for a significant boost in research profile, and for a shift in the balance between undergraduate and postgraduate teaching. In 2006, with additional support from the Victorian State Government, the NICTA funding agreement was extended into the life sciences area.
 				</p>
 			</div>
 			
+			<div class="img-box">
+				<img src="img/p3.jpg" />
+				<h2>Heads of Computer Science in fron of the new building</h2>
+				<p> 
+				Bill Flower (1970-1975), Peter C. Poole (1975-1990), Peter Thorne (1990-1996), Leon Sterling (1996-2002), and Rao Kotagiri (2002-2006?)
+				</p>
+			
+			</div>
 			
 			<div class="img-box">
-				<img src="img/ss1.jpg" />
-				<h2>title here</h2>
-				<p>description</p>
+				<img src="img/ict_building.jpg" />
+				<h2>New Building (December 2002)</h2>
+				<p>Located at 111 Barry St, Melbourne</p>
+			</div>
+			
+			<div class="txt-box">
+				
+				<h2>CIS new location ~ December</h2>
+				<p>
+                The new ICT Building at 111 Barry Street – denoted as “Building B” on the plans for the University Square development – was designed by Metier 3 for the developer Equiset, and built by Grocon. The fit-out was designed for the two departments by Lyons Architects and built by L U Simon Builders, at a further cost of approximately $20 million. The project commenced in 1999, the building was completed mid-2001, and the fitout completed in late 2002.
+                University facilities in the building include lecture theatres of 180, 80, and 80 seats; an adjacent foyer area for functions; three computer tutorial rooms equipped with projection whiteboards and designed for collaborative learning; and another twelve tutorial rooms. The two departments also share a pool of project rooms for student meetings; a range of student study areas, some equipped with network data points; a staff common room; a seminar room; a range of meeting rooms; and a dedicated computer room. As well, each of the two departments has extensive laboratory space for undergraduate students; staff research laboratories; and space to house large numbers of postgraduate research students.
+				</p>
 			</div>
 					
+			
+					
 		</div> <!-- END slide-content -->
-		</div> <!-- END slide# -->
 		
-</section> <!-- end section-# -->
+		<div class='user-content'>
+			    <?php displayYearContent('2002');?>
+		</div>
+		
+		</div> <!-- END slide16 -->
+		
+</section> <!-- end section-16 -->
+
+<section id="section-17" class="bcg"> <!-- START section-17 -->
+	<div id="slide17" class="align-center slide"> <!-- start slide17 -->
+		<div id='2013'/>
+		<div class='section-heading'>
+		    <p> 2013 </p>
+		</div> <!-- heading for section-->
+	
+		<div id="slide17-content" class="slide-content"> <!-- START slide-content -->
+			
+			
+			<div class="txt-box">
+				
+				<h2>The New Microsoft  Research Centre for Social NUI (Natural User Interface) at Melbourne University
+                </h2>
+				
+				<p>
+				
+				The centre for Social NUI is a research partnership between Microsoft and the University of Melbourne, with support from the Victorian State Government. It is a centre for academics and students wishing to collaborate with leading researchers dedicated to understanding and creating NUI for social interactions.
+                
+                For more information about this new research centre : <a href='http://www.socialnui.unimelb.edu.au/'>www.socialnui.unimelb.edu.au</a>
+			    
+				</p>
+			</div>
+					
+			 
+					
+		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('2013');?>
+		</div>
+		
+		</div> <!-- END slide17 -->
+		
+</section> <!-- end section-17 -->
+
+<section id="section-18" class="bcg"> <!-- START section-18 -->
+	<div id="slide18" class="align-center slide"> <!-- start slide18 -->
+		<div id='2014'/>
+		<div class='section-heading'>
+		    <p> 2014 </p>
+		</div> <!-- heading for section-->
+	
+		<div id="slide18-content" class="slide-content"> <!-- START slide-content -->
+			
+			
+			<div class="txt-box">
+				
+				<h2>The CIS Department leadership</h2>
+				<p>
+				Professor Justin Zobel is Head of the Department of Computing & Information Systems. He received his PhD from the University of Melbourne and for many years was based in the School of CS&IT at RMIT University, where he led the Search Engine group. In 2007-8 he was a Principle Senior Researcher in NICTA, leading the Computing in Health area, and in 2010 was interim Director of the Victorian Life Sciences Computation Initiative.
+                
+                Since 2013, Lars Kulikis is Deputy Head of the CIS Department after his research is the fields od Spatial Information Science and Engineering.
+                
+                Dr Simon Milton is Associate Professor of Information Systems in the Department of Computing and Information Systems at The University of Melbourne.He received his PhD from the Department of Information Systems at the University of Tasmania in which he reported the first comprehensive analysis of data modelling languages using a common-sense realistic ontology.
+                
+                Professor Frank Vetere is Deputy Head (Research) in the CIS Department and lead the Interaction Design Laboratory which explores the design and use of technology across a range of human activities. He is also the Director of the Microsoft Research Centre for Social NUI at Melbourne University
+
+				</p>
+			</div>
+					
+					
+		</div> <!-- END slide-content -->
+		
+		<div class='user-content'>
+			    <?php displayYearContent('2014');?>
+		</div>
+		
+		</div> <!-- END slide18 -->
+		
+</section> <!-- end section-18 -->
 
 </div> <!-- wrapper -->
 
@@ -697,61 +986,71 @@
 
 <?php
 
-function displayAllContent() {
+function displayYearContent($year) {
 	$con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta");
 	if (mysqli_connect_errno()) {
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
 	
 	// get the array in descending order
-	$sql = "SELECT * FROM UserContent ORDER BY `id` DESC";
+	$sql = "SELECT * FROM UserContent WHERE Year = '".$year."'";
+	
 	$result = mysqli_query($con, $sql);
 	
 	// display all the info
-	displayArray($result);
 	
+	
+	displayArray($con, $result);
 }
 
-function displayArray($result_ar) {
+function displayArray($con, $result_ar) {
 	// getting column data
 	$i = 0;
+	$flag = 0;
 	
 	while ($i < mysqli_num_rows($result_ar)) {
 		$row = $result_ar->fetch_array(MYSQLI_ASSOC);
 			
 		$userid = $row['UserID'];
+		$username = $_COOKIE['ID_my_site'];
 		$category = $row['Category'];
 		$date = $row['Date'];
 		$title = $row['Title'];
 		$year = $row['year'];
 		$description = $row['Description'];
+		$dir = $row['contentDirectory'];
 		$moderated = $row['moderated'];
 		
-		if (!$row || $moderated != NULL) {
+		$sql = "SELECT * FROM users WHERE ID = '{$userid}'";
+        $sth = $con->query($sql);
+        $result2 = mysqli_fetch_array($sth);
+        $username = $result2['username'];
+		
+		if (!$row || $moderated == 0) {
 			//echo '<h5> No info available</h5><br>';
 		}
 		else {
+		if ($flag == 0) {
+		    echo "<h3> User's have uploaded: </h3>";
+		    $flag = 1;
+		}
 			echo '
 		<div class="user-added">
-			<div class="container">
+			
 			<div id="content-'.$row['ID'].'" class="txt-box">';
     
 			displayUserImg($username);
-	echo	'
+	        echo	'
 				<div class="user-info">'.$username.'</div> 
-				<div class="date">Added on <i>'.$date.' </i> </div>
+				<div class="date">Added on <i id="fancy-date">'.$date.' </i> </div>
 			
 				<h2>Title: ' . $title  . '  </h2>
 				<p>Year: '. $year . '  </p>
 				<p>Category: '. $category . '  </p>
-				<p>Date Added: '. $date  . '  </p>
 				<p>'.$description.'</p>
-				<div class="mod-buttons">
-					<div id="mod-accept" onClick="accept(this)">accept</div>
-					<div id="mod-reject" onClick="reject(this)">reject</div>
-				</div>
-				
-				</div>
+				';
+			displayAddedImg($dir);	
+			echo	'
 			</div>
 		</div>
 			';
@@ -760,6 +1059,20 @@ function displayArray($result_ar) {
 	}
 	
 	mysqli_free_result($result);
+}
+
+function displayUserImg($username) {
+    if (file_exists('userimg/'.$username.'.jpg')) {
+        echo '<img class="user-image" src="userimg/'.$username.'.jpg"/>';
+    } else {
+        echo '<img class="user-image" src="userimg/no-user-image4.jpg"/>';
+    }
+}
+
+function displayAddedImg($dir) {
+    if (file_exists($dir)) {
+        echo '<img class="added-image" src="'.$dir.'"/>';
+    }
 }
 
 ?>

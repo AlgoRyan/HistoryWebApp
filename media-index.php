@@ -156,77 +156,17 @@ function search() {
 		</div> <!-- END Search-box -->
 		</div> <!-- END img-content -->
 	
-		<div id="slide-content"> <!-- START slide-content -->
-
-			<?php
-			$con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta"); 
-			if (mysqli_connect_errno()) {
-				echo "Failed to connect to MySQL: " . mysqli_connect_error();
-			}
-			
-			$sql = "SELECT * FROM Hardware";
-			$result = mysqli_query($con, $sql);
-			$sql = "SELECT * FROM `Photographs - CSIRAC`;";
-			$CSIRAC_array = mysqli_query($con, $sql);
-			
-			if (!$result || !$CSIRAC_array) {
-				die('Query Failed: ' . mysqli_error());	
-			}
-			
-			displayArray($result,'HardwareID','HardwareComments');
-			//displayArray($CSIRAC_array,'Title','Notes');
-			
-			function displayArray($result_ar, $_title, $_comments) {
-                // getting column data
-                $i = 0;
+		<div id="media-slide-content"> <!-- START slide-content -->
             
-                while ($i < mysqli_num_rows($result_ar)) {
-                    $row = $result_ar->fetch_array(MYSQLI_ASSOC);
-                
-                    if (!$row) {
-                        echo '<h5> No info available</h5><br>';
-                    }
-                
-                    //echo '<pre>' . $row[$_title] . '</pre><br>';
-                
-                    $exploded = multiexplode(array(";"),$row['ImageLocation']);
-                    $comments = $row[$_comments];
-                    
-                    foreach ( $exploded as $dir) {
-                        if ($dir != NULL) {
-                            $title = $row[$_title];
-                            makeContentDiv($dir,$title,$comments,$i);
-                        }
-                    }
-                
-                    $i++;
-                }
+            <?php
             
-                mysqli_free_result($result);
-			}
-			
-			function makeContentDiv($url, $id, $descript,$i) {
-			    echo "
-			    <div class='added-image'>
-			        <div id='img". $i ."' class='content-box'>
-				        <div><img src='" . $url . "' /></div>
-                        <h2 margin='5px'>" . $id . "</h2>
-                        <hr color='black' size='3px'/>
-				        <p>". $descript . "</p>
-				    </div>
-				</div>";
-			}
-			
-			function multiexplode ($delimiters,$string) {
-				
-				$ready = str_replace($delimiters, $delimiters[0], $string);
-				$launch = explode($delimiters[0], $ready);
-				return  $launch;
-			}
-			
-			?>
-		    <div id='end-res'><p>... end of results ... </p></div>
+            connectShow()
+            
+            ?>
+            
+		    <br> <div id='end-res'> <p> ... end of results ... <p></div>
 		</div> <!-- END slide-content -->
+		
 		
 	</div> <!-- END slide1 -->	
 	
@@ -269,6 +209,84 @@ function search() {
  </div>
  
  <!-- unimelb footer END -->
+
+<?php
+function connectShow() {
+    $con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta"); 
+    if (mysqli_connect_errno()) {
+        echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    }
+
+    $sql = "SELECT * FROM Hardware";
+    $result = mysqli_query($con, $sql);
+    $sql = "SELECT * FROM `Photographs - CSIRAC`;";
+    $CSIRAC_array = mysqli_query($con, $sql);
+
+    if (!$result || !$CSIRAC_array) {
+        die('Query Failed: ' . mysqli_error());	
+    }
+    
+    displayArray($result,'HardwareID','HardwareComments');
+	displayArray($CSIRAC_array,'Title','Notes');
+
+}
+
+function displayArray($result_ar, $_title, $_comments) {
+    // getting column data
+    $i = 0;
+
+    while ($i < mysqli_num_rows($result_ar)) {
+        $row = $result_ar->fetch_array(MYSQLI_ASSOC);
+    
+        if (!$row) {
+            echo '<h5> No info available</h5><br>';
+        }
+    
+        //echo '<pre>' . $row[$_title] . '</pre><br>';
+    
+        $exploded = multiexplode(array(";"),$row['ImageLocation']);
+        $comments = $row[$_comments];
+        
+        foreach ( $exploded as $dir) {
+       // if (file_exists("uploads/" . $_FILES["file"]["name"])) {
+            if (file_exists($dir)) {
+                $title = $row[$_title];
+                
+                makeContentDiv($dir,$title,$comments,$i);
+            }
+        }
+    
+        $i++;
+    }
+
+    mysqli_free_result($result);
+   
+}
+
+function makeContentDiv($url, $id, $descript,$i) {
+    echo "
+    <div class='added-image'>
+        <div id='img". $i ."' class='content-box'>";
+    echo '
+            <div><img src="' . $url . '" /></div>';
+    echo "
+            <h2 margin='5px'>" . $id . "</h2>
+            <hr color='black' size='3px'/>
+            <p>". $descript . "</p>
+        </div>
+    </div>";
+}
+
+function multiexplode ($delimiters,$string) {
+    
+    $ready = str_replace($delimiters, $delimiters[0], $string);
+    $launch = explode($delimiters[0], $ready);
+    return  $launch;
+}
+
+?>
+
+
 
 </body>
 
