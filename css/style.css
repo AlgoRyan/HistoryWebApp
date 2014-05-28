@@ -80,6 +80,7 @@ body {
 
 #about-wrapper {
 	width: 80%;
+	max-width:1200px;
 	background-color: rgba(0, 52, 102, 1);
 }
 
@@ -109,7 +110,7 @@ body {
 
 #welcome-title-index {
 	position: absolute;
-	left: 150px; /* this could potentially cause problems */
+	left: 25%;
 	width: 600px;
 	height: fill;
 	top: 50px;
@@ -731,7 +732,7 @@ input {
 }
 
 .section-about a {
-	color: yellow;
+	color: #40A6FF;
 }
 
 /****** Styling for the about page END *****/
