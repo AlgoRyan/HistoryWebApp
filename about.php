@@ -24,7 +24,8 @@
 			}
 			$id = $_COOKIE['ID_my_site'];
 			
-			echo '<img class="user-image" src="userimg/'.$id.'.jpg"/>';
+			displayUserImg($id);
+			
 			echo '<h6>logged in as '. $id .'</h6>';
 			
 			/*
@@ -187,6 +188,18 @@
  </div>
  
  <!-- unimelb footer END -->
+<?php
+
+function displayUserImg($username) {
+    if (file_exists('userimg/'.$username.'.jpg')) {
+        echo '<img class="user-image" src="userimg/'.$username.'.jpg"/>';
+    } else {
+        echo '<img class="user-image" src="userimg/no-user-image4.jpg"/>';
+    }
+}
+
+
+?>
 
 </body>
 

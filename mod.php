@@ -150,7 +150,9 @@ function reject(item) {
 				echo "Failed to connect to MySQL: " . mysqli_connect_error();
 			}
 			$id = $_COOKIE['ID_my_site'];
-			echo '<img class="user-image" src="userimg/'.$id.'.jpg"/>';
+			
+			displayUserImg($id);
+			
 			echo '<h6>logged in as '. $id .'</h6>';
 			}
 		?>
@@ -237,7 +239,7 @@ function reject(item) {
 		</div> <!-- END img-content -->
 	
                 <?php
-                	displayLatestContent();
+                	//displayLatestContent();
 				    displayAllContent();
 				?>
 			
@@ -337,9 +339,10 @@ function displayLatestContent() {
 	echo '
 	<div class="added-image">
 		<div class="container">
-		<div id="content-" class="txt-box">
+		<div id="content-" class="txt-box">';
     
-			<img class="user-image" src="userimg/'.$username.'.jpg"/>
+			displayUserImg($username);
+	echo	'
 			<div class="user-info">'.$username.'</div> 
 			<div class="date">Added on <i>'.$date.' </i> </div>
 		
@@ -393,9 +396,10 @@ function displayArray($result_ar) {
 			echo '
 		<div class="added-image">
 			<div class="container">
-			<div id="content-'.$row['ID'].'" class="txt-box">
-		
-				<img class="user-image" src="userimg/'.$username.'.jpg"/>
+			<div id="content-'.$row['ID'].'" class="txt-box">';
+    
+			displayUserImg($username);
+	echo	'
 				<div class="user-info">'.$username.'</div> 
 				<div class="date">Added on <i>'.$date.' </i> </div>
 			
@@ -443,6 +447,14 @@ function acceptThis($ar, $mod) {
 		mysqli_query($con, $sql);
 		//echo "THIS HAS BEEN DONE<br>";
 	}
+}
+
+function displayUserImg($username) {
+    if (file_exists('userimg/'.$username.'.jpg')) {
+        echo '<img class="user-image" src="userimg/'.$username.'.jpg"/>';
+    } else {
+        echo '<img class="user-image" src="userimg/no-user-image4.jpg"/>';
+    }
 }
 
 

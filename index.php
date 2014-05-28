@@ -11,7 +11,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="js/slideshow.js"></script>
 
-
 </head>
 <body class="grad">
 <nav> <!-- START nav here -->
@@ -28,8 +27,11 @@
 			}
 			$id = $_COOKIE['ID_my_site'];
 			
-			echo '<img class="user-image" src="userimg/'.$id.'.jpg"/>';
+			displayUserImg($id);
+			
 			echo '<h6>logged in as '. $id .'</h6>';
+			
+			
 			
 			/* viewing the image from the db
 			$sql = "SELECT img FROM users WHERE username = '{$id}'";
@@ -160,7 +162,7 @@
 			<img src="img/journey.jpg" />
 			<h2 margin='5px'>Journey</h2>
 			<hr color='black' size='3px'/>
-			<p>journey through the history and add your own story - insert paralax link here -</p>
+			<p>journey through the history and add your own story</p>
 			</div>
 		</a>
 		<a href="media-index.php">
@@ -215,6 +217,17 @@
 <!-- all the javascript references -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/functions.js"></script>
+
+<?php
+function displayUserImg($username) {
+    if (file_exists('userimg/'.$username.'.jpg')) {
+        echo '<img class="user-image" src="userimg/'.$username.'.jpg"/>';
+    } else {
+        echo '<img class="user-image" src="userimg/no-user-image4.jpg"/>';
+    }
+}
+
+?>
 
 </body>
 

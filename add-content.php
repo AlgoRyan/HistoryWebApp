@@ -24,8 +24,11 @@
 				echo "Failed to connect to MySQL: " . mysqli_connect_error();
 			}
 			$id = $_COOKIE['ID_my_site'];
-			echo '<img class="user-image" src="userimg/'.$id.'.jpg"/>';
+			
+			displayUserImg($id);
+			
 			echo '<h6>logged in as '. $id .'</h6>';
+			
 			}
 			else{
 				//echo '<h1 color=red>photo goes here<h1>';
@@ -288,6 +291,7 @@ if (!$username) {
 				//print_r($array);
 				
 				insertSQL($con, $id_no, $array);
+				jsalert("Your Content has been added successfully and has been sent off for moderating");
 				header("location:add-content.php");
 	} else {
 		// need to make this only show AFTER the first load not upon opening
@@ -303,12 +307,11 @@ displayFooter();
 function insertSQL($con, $user, $ar) {
 	//echo "<br>into the funciton<br>";
 	$today = date("D F j, Y, g:i a");  
-	$boo = false;
 	
 	//$insert = "INSERT INTO UserContent (UserID, Category, Title, Date, Description, contentDirectory) 
 	//	VALUES (".$user.",".$ar[0].",".$ar[1].",".date('l jS \of F Y h:i:s A').",".$ar[2].",".$ar[3].")";
-	$insert = "INSERT INTO UserContent (UserID, Category, Title, Date, Description, contentDirectory, year, moderated) 
-	VALUES ('{$user}','{$ar[0]}','{$ar[1]}','{$today}','{$ar[2]}','{$ar[3]}','{$ar[4]}','{$boo}')";
+	$insert = "INSERT INTO UserContent (UserID, Category, Title, Date, Description, contentDirectory, year) 
+	VALUES ('{$user}','{$ar[0]}','{$ar[1]}','{$today}','{$ar[2]}','{$ar[3]}','{$ar[4]}')";
 	
 	if (!mysqli_query($con, $insert)) { // Error handling
 		//echo "<br><br><h2><i>Something went wrong!</i> :(<h2>";
@@ -322,6 +325,14 @@ function insertSQL($con, $user, $ar) {
 
 function jsalert($msg) {
 	echo "<script type='text/javascript'>alert('{$msg}');</script>";
+}
+
+function displayUserImg($username) {
+    if (file_exists('userimg/'.$username.'.jpg')) {
+        echo '<img class="user-image" src="userimg/'.$username.'.jpg"/>';
+    } else {
+        echo '<img class="user-image" src="userimg/no-user-image4.jpg"/>';
+    }
 }
 
 ?>

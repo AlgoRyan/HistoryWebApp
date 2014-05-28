@@ -43,9 +43,9 @@ function search() {
 	
 	//results_count = countByClass("added-image");
 	
-	document.getElementById("result").innerHTML = "There are: " + results_count + " results";
+	document.getElementById("result").innerHTML = results_count ;
 	
-	adjustDivHeight("#slide-content",results_count,290,3);
+	//adjustDivHeight("#slide-content",results_count,290,3);
 
 }
 
@@ -174,36 +174,8 @@ function search() {
 			}
 			
 			displayArray($result,'HardwareID','HardwareComments');
-			displayArray($CSIRAC_array,'Title','Notes');
+			//displayArray($CSIRAC_array,'Title','Notes');
 			
-			/*
-			// getting column data
-			$i = 0;
-			
-			while ($i < mysqli_num_rows($result)) {
-				$row = $result->fetch_array(MYSQLI_ASSOC);
-				
-				if (!$row) {
-					echo '<h5> No info available</h5><br>';
-				}
-				
-				//echo '<pre>' . $row['HardwareID'] . '</pre><br>';
-				
-				$exploded = multiexplode(array(";"),$row['ImageLocation']);
-				$count = count($exploded);
-				$comments = $row['HardwareComments'];
-				
-				foreach ( $exploded as $dir) {
-					if ($dir != NULL) {
-						makeContentDiv($dir,$row['HardwareID'],$comments,$i);
-					}
-				}
-				
-				$i++;
-			}
-			
-			mysqli_free_result($result);
-			*/
 			function displayArray($result_ar, $_title, $_comments) {
                 // getting column data
                 $i = 0;
@@ -234,12 +206,15 @@ function search() {
 			}
 			
 			function makeContentDiv($url, $id, $descript,$i) {
-			    echo "<div class='added-image'>";
-				echo "<div id='img". $i ."' class='content-box'>
-				    <div><img src='" . $url . "' /></div>";
-				echo "<h2 margin='5px'>" . $id . "</h2>";
-				echo "<hr color='black' size='3px'/>";
-				echo "<p>". $descript . "</p></div></div>";
+			    echo "
+			    <div class='added-image'>
+			        <div id='img". $i ."' class='content-box'>
+				        <div><img src='" . $url . "' /></div>
+                        <h2 margin='5px'>" . $id . "</h2>
+                        <hr color='black' size='3px'/>
+				        <p>". $descript . "</p>
+				    </div>
+				</div>";
 			}
 			
 			function multiexplode ($delimiters,$string) {
@@ -250,7 +225,7 @@ function search() {
 			}
 			
 			?>
-		
+		    <div id='end-res'><p>... end of results ... </p></div>
 		</div> <!-- END slide-content -->
 		
 	</div> <!-- END slide1 -->	
