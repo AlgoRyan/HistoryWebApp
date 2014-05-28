@@ -91,7 +91,7 @@ if (isset($_POST['submit']))
 
 	
 	//This makes sure they did not leave any fields blank
-	if (!$_POST['username'] | !$_POST['pass'] | !$_POST['pass2'] ) 
+	if (!$_POST['username'] | !$_POST['pass'] | !$_POST['pass2'] |!_POST['mail']) 
 	{
 		//die('You did not complete all of the required fields');
 		//echo "<a href='index.php'> Click here to return home</a>";
@@ -135,7 +135,53 @@ if (isset($_POST['submit']))
  		displayFooter();
  		exit();
  	}
- 	
+ 	// checks if the email is in use
+ 	if (!get_magic_quotes_gpc()) 
+ 	{
+ 		$_POST['mail'] = addslashes($_POST['mail']);
+ 	}
+
+	$usercheck = $_POST['mail'];
+	$check = mysqli_query($con, "SELECT mail FROM users WHERE mail = '$mail'") 
+	or die(mysqli_error());
+	$check2 = mysqli_num_rows($check);
+	
+	//if the email exists it gives an error
+ 	if ($check2 != 0) 
+ 	{
+ 		//die('Sorry, the email address '.$_POST['mail'].' is already in use.');
+ 		//echo "<a href='index.php'> Click here to return home</a>";
+ 		$msg = 'Sorry, the email address '.$_POST['mail'].' is already in use.';
+ 		echo "<script type='text/javascript'>alert('$msg');</script>";
+ 		displayForm();
+ 		displayFooter();
+ 		exit();
+	}
+	//Check if the email address is valid
+	require_once('smtp_validateEmail.class.php');
+	$email = $_POST['mail'];
+	// an optional sender
+	//$sender = 'user@mydomain.com';
+	// instantiate the class
+	$SMTP_Validator = new SMTP_validateEmail();
+	// turn on debugging if you want to view the SMTP transaction
+	//$SMTP_Validator->debug = true;
+	// do the validation
+	$results = $SMTP_Validator->validate(array($email)); //full syntax with sender : $results = $SMTP_Validator->validate(array($email),$sender);
+	// view results
+	echo $email.' is '.($results[$email] ? 'valid' : 'invalid')."\n";
+
+	// send email? 
+	if (!$results[$email]) {
+ 		$msg = 'Sorry, the email address '.$_POST['mail'].' does not exist or is invalid.';
+ 		echo "<script type='text/javascript'>alert('$msg');</script>";
+ 		displayForm();
+ 		displayFooter();
+ 		exit();
+	}
+	
+	
+	
  	// this makes sure the image is valid and it is actually there
 	if($_FILES['file']['name']=='') {
 		//die("did not work image");
@@ -160,8 +206,8 @@ if (isset($_POST['submit']))
  	}
 
  	// now we insert it into the database
- 	$insert = "INSERT INTO users (username, password)
- 			VALUES ('".$_POST['username']."', '".$_POST['pass']."')";
+ 	$insert = "INSERT INTO users (username, password, mail)
+ 			VALUES ('".$_POST['username']."', '".$_POST['pass']."', '".$_POST['mail']."')";
  	$add_member = mysqli_query($con, $insert);
  	
  	// // // // // START adding image // // // // //
@@ -247,6 +293,10 @@ function displayForm() {
                 <td>Confirm Password:</td>
                 <td><input type="password" name="pass2" maxlength="10"></td>
             </tr>
+			<tr>
+				<td>Email address:</td>
+				<td><input type="email" name="mail" maxlength="100"></td>
+			</tr>
             <tr>
                 <td>Choose User Image :  </td>
                 <td><input type="file" name="file" id="file"><br></td>
