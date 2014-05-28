@@ -109,7 +109,7 @@ body {
 
 #welcome-title-index {
 	position: absolute;
-	left: 150px; /* this could potentially cause problems */
+	left: 25%;
 	width: 600px;
 	height: fill;
 	top: 50px;
