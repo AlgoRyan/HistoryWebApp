@@ -393,7 +393,7 @@ a:active {text-decoration: none; color:black;}
 
 .content-box {
 	width: 250px;
-	height: 250px;
+	height: auto;
 	float:left;
 	display:inline;
 	overflow: hidden;
