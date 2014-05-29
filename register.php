@@ -13,10 +13,10 @@
 	<div id="nav-heading">
 		University of Melbourne
 	</div>
-
+	
 	<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
 	<a href="add-content.php"><div id="add-content" > <p>a</p> </div></a>
-
+	
 <!-- melb uni header START -->
 <div id="g-header" role="banner"> <!-- banner div START -->
 
@@ -83,18 +83,16 @@ if (mysqli_connect_errno()) {
 //This code runs if the form has been submitted
 if (isset($_POST['submit']))
 { 	
-
+	
 	//inserting the user picture
 	$allowedExts = array("gif", "jpeg", "jpg", "png", "JPG");
 	$temp = explode(".", $_FILES["file"]["name"]);
 	$extension = end($temp);
 
-
+	
 	//This makes sure they did not leave any fields blank
-	if (!$_POST['username'] | !$_POST['pass'] | !$_POST['pass2'] ) 
+	if (!$_POST['username'] | !$_POST['pass'] | !$_POST['pass2'] | !$_POST['mail']) 
 	{
-		//die('You did not complete all of the required fields');
-		//echo "<a href='index.php'> Click here to return home</a>";
 		$msg = 'You did not complete all of the required fields';
  		echo "<script type='text/javascript'>alert('$msg');</script>";
  		displayForm();
@@ -112,12 +110,10 @@ if (isset($_POST['submit']))
 	$check = mysqli_query($con, "SELECT username FROM users WHERE username = '$usercheck'") 
 	or die(mysqli_error());
 	$check2 = mysqli_num_rows($check);
-
+	
 	//if the name exists it gives an error
  	if ($check2 != 0) 
  	{
- 		//die('Sorry, the username '.$_POST['username'].' is already in use.');
- 		//echo "<a href='index.php'> Click here to return home</a>";
  		$msg = 'Sorry, the username '.$_POST['username'].' is already in use.';
  		echo "<script type='text/javascript'>alert('$msg');</script>";
  		displayForm();
@@ -135,7 +131,53 @@ if (isset($_POST['submit']))
  		displayFooter();
  		exit();
  	}
- 	
+ 	// checks if the email is in use
+ 	if (!get_magic_quotes_gpc()) 
+ 	{
+ 		$_POST['mail'] = addslashes($_POST['mail']);
+ 	}
+
+	$mailcheck = $_POST['mail'];
+	$check3 = mysqli_query($con, "SELECT mail FROM users WHERE mail = '$mailcheck'") 
+	or die(mysqli_error());
+	$check4 = mysqli_num_rows($check3);
+	
+	//if the email is already used it gives an error
+ 	if ($check4 != 0) 
+ 	{
+ 		$msg = 'Sorry, the email address '.$_POST['mail'].' is already in use.';
+ 		echo "<script type='text/javascript'>alert('$msg');</script>";
+ 		displayForm();
+ 		displayFooter();
+ 		exit();
+	}
+	
+	/* UNCOMMENT FOR MAIL VALIDATION
+	//Check if the email address is valid
+	require_once('smtp_validateEmail.class.php');
+	$email = $_POST['mail'];
+	// an optional sender
+	//$sender = 'user@mydomain.com';
+	// instantiate the class
+	$SMTP_Validator = new SMTP_validateEmail();
+	// turn on debugging if you want to view the SMTP transaction
+	//$SMTP_Validator->debug = true;
+	// do the validation
+	$results = $SMTP_Validator->validate(array($email)); //full syntax with sender : $results = $SMTP_Validator->validate(array($email),$sender);
+	// view results
+	//echo $email.' is '.($results[$email] ? 'valid' : 'invalid')."\n";
+
+
+	if (!$results[$email]) {
+ 		$msg = 'Sorry, the email address '.$_POST['mail'].' does not exist or is invalid.';
+ 		echo "<script type='text/javascript'>alert('$msg');</script>";
+ 		displayForm();
+ 		displayFooter();
+ 		exit();
+	}
+	*/
+	
+	
  	// this makes sure the image is valid and it is actually there
 	if($_FILES['file']['name']=='') {
 		//die("did not work image");
@@ -160,12 +202,12 @@ if (isset($_POST['submit']))
  	}
 
  	// now we insert it into the database
- 	$insert = "INSERT INTO users (username, password)
- 			VALUES ('".$_POST['username']."', '".$_POST['pass']."')";
+ 	$insert = "INSERT INTO users (username, password, mail)
+ 			VALUES ('".$_POST['username']."', '".$_POST['pass']."', '".$_POST['mail']."')";
  	$add_member = mysqli_query($con, $insert);
  	
  	// // // // // START adding image // // // // //
-
+	
 	$max_size = 100000000; //(in bytes = 10 mega bytes)
 	// this makes sure the image is in the approved extensions
 	if (
@@ -180,30 +222,30 @@ if (isset($_POST['submit']))
 				echo "<script type='text/javascript'>alert('$msg');</script>";
 			}
 			else {
-
+				
 				//adding the image to the database
 				/* the following prepares for adding to the database but doesn't
 				   fully upload images that are big for some reason...
 				$image = addslashes(file_get_contents($_FILES['file']['tmp_name'])); // to stop SQL injections
 				$image_name = addslashes($_FILES['image']['name']);
 				*/
-
+				
 				$origin = $_FILES["file"]["tmp_name"];
 				$destination = __DIR__ . "/userimg/". $_POST['username'] . '.jpg'; //__DIR__ . $_FILES["file"]["name"]);
 
 				move_uploaded_file($origin, $destination);
-
+				
 				//$insert = "INSERT INTO users (img) VALUES ('{$image}')";
-
+				
 				/*
 				if (!mysqli_query($con, $insert)) { // Error handling
 				//echo "<br><br><h2><i>Something went wrong!</i> :(<h2>";
 				}*/
-
+				
 			}
-
+			
 	}
-
+			
 	// // // // // END adding image // // // // //
  	
 
@@ -247,6 +289,10 @@ function displayForm() {
                 <td>Confirm Password:</td>
                 <td><input type="password" name="pass2" maxlength="10"></td>
             </tr>
+			<tr>
+				<td>Email address:</td>
+				<td><input type="email" name="mail" maxlength="100"></td>
+			</tr>
             <tr>
                 <td>Choose User Image :  </td>
                 <td><input type="file" name="file" id="file"><br></td>
