@@ -31,7 +31,7 @@ function popup(url)
 }
 // -->
 
-and this goed in html:
+and this goes in html:
 			<a href="javascript: void(0)" onclick="popup('display-content.php')">Centered popup window</a>
 
 
@@ -56,9 +56,9 @@ and this goed in html:
 		?>
 		</p>
 </nav>
-<a href="add-content.php" class="nyroModal"><div class="add-content-button">+<p>click to add photo</p></div></a>
+<a href="controller.php?acion=addcontent" class="nyroModal"><div class="add-content-button">+<p>click to add photo</p></div></a>
 
-<div class="wrapper" id="skrollr-body">
+<div class="wrapper">
 
 <!-- for parallax testing
 <div id="box1">box1</div>
@@ -962,7 +962,7 @@ One of Thorne’s most important contributions during the early 1990s was his wo
 <!-- all the js scripts and libraries used-->
 
 <!-- found from working paralax -->
-<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="http://prinzhorn.github.io/skrollr/dist/skrollr.min.js"></script>
 <script type="text/javascript" src="js/skrollr.menu.js"></script>
 <script type="text/javascript" src="js/paralax-functions.js"></script>
