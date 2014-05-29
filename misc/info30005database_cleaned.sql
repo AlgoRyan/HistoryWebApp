@@ -23,11 +23,33 @@ USE `beta`;
 	`username` VARCHAR(60),
 	`password` VARCHAR(60),
 	`mail` VARCHAR(60), --currently some blob files but will be removed when we delete every test users
-	`mail` VARCHAR(100) NOT NULL UNIQUE, --will be set to NOT NULL when we delete every test users
+	`mail` VARCHAR(100),
 	PRIMARY KEY(`ID`)
 ) ENGINE=innodb DEFAULT CHARSET=utf8;
 
 SET autocommit=1;
+
+
+--
+-- Table structure for table 'UserContent'
+--
+
+ CREATE TABLE `UserContent` (
+	`ID` MEDIUMINT NOT NULL AUTO_INCREMENT,
+	`UserID` MEDIUMINT NOT NULL FOREIGN KEY REFERENCES `users`(`ID`) ON DELETE RESTRICT ON UPDATE CASCADE,
+	`Category` VARCHAR(60),
+	`Title` VARCHAR(60),
+	`Date` VARCHAR(60),
+	`Description` LONGTEXT,
+	`contentDirectory` VARCHAR(60),
+	`year` VARCHAR(60),
+	`moderated` SMALLINT,
+	PRIMARY KEY(`ID`)
+) ENGINE=innodb DEFAULT CHARSET=utf8;
+
+SET autocommit=1;
+
+
 
 --
 -- Table structure for table 'CSIRAC'
