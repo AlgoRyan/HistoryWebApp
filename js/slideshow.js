@@ -2,14 +2,22 @@ $(document).ready(function(){
 	
 	$("#slideshow > div:gt(0)").hide();
 	
-	var index = 0;
+	startShow(0);
+	
+});
+
+function startShow(x) {
+	$("#slideshow > div:gt(0)").hide();
+	
+	
+	var index = x;
 	var maxindex = $('#slideshow > div').length;
 	
 	setInterval(function () {
 		$('#slideshow > div:first')
-			.fadeOut(1000)
+			.fadeOut(2000)
 			.next()
-			.fadeIn(1000)
+			.fadeIn(2000)
 			.end()
 			.appendTo('#slideshow');
 
@@ -25,7 +33,8 @@ $(document).ready(function(){
 	}, 8000);
 	
 	for (var i = 0; i < maxindex; i++) {
-		$('#ulss').append('<li class="' + (i == 0 ? 'active' : '') + '"></li>');
+		$('#ulss').append('<li class="' + (i == x ? 'active' : '') + '"></li>');
 		console.log("index = " + index);
 	}
-});
+
+}

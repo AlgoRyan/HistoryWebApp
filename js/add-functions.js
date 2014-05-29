@@ -71,16 +71,7 @@ function search() {
 	adjustDivHeight2("#slide1", results_count, 290,3);
 
 }
-/*
-function countByClass(id) {
-	sum = 0;
-	for (var n=0; n < array_len; n++) {
-		if (document.getElementsByClassName(id)[n].style.display === "block") {
-			sum++;
-		}
-	}
-	return sum;
-}*/
+
 
 function adjustDivHeight(id, num, x,i) {
 	if (num === 0) {

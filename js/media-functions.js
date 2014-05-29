@@ -1,47 +1,8 @@
 // created by cjbosua on 28/4/14
-results = 7;
+results = 20;
 $(document).ready(function(){
-	adjustDivHeight("#slide-content",results,290,3);
+	adjustDivHeight("#media-slide-content",results,290,3);
 });
-
-function addImage() {
-	var aDataId = "template-img";
-	var item = $("#template-img").clone();
-	var title = $("#add-img-title").val();
-	var descript = $("#add-img-description").val();
-	item.attr("id", aDataId);
-	item.find("#template-h2").html(title);
-	item.find("#template-p").html(descript);
-	item.appendTo("#slide-content");
-	results++;
-	adjustDivHeight("#slide-content",results,290,3);
-}
-
-
-function addContent() {
-	var aDataId = "template-img";
-	var item = $("#template-img").clone(
-	var title = $("#add-img-title").val();
-	var descript = $("#add-img-description").val();
-	item.attr("id", aDataId);
-	item.find("#template-h2").html(title);
-	item.find("#template-p").html(descript);
-	item.appendTo("#slide-content");
-	results++;
-	adjustDivHeight("#slide-content",results,290,3);
-}
-
-
-function test() {
-	document.getElementById("template-p").innerHTML=document.getElementById("filter-img").value;
-
-}
-
-function writeMessage()
-{
-	document.getElementById("result").innerHTML=document.getElementById("filter-img").value;
-	//document.getElementById("template-p").innerHTML = "weeeeeeeeeeeeeeee";
-}
 
 function search() {
 	var found_id;

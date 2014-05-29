@@ -109,7 +109,7 @@ body {
 
 #welcome-title-index {
 	position: absolute;
-	left: 25%;
+	left: 150px; /* this could potentially cause problems */
 	width: 600px;
 	height: fill;
 	top: 50px;
@@ -281,11 +281,11 @@ nav {
 	text-align: center;
 }
 
-#moderator {background-color: rgba(255,12,10,0.5);}
+#moderator {background-color: rgba(255,12,10,1);}
 
 #add-content {
 	margin-top:70px;
-	background-color: rgba(0,35,255,0.3);
+	background-color: rgba(0,35,255,1);
 }
 
 .add-content-body {
@@ -296,6 +296,7 @@ nav {
 	margin: auto;
 	text-align: center:
 }
+
 #moderator:hover{
 	width: 150px;
 	font-size: 35%;
@@ -307,6 +308,7 @@ nav {
 	text-align: center;
 	vertical-align: middle;
 }
+
 
 a:link {text-decoration:none; color:black;}
 a:visited {text-decoration:none;color:black;}
@@ -334,6 +336,11 @@ a:active {text-decoration: none; color:black;}
 	margin:10px;
 }
 
+.section-heading h2 {
+	color: white;
+	font-family: 'Poiret One', 'cursive'; 
+}
+
 /***** Slide styling ******/
 
 #slide1 {
@@ -342,10 +349,6 @@ a:active {text-decoration: none; color:black;}
 	max-width: fill;
 	height: 100%;
 	/* box-shadow: 5px 0px 10px rgba(0,0,0,0.4); */
-}
-
-#slide1 div { 
-	border-radius: 2px;
 }
 
 
@@ -360,7 +363,7 @@ a:active {text-decoration: none; color:black;}
 #media-slide-content {
 	position: relative;
 	width: 870px;
-	height: 100%;
+	min-height: 0px;
 	margin: auto;
 	background-color: rgba(255,255,255,1);
 }
@@ -408,7 +411,7 @@ a:active {text-decoration: none; color:black;}
 	width: 870px;
 	height: fill;
 	margin: auto;
-	background-color: rgba(30,230,190,0.2);
+	background-color: rgba(33, 99, 164, 1);
 }
 
 
@@ -464,7 +467,7 @@ a:active {text-decoration: none; color:black;}
 	margin-left: 180px;
 	width: 400px;
 	height fill;
-	background-color: rgba(1,255,25,0);
+	background-color: rgba(33, 99, 164, 1);
 	font-size: 0.4em;
 	color: white;
 	padding: 20px;
@@ -508,8 +511,12 @@ a:active {text-decoration: none; color:black;}
 }
 
 
-.mod-buttons div:hover {opacity: 0.8;}
-
+.mod-buttons div:hover {opacity: 0.9;}
+.mod {
+	position: relative;
+	opacity: 1;
+	z-index: 99;	
+}
 #mod-accept, #mod-reject {
 	display: inline;
 	font-family: 'Raleway', 'sans-serif';
@@ -520,8 +527,8 @@ a:active {text-decoration: none; color:black;}
 	padding: 10px;
 }
 
-#mod-reject { background-color: rgba(250,100,60,0.5); }
-#mod-accept { background-color: rgba(50,250,0,0.5); }
+#mod-reject { background-color: rgba(250,100,60,1); }
+#mod-accept { background-color: rgba(50,250,0,1); }
 
 
 .right {
@@ -571,10 +578,6 @@ a:active {text-decoration: none; color:black;}
 
 .added-image {
     display:inline;
-    border-radius: 20px;
-	max-width: 600px;
-	margin: 10px 10px 0px 10px;
-	overflow: hidden;
 }
 
 .added-content-mod {
@@ -598,7 +601,7 @@ a:active {text-decoration: none; color:black;}
 .user {
 	position: fixed;
 	height: 100px;
-	width: 200px;
+	width: 220px;
 	z-index: 11;	
 }
 
@@ -667,6 +670,20 @@ a:active {text-decoration: none; color:black;}
     width: 550px;
 }
 
+.members-parent {
+	position:fixed;
+	height: fill;
+	width: fill;
+	margin: auto;
+}
+
+#members {
+	position: relative;
+	height: fill;
+	width: fill;
+	margin-left: 25%;
+}
+
 #add-content-heading {
     width: 800px
 }
@@ -694,7 +711,7 @@ input {
 #register-redirect {
 	padding: 10px;
 	width: 500px;
-	margin: auto;
+	margin: auto ;
 }
 
 
@@ -770,6 +787,10 @@ input {
 	font-family: 'Raleway', 'sans-serif';
 }
 
+.media-body {
+	background-color: white;	
+}
+
 .caption {
 	font-size: 0.25em;
 	text-align: center;
@@ -794,7 +815,7 @@ input {
 }
 
 .section-about a {
-	color: #40A6FF;
+	color: yellow;
 }
 
 /****** Styling for the about page END *****/
@@ -884,6 +905,10 @@ background: linear-gradient(rgba(0, 52, 102, 0.7),rgba(255, 255, 255, 0)); /*Sta
 	display: inline;
 }
 
+#g-audience-links a {
+	font-size: 1.3em;
+	padding: 10px;
+}
 
 /* melb uni colours:
 melbourne university colours:

@@ -35,7 +35,7 @@
 					echo '<li><a href="controller.php?action=logout"> logout </a></li>';		
 				}
 				else{
-					echo '<li><a href="controller.php?action=login"> log in</a></li>';
+					echo '<li><a href="controller.php?action=login"> log in</a> | </li>';
 					echo '<li><a href="controller.php?action=register"> sign up </a></li>';
 				}
 				?>
@@ -175,8 +175,9 @@ if (isset($_POST['submit'])) { // if form has been submitted
 				setcookie(Key_my_site, $_POST['pass'], $hour);	 
 				 
 				// redirect them to the index page. Might be changed for member profile when created or to previous page
-				$msg = 'You have successfully logged in!';
-				echo "<script type='text/javascript'>alert('$msg');location='index.php';</script>";
+				header("location:members.php");
+				//$msg = 'You have successfully logged in!';
+				//echo "<script type='text/javascript'>alert('$msg');location='index.php';</script>";
 			} 
 		} 
   	//}

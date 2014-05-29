@@ -31,7 +31,7 @@ function popup(url)
 }
 // -->
 
-and this goes in html:
+and this goed in html:
 			<a href="javascript: void(0)" onclick="popup('display-content.php')">Centered popup window</a>
 
 
@@ -67,25 +67,38 @@ and this goes in html:
 -->
 <div class="time-line" >
 	<p><a href="index.php" >Home</a></p>
-	<p><a href="#homesection" >Top &times</a></p>
-	<p><a href="#1950" >1950 &times</a></p>
-	<p><a href="#1954" >1954 &times</a></p>
-	<p><a href="#1955" >1955 &times</a></p>
-	<p><a href="#1956" >1956 &times</a></p>
-	<p><a href="#1961" >1961 &times</a></p>
-	<p><a href="#1964" >1964 &times</a></p>
-	<p><a href="#1966" >1966 &times</a></p>
-	<p><a href="#1969" >1969 &times</a></p>
-	<p><a href="#1970" >1970 &times</a></p>
-	<p><a href="#1976" >1976 &times</a></p>
-	<p><a href="#1980" >1980 &times</a></p>
-	<p><a href="#2014" >1989 &times</a></p>
-	<p><a href="#1990" >1990 &times</a></p>
-	<p><a href="#1994" >1994 &times</a></p>
-	<p><a href="#1999" >1999 &times</a></p>
-	<p><a href="#2002" >2002 &times</a></p>
-	<p><a href="#2013" >2013 &times</a></p>
-	<p><a href="#2014" >2014 &times</a></p>
+	<p><a href="#homesection" >Top</a></p>
+	<p class="big-date" ><a href="#s1950" >1950</a></p>
+		<p><a href="#1950" class='small-date' >1950</a></p>
+		<p><a href="#1954" class='small-date' >1954</a></p>
+	<p class="big-date" ><a href="#s1955" >1955</a></p>
+		<p><a href="#1955" class='small-date' >1955</a></p>
+		<p><a href="#1956" class='small-date' >1956</a></p>
+	<p class="big-date" ><a href="#s1960" >1960</a></p>
+		<p><a href="#1961" class='small-date' >1961</a></p>
+		<p><a href="#1964" class='small-date' >1964</a></p>
+	<p class="big-date" ><a href="#s1965" >1965</a></p>
+		<p><a href="#1966" class='small-date' >1966</a></p>
+		<p><a href="#1969" class='small-date' >1969</a></p>
+	<p class="big-date" ><a href="#s1970" >1970</a></p>
+		<p><a href="#1970" class='small-date' >1970</a></p>
+	<p class="big-date" ><a href="#s1975" >1975</a></p>
+		<p><a href="#1976" class='small-date' >1976</a></p>
+	<p class="big-date" ><a href="#s1980" >1980</a></p>
+		<p><a href="#1980" class='small-date' >1980</a></p>
+	<p class="big-date" ><a href="#s1985" >1985</a></p>
+		<p><a href="#1989" class='small-date' >1989</a></p>
+	<p class="big-date" ><a href="#s1990" >1990</a></p>
+		<p><a href="#1990" class='small-date' >1990</a></p>
+		<p><a href="#1994" class='small-date' >1994</a></p>
+	<p class="big-date" ><a href="#s1995" >1995</a></p>
+		<p><a href="#1999" class='small-date' >1999</a></p>
+	<p class="big-date" ><a href="#s2000" >2000</a></p>
+		<p><a href="#2002" class='small-date' >2002</a></p>
+	<p class="big-date" ><a href="#s2005" >2005</a></p>
+	<p class="big-date" ><a href="#s2010" >2010</a></p>
+		<p><a href="#2013" class='small-date' >2013</a></p>
+		<p><a href="#2014" class='small-date' >2014</a></p>
 </div>
 
 
@@ -99,7 +112,7 @@ and this goes in html:
 	</div> <!-- homebg end -->
 	
 </section> <!-- homesection end -->
-
+<div id='s1950'/>
 <section id="section-1" class="bcg"> <!-- START section-1 -->
 	<div id="slide1" class="align-center slide"> <!-- start slide1 -->
 		<div id='1950'/>
@@ -176,7 +189,7 @@ and this goes in html:
 		</div> <!-- END slide2 -->
 		
 </section> <!-- end section-2-->
-
+<div id='s1955'/>
 <section id="section-3" class="bcg"> <!-- START section-3 -->
 	<div id="slide3" class="align-center slide"> <!-- start slide3 -->
 		<div id='1955'/>
@@ -308,7 +321,7 @@ and this goes in html:
 		</div> <!-- END slide4 -->
 		
 </section> <!-- end section-4 -->
-
+<div id='s1960'/>
 <section id="section-5" class="bcg"> <!-- START section-5 -->
 	<div id="slide5" class="align-center slide"> <!-- start slide5 -->
 		<div id='1961'/>
@@ -408,7 +421,7 @@ and this goes in html:
 		</div> <!-- END slide6 -->
 		
 </section> <!-- end section-6 -->
-
+<div id='s1965'/>
 <section id="section-7" class="bcg"> <!-- START section-7 -->
 	<div id="slide7" class="align-center slide"> <!-- start slide7 -->
 		<div id='1966'/>
@@ -500,7 +513,7 @@ and this goes in html:
 		</div> <!-- END slide8 -->
 		
 </section> <!-- end section-8 -->
-
+<div id='s1970'/>
 <section id="section-9" class="bcg"> <!-- START section-9 -->
 	<div id="slide9" class="align-center slide"> <!-- start slide9 -->
 		<div id='1970'/>
@@ -537,7 +550,7 @@ and this goes in html:
 		</div> <!-- END slide9 -->
 		
 </section> <!-- end section-9 -->
-
+<div id='s1975'/>
 <section id="section-10" class="bcg"> <!-- START section-10 -->
 	<div id="slide10" class="align-center slide"> <!-- start slide10 -->
 		<div id='1976'/>
@@ -601,7 +614,7 @@ and this goes in html:
 		</div> <!-- END slide10 -->
 		
 </section> <!-- end section-10 -->
-
+<div id='s1980'/>
 <section id="section-11" class="bcg"> <!-- START section-11 -->
 	<div id="slide11" class="align-center slide"> <!-- start slide11 -->
 		<div id='1980'/>
@@ -674,7 +687,7 @@ and this goes in html:
 		
 		</div> <!-- END slide11 -->
 </section> <!-- end section-11 -->
-
+<div id='s1985'/>
 <section id="section-12" class="bcg"> <!-- START section-12 -->
 	<div id="slide12" class="align-center slide"> <!-- start slide12 -->
 		<div id='1989'/>
@@ -714,7 +727,7 @@ and this goes in html:
 		</div> <!-- END slide12 -->
 		
 </section> <!-- end section-12 -->
-
+<div id='s1990'/>
 <section id="section-13" class="bcg"> <!-- START section-13 -->
 	<div id="slide13" class="align-center slide"> <!-- start slide13 -->
 		<div id='1990'/>
@@ -789,7 +802,7 @@ One of Thorne’s most important contributions during the early 1990s was his wo
 		</div> <!-- END slide14 -->
 		
 </section> <!-- end section-14 -->
-
+<div id='s1995'/>
 <section id="section-15" class="bcg"> <!-- START section-15 -->
 	<div id="slide15" class="align-center slide"> <!-- start slide15 -->
 		<div id='1999'/>
@@ -830,7 +843,7 @@ One of Thorne’s most important contributions during the early 1990s was his wo
 		</div> <!-- END slide15 -->
 		
 </section> <!-- end section-15 -->
-
+<div id='s2000'/>
 <section id="section-16" class="bcg"> <!-- START section-16 -->
 	<div id="slide16" class="align-center slide"> <!-- start slide16 -->
 		<div id='2002'/>
@@ -884,7 +897,8 @@ One of Thorne’s most important contributions during the early 1990s was his wo
 		</div> <!-- END slide16 -->
 		
 </section> <!-- end section-16 -->
-
+<div id='s2005'/>
+<div id='s2010'/>
 <section id="section-17" class="bcg"> <!-- START section-17 -->
 	<div id="slide17" class="align-center slide"> <!-- start slide17 -->
 		<div id='2013'/>

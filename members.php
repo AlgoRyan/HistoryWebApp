@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-<title> History of CIS </title>
+
 
 <head>
+<title> History of CIS </title>
+
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/unimelb.css">
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
@@ -94,10 +96,10 @@ if(isset($_COOKIE['ID_my_site']))
 		else 
 
 		{ 
-		    echo '<div class="container"><div id="logout">';
+		    echo '<div class="slide-content"><div id="members" class="container"><div id="logout">';
 			echo "<p>You have successfully logged in!</p>";
 			echo "<a href='index.php'><p>Click here to return home</p></a>";
-			echo '</div></div>';
+			echo '</div></div></div>';
 
 		}
  	}

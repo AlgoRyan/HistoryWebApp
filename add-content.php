@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <!-- created on 28/4/14 by Cornelis -->
 <html>
-<title> History of CIS </title>
 
 <head>
+<title> History of CIS </title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/unimelb.css">
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
-
-<script src="js/dropzone.js"></script>
 
 </head>
 <body class='add-content-body'>
@@ -111,13 +109,6 @@
 		
 		?>
 		
-		
-		<div id="slide-content"> <!-- START slide-content -->
-			
-			<!-- empty -->
-			
-		</div> <!-- END slide-content -->
-		
 	</div> <!-- END slide1 -->	
 	
 </section> <!-- end MAIN section -->
@@ -128,7 +119,7 @@
 <!-- all the js scripts used -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="js/add-functions.js"></script>
-
+<script src="js/dropzone.js"></script>
 
 <?php
 
@@ -304,30 +295,19 @@ if (!$username) {
 	} else {
 		// need to make this only show AFTER the first load not upon opening
 		jsalert("please enter details into required fields");
-		//exit();
 	}
 }
 
-
-
-displayFooter();
-
 function insertSQL($con, $user, $ar) {
-	//echo "<br>into the funciton<br>";
+
 	$today = date("D F j, Y, g:i a");  
 	
-	//$insert = "INSERT INTO UserContent (UserID, Category, Title, Date, Description, contentDirectory) 
-	//	VALUES (".$user.",".$ar[0].",".$ar[1].",".date('l jS \of F Y h:i:s A').",".$ar[2].",".$ar[3].")";
 	$insert = "INSERT INTO UserContent (UserID, Category, Title, Date, Description, contentDirectory, year) 
 	VALUES ('{$user}','{$ar[0]}','{$ar[1]}','{$today}','{$ar[2]}','{$ar[3]}','{$ar[4]}')";
 	
 	if (!mysqli_query($con, $insert)) { // Error handling
-		//echo "<br><br><h2><i>Something went wrong!</i> :(<h2>";
 		jsalert("Something went wrong!");
-	} else {
-		//jsalert("just inserted");
-	}
-	
+	} 
 	
 }
 
@@ -343,6 +323,69 @@ function displayUserImg($username) {
     }
 }
 
+
+function displayLatestContent() {
+	$con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta");
+	if (mysqli_connect_errno()) {
+		echo "Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+	
+	$sql = "SELECT * FROM UserContent WHERE ID = (SELECT MAX(ID) FROM UserContent);";
+	$sth = $con->query($sql);
+	$result = mysqli_fetch_array($sth);
+	
+	$userid = $result['UserID'];
+	$category = $result['Category'];
+	$date = $result['Date'];
+	$title = $result['Title'];
+	$year = $result['year'];
+	$description = $result['Description'];
+	$dir = $result['contentDirectory'];
+	$moderated = $result['moderated'];
+	
+	$sql = "SELECT * FROM users WHERE ID = '{$userid}'";
+	$sth = $con->query($sql);
+	$result2 = mysqli_fetch_array($sth);
+	$username = $result2['username'];
+	
+	$sql = "SELECT * FROM UserContent WHERE ID = ((SELECT MAX(ID) FROM UserContent));";
+	$sth = $con->query($sql);
+	$result2 = mysqli_fetch_array($sth);
+	$username = $result2['contentDirectory'];
+	
+	echo '
+		<div class="added-content-mod">
+			<div class="container">
+			<div id="content-'.$row['ID'].'" class="txt-box">';
+    
+			displayUserImg($username);
+	echo	'
+				<div class="user-info">'.$username.'</div> 
+				<div class="date">Added on <i>'.$date.' </i> </div>
+			
+				<h2>Title: ' . $title  . '  </h2>
+				<p>Year: '. $year . '  </p>
+				<p>Category: '. $category . '  </p>
+				<p>Date Added: '. $date  . '  </p>
+				<p>'.$description.'</p>';
+			 displayAddedImg($dir);	
+	echo		'
+			</div>
+		</div>
+	</div>
+		';
+}
+
+function displayAddedImg($dir) {
+    if (file_exists($dir)) {
+        echo '<img class="added-content-mod" src="'.$dir.'"/>';
+    } else {
+    	echo '<img class="added-content-mod" src="img/no-user-image1.jpg"/>';
+    }
+}
+
+
+displayFooter();
 ?>
 
 

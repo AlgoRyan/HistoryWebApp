@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 
 <html>
-<title> History of CIS </title>
 
 <head>
+<title> History of CIS </title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/unimelb.css">
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
@@ -27,23 +27,12 @@
 			displayUserImg($id);
 			
 			echo '<h6>logged in as '. $id .'</h6>';
-			
-			/*
-			$sql = "SELECT img FROM users WHERE username = '{$id}'";
-			$sth = $con->query($sql);
-			$result=mysqli_fetch_array($sth);
-			echo '<img class="user-image" src="data:image/jpeg;base64,'.base64_encode( $result['img'] ).'"/>';
-			echo '<h6>logged in as '. $_COOKIE['ID_my_site'] .'</h6>';
-			*/
-			}
-			else{
-				//echo '<h1 color=red>photo goes here<h1>';
 			}
 		?>
 	</div> <!-- END user image if logged in -->
 	
 	<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
-	<a href="add-content.php"><div id="add-content" > <p>a</p> </div></a>
+	<a href="controller.php?action=addcontent"><div id="add-content" > <p>a</p> </div></a>
 
 	
 <!-- melb uni header START -->
@@ -63,7 +52,7 @@
 					echo '<li><a href="logout.php"> logout </a></li>';		
 				}
 				else{
-					echo '<li><a href="login.php"> log in</a></li>';
+					echo '<li><a href="login.php"> log in </a> | </li> ';
 					echo '<li><a href="register.php"> sign up </a></li>';
 				}
 				?>
@@ -138,12 +127,13 @@
 			Below is a photograph of one of the early staff groups at the department.
 			</p>
 			<div>
-				<img src="img/p2.jpg">
+				<img id='group-photo' src="img/p2.jpg">
 				<div class='caption'> Staff and students of the Department of Computer Science, approximately 1984
 				</div>
 			</div>
 			
 			<p> The University was also part of the history of owning the first computer of Australia, CSIRAC. There is already quie extensive information about CSIRAC, some of which can be seen from clicking on the following link:
+			<br>
 			<a href="http://www.cis.unimelb.edu.au/about/csirac/index.html">
 				<i>Link to the University of Melbourne CSIRAC ~ Australia's First Computer</i>
 			</a>

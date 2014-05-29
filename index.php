@@ -27,28 +27,14 @@
 			$id = $_COOKIE['ID_my_site'];
 			
 			displayUserImg($id);
-			
 			echo '<h6>logged in as '. $id .'</h6>';
-			
-			
-			
-			/* viewing the image from the db
-			$sql = "SELECT img FROM users WHERE username = '{$id}'";
-			$sth = $con->query($sql);
-			$result=mysqli_fetch_array($sth);
-			echo '<img class="user-image" src="data:image/jpeg;base64,'.base64_encode( $result['img'] ).'"/>';
-			echo '<h6>logged in as '. $_COOKIE['ID_my_site'] .'</h6>';
-			*/
-			}
-			else{
-				//echo '<h1 color=red>photo goes here<h1>';
 			}
 		?>
 	</div> <!-- END user image if logged in -->
-	
-	<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
-	<a href="add-content.php"><div id="add-content" > <p>a</p> </div></a>
-	
+	<div class='mod'>
+		<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
+		<a href="controller.php?action=addcontent"><div id="add-content" > <p>a</p> </div></a>
+	</mod>
 
 <!-- melb uni header START -->
 <div id="g-header" role="banner"> <!-- banner div START -->
@@ -107,29 +93,29 @@
 <section id="homesection"> <!-- homesection start -->
 	
 	<div id="index-homebg" class='align-center' >
-	<div id="welcome-title-index">
+	<div id="welcome-title-index-container">
         <div id="welcome-title-index"> <!-- welcome start -->
             <p id="title">History of CIS</p>
             <p><i> at the University of Melbourne</i></p>
         </div> <!-- welcome end -->
 	</div>
 	<div id="slideshow"> <!-- START slideshow div -->
-        <div>
+        <div id='ss1'>
             <img class='centerall' src="img/ss1.jpg">
         </div>
-        <div>
+        <div id='ss2'>
             <img class='centerall' src="img/ss2.jpg">
         </div>
-        <div>
+        <div id='ss3'>
             <img class='centerall' src="img/ss3.jpg">
         </div>
-        <div>
+        <div id='ss4'>
             <img class='centerall' src="img/ss4.jpg">
         </div>
-        <div>
+        <div id='ss5'>
             <img class='centerall' src="img/ss5.jpg">
         </div>
-        <div>
+        <div id='ss6'>
             <img class='centerall' src="img/ss6.jpg">
         </div>
     
@@ -165,7 +151,7 @@
 			</div>
 		</a>
 		<a href="media-index.php">
-			<div id="media" class="content-box" onClick=goToURL(http://www.google.com.au)>
+			<div id="media" class="content-box">
 			<img src="img/gallery1.jpg" />
 			<h2>Media Gallery</h2>
 			<hr color='black' size='3px'/>

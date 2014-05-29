@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-<title> History of CIS </title>
 
 <head>
+<title> History of CIS </title>
+
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/unimelb.css">
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
@@ -15,7 +16,7 @@
 	</div>
 	
 	<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
-	<a href="add-content.php"><div id="add-content" > <p>a</p> </div></a>
+	<a href="controller.php?action=addcontent"><div id="add-content" > <p>a</p> </div></a>
 	
 <!-- melb uni header START -->
 <div id="g-header" role="banner"> <!-- banner div START -->
@@ -35,7 +36,7 @@
 				}
 				else{
 					echo '<li><a href="controller.php?action=login"> log in</a></li>';
-					echo '<li><a href="controller.php?action=register"> sign up </a></li>';
+					echo '<li><a href="controller.php?action=register">| sign up </a></li>';
 				}
 				?>
 			</ul>
@@ -177,20 +178,6 @@ if (isset($_POST['submit']))
 	}
 	*/
 	
-	
- 	// this makes sure the image is valid and it is actually there
-	if($_FILES['file']['name']=='') {
-		//die("did not work image");
-		//echo "FAILED";
-		$msg = 'There was an error with the image';
- 		echo "<script type='text/javascript'>alert('$msg');</script>";
- 		
- 		/* gets the file to upload to database - no longer doing that
- 		$file = file_get_contents('./img/no-user-image4.jpg');
- 		$image = addslashes($file);
- 		
- 		*/
-	}
 
  	// here we encrypt the password and add slashes if needed
  	$_POST['pass'] = md5($_POST['pass']);
@@ -202,8 +189,8 @@ if (isset($_POST['submit']))
  	}
 
  	// now we insert it into the database
- 	$insert = "INSERT INTO users (username, password, mail)
- 			VALUES ('".$_POST['username']."', '".$_POST['pass']."', '".$_POST['mail']."')";
+ 	$insert = "INSERT INTO users (username, password)
+ 			VALUES ('".$_POST['username']."', '".$_POST['pass']."')";
  	$add_member = mysqli_query($con, $insert);
  	
  	// // // // // START adding image // // // // //
@@ -222,28 +209,13 @@ if (isset($_POST['submit']))
 				echo "<script type='text/javascript'>alert('$msg');</script>";
 			}
 			else {
-				
-				//adding the image to the database
-				/* the following prepares for adding to the database but doesn't
-				   fully upload images that are big for some reason...
-				$image = addslashes(file_get_contents($_FILES['file']['tmp_name'])); // to stop SQL injections
-				$image_name = addslashes($_FILES['image']['name']);
-				*/
-				
+				// add image to local folder
 				$origin = $_FILES["file"]["tmp_name"];
 				$destination = __DIR__ . "/userimg/". $_POST['username'] . '.jpg'; //__DIR__ . $_FILES["file"]["name"]);
 
 				move_uploaded_file($origin, $destination);
 				
-				//$insert = "INSERT INTO users (img) VALUES ('{$image}')";
-				
-				/*
-				if (!mysqli_query($con, $insert)) { // Error handling
-				//echo "<br><br><h2><i>Something went wrong!</i> :(<h2>";
-				}*/
-				
 			}
-			
 	}
 			
 	// // // // // END adding image // // // // //

@@ -28,11 +28,9 @@ function search() {
 		console.log(z);
 		
 		if (myPattern.test(document.getElementsByClassName("added-content-mod")[n].innerHTML) && len >= 0) {
-			//document.getElementsByClassName("added-content-mod")[n].style.visibility = "visible";
 			document.getElementsByClassName("added-content-mod")[n].style.display = "block";
 			
 		} else {
-			//document.getElementsByClassName("added-content-mod")[n].style.visibility = "hidden";
 			document.getElementsByClassName("added-content-mod")[n].style.display = "none";
 		}
 		
@@ -44,11 +42,7 @@ function search() {
 		}
 	}
 	
-	//results_count = countByClass("added-content-mod");
-	
 	document.getElementById("result").innerHTML = "There are: " + results_count + " results";
-	
-	//adjustDivHeight("#slide-content",results_count,290,3);
 
 }
 
@@ -170,14 +164,9 @@ function reject(item) {
         	<a href="http://search.unimelb.edu.au/" id="g-search-button" role="button" aria-haspopup="true">Search</a>
 			<ul id="g-audience-links">
     
-			    <?php if(isset($_COOKIE['ID_my_site'])){
+			    <?php
 					echo "Welcome " . $_COOKIE['ID_my_site']."!";
-					echo '<li><a href="logout.php"> logout </a></li>';		
-				}
-				else{
-					echo '<li><a href="login.php"> log in</a></li>';
-					echo '<li><a href="register.php"> sign up </a></li>';
-				}
+					echo '<li><a href="logout.php"> logout </a></li>';
 				?>
 			</ul>
 	
@@ -239,27 +228,15 @@ function reject(item) {
 		</div> <!-- END img-content -->
 	
                 <?php
-                	//displayLatestContent();
 				    displayAllContent();
 				?>
-			
-		
-			
-			<div class="mod-submit"> <!-- START mod-buttons --
-				
-				<div id="mod-accept" onClick="">a</div> 
-				<div id="mod-reject" onClick="">x</div>
-			
-			</div>  <!-- END mod-buttons -- 
 			
 			
 		
 	</div> <!-- END slide1 -->	
 	
 </section> <!-- end MAIN section -->
-<?php
-//acceptContent();
-?>
+
 </div> <!-- wrapper -->
 
 <!-- unimelb footer START -->
@@ -308,7 +285,11 @@ function checkLogged() {
     $username = $_COOKIE['ID_my_site'];
 
     if (!$username) {
-        header("location:controller.php?action=login");
+    	echo '<script type="text/javascript">alert("Please log in with the appropriate account to access this link");location="controller.php?action=login";</script>';
+        
+    } else if ($username && ($username != 'moderator')) {
+    	echo '<script type="text/javascript">alert("You do not have permission to access this link");location="index.php";</script>';
+
     }
 }
 
@@ -322,13 +303,14 @@ function displayLatestContent() {
 	$sth = $con->query($sql);
 	$result = mysqli_fetch_array($sth);
 	
-	$userid = $result['UserID'];
-	$category = $result['Category'];
-	$date = $result['Date'];
-	$title = $result['Title'];
-	$year = $result['year'];
-	$description = $result['Description'];
-	$moderated = $result['moderated'];
+	$userid = $row['UserID'];
+	$category = $row['Category'];
+	$date = $row['Date'];
+	$title = $row['Title'];
+	$year = $row['year'];
+	$description = $row['Description'];
+	$dir = $row['contentDirectory'];
+	$moderated = $row['moderated'];
 	
 	$sql = "SELECT * FROM users WHERE ID = '{$userid}'";
 	$sth = $con->query($sql);
@@ -452,7 +434,7 @@ function acceptThis($ar, $mod) {
     		
     	}
 		mysqli_query($con, $sql);
-		//echo "THIS HAS BEEN DONE<br>";
+		
 	}
 }
 

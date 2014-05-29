@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- created on 28/4/14 by Cornelis -->
 <html>
-<title> History of CIS </title>
 
 <head>
+<title> History of CIS </title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/unimelb.css">
 <link rel="stylesheet" type="text/css" href="css/footer-style.css">
@@ -45,13 +45,25 @@ function search() {
 	
 	document.getElementById("result").innerHTML = results_count ;
 	
-	//adjustDivHeight("#slide-content",results_count,290,3);
+	adjustDivHeight("#slide-content",results_count,290,3);
 
 }
 
+function adjustDivHeight(id, num, x,i) {
+	if (num === 0) {
+		$(id).height(0);
+	} else {
+		$(id).height(parseInt((num+2)/i)*x);
+	}
+}
+
+$(document).ready(function(){
+	adjustDivHeight("#media-slide-content",results,290,3);
+});
+
 </script>
 </head>
-<body class='about-body grad'>
+<body class='media-body'>
 <nav> <!-- START nav here -->
 	<div id="nav-heading">
 		University of Melbourne
@@ -68,9 +80,7 @@ function search() {
 			echo '<img class="user-image" src="userimg/'.$id.'.jpg"/>';
 			echo '<h6>logged in as '. $id .'</h6>';
 			}
-			else{
-				//echo '<h6>photo goes here<h6>';
-			}
+			
 		?>
 	</div> <!-- END user image if logged in -->
 	
@@ -91,7 +101,7 @@ function search() {
 					echo '<li><a href="controller.php?action=logout"> logout </a></li>';		
 				}
 				else{
-					echo '<li><a href="controller.php?action=login"> log in</a></li>';
+					echo '<li><a href="controller.php?action=login"> log in  | </a></li>';
 					echo '<li><a href="controller.php?action=register"> sign up </a></li>';
 				}
 				?>
@@ -232,7 +242,6 @@ function connectShow() {
 }
 
 function displayArray($result_ar, $_title, $_comments) {
-    // getting column data
     $i = 0;
 
     while ($i < mysqli_num_rows($result_ar)) {
@@ -242,13 +251,11 @@ function displayArray($result_ar, $_title, $_comments) {
             echo '<h5> No info available</h5><br>';
         }
     
-        //echo '<pre>' . $row[$_title] . '</pre><br>';
-    
         $exploded = multiexplode(array(";"),$row['ImageLocation']);
         $comments = $row[$_comments];
         
         foreach ( $exploded as $dir) {
-       // if (file_exists("uploads/" . $_FILES["file"]["name"])) {
+       
             if (file_exists($dir)) {
                 $title = $row[$_title];
                 
