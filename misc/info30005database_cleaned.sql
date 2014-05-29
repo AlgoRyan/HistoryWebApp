@@ -22,7 +22,8 @@ USE `beta`;
 	`ID` MEDIUMINT NOT NULL AUTO_INCREMENT,
 	`username` VARCHAR(60),
 	`password` VARCHAR(60),
-	`mail` VARCHAR(60), --need to be set to NOT NULL and UNIQUE when we delete every test users
+	`mail` VARCHAR(60), --currently some blob files but will be removed when we delete every test users
+	`mail` VARCHAR(100) NOT NULL UNIQUE, --will be set to NOT NULL when we delete every test users
 	PRIMARY KEY(`ID`)
 ) ENGINE=innodb DEFAULT CHARSET=utf8;
 
