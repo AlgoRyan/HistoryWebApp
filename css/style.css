@@ -296,6 +296,17 @@ nav {
 	margin: auto;
 	text-align: center:
 }
+#moderator:hover{
+	width: 150px;
+	font-size: 35%;
+	text-align: center;
+}
+#add-content:hover{
+	width: 150px;
+	font-size: 35%;
+	text-align: center;
+	vertical-align: middle;
+}
 
 a:link {text-decoration:none; color:black;}
 a:visited {text-decoration:none;color:black;}
@@ -872,6 +883,7 @@ background: linear-gradient(rgba(0, 52, 102, 0.7),rgba(255, 255, 255, 0)); /*Sta
 	font-size: 30%;
 	display: inline;
 }
+
 
 /* melb uni colours:
 melbourne university colours:
