@@ -109,7 +109,7 @@ body {
 
 #welcome-title-index {
 	position: absolute;
-	left: 150px; /* this could potentially cause problems, maybe left:25% ?? */
+	left: 25%;
 	width: 600px;
 	height: fill;
 	top: 50px;
@@ -694,7 +694,7 @@ input {
 #register-redirect {
 	padding: 10px;
 	width: 500px;
-	margin: 10px 10px 5px 10px;
+	margin: auto;
 }
 
 
