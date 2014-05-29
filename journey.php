@@ -58,7 +58,7 @@ and this goes in html:
 </nav>
 <a href="controller.php?acion=addcontent" class="nyroModal"><div class="add-content-button">+<p>click to add photo</p></div></a>
 
-<div class="wrapper">
+<div class="wrapper" id="skrollr-body">
 
 <!-- for parallax testing
 <div id="box1">box1</div>
