@@ -18,19 +18,7 @@
 	</div>
 	
 	<div class='user'> <!-- START user image if logged in -->
-		<?php  if(isset($_COOKIE['ID_my_site'])){
-			//this code shows the user's image
-			$con = mysqli_connect("127.0.0.1", "beta", "beta_2014", "beta"); 
-			if (mysqli_connect_errno()) {
-				echo "Failed to connect to MySQL: " . mysqli_connect_error();
-			}
-			$id = $_COOKIE['ID_my_site'];
-			
-			displayUserImg($id);
-			echo '<h6>logged in as '. $id .'</h6>';
-			}
-		?>
-	</div> <!-- END user image if logged in -->
+			</div> <!-- END user image if logged in -->
 	<div class='mod'>
 		<a href="mod.php"><div id="moderator" > <p>m</p> </div></a>
 		<a href="controller.php?action=addcontent"><div id="add-content" > <p>a</p> </div></a>
@@ -48,16 +36,7 @@
         	<a href="http://search.unimelb.edu.au/" id="g-search-button" role="button" aria-haspopup="true">Search</a>
 			<ul id="g-audience-links">
     
-			    <?php if(isset($_COOKIE['ID_my_site'])){
-					echo "Welcome " . $_COOKIE['ID_my_site']."!";
-					echo '<li><a href="controller.php?action=logout"> logout </a></li><li></li><li></li> ';		
-				}
-				else{
-					echo '<li><a href="controller.php?action=login"> log in</a></li><li></li><li>|</li>   ';
-					echo '<li><a href="controller.php?action=register"> sign up </a></li>';
-				}
-				?>
-			</ul>
+			    <li><a href="controller.php?action=login"> log in</a></li><li></li><li>|</li>   <li><a href="controller.php?action=register"> sign up </a></li>			</ul>
 	
            <div id="g-global-search-overlay">
              <form method="get" action="http://search.unimelb.edu.au/" name="g-searchform" id="g-searchform" role="search">
@@ -93,50 +72,49 @@
 <section id="homesection"> <!-- homesection start -->
 	
 	<div id="index-homebg" class='align-center' >
-	<div id="welcome-title-index-container">
-        <div id="welcome-title-index"> <!-- welcome start -->
-            <p id="title">History of CIS</p>
-            <p><i> at the University of Melbourne</i></p>
-        </div> <!-- welcome end -->
-	</div>
-	<div id="slideshow"> <!-- START slideshow div -->
-        <div id='ss1'>
-            <img class='centerall' src="img/ss1.jpg">
-        </div>
-        <div id='ss2'>
-            <img class='centerall' src="img/ss2.jpg">
-        </div>
-        <div id='ss3'>
-            <img class='centerall' src="img/ss3.jpg">
-        </div>
-        <div id='ss4'>
-            <img class='centerall' src="img/ss4.jpg">
-        </div>
-        <div id='ss5'>
-            <img class='centerall' src="img/ss5.jpg">
-        </div>
-        <div id='ss6'>
-            <img class='centerall' src="img/ss6.jpg">
-        </div>
+		<div id="welcome-title-index-container">
+			<div id="welcome-title-index"> <!-- welcome start -->
+				<p id="title">History of Computing and Information Systems</p>
+				<p>at The University of Melbourne</p>
+				<br>
+				<hr/>
+				<p>An entry point into the History of Computing<p>
+			</div> <!-- welcome end -->
+		</div>
+		
+		<div id="slideshow"> <!-- START slideshow div -->
+			<div id='ss1'>
+				<img class='centerall' src="img/ss2.jpg">
+			</div>
+			<div id='ss2'>
+				<img class='centerall' src="img/ss1.jpg">
+			</div>
+			<div id='ss3'>
+				<img class='centerall' src="img/ss3.jpg">
+			</div>
+			<div id='ss4'>
+				<img class='centerall' src="img/ss4.jpg">
+			</div>
+			<div id='ss5'>
+				<img class='centerall' src="img/ss5.jpg">
+			</div>
+			<div id='ss6'>
+				<img class='centerall' src="img/ss6.jpg">
+			</div>
     
-    </div> <!-- END slideshow div -->
-
-    <ul id="ulss"></ul> <!-- items for slideshow -->
+		</div> <!-- END slideshow div -->
 
 	</div> <!-- homebg end -->
 
 </section> <!-- homesection end -->
 
-<section id="main"> <!-- start Main sectoin -->
+<section id="main-home"> <!-- start Main sectoin -->
 	
 	<div id="slide1" class="align-center"> <!-- start slide1 -->
-		<br>
-		<div class='section-heading'><p>"An entry point into the History of Computing..."</p></div> <!-- heading for section-->
-		<br>
 		<div id="slide-content" class="slide-content"> <!-- START slide-content -->
 		<a href="about.php">
 			<div id="about" class="content-box" >
-			<img src="img/about2.jpg" />
+			<img src="img/about.png" />
 			<h2>About</h2>
 			<hr color='black' size='3px'/>
 			<p>The History of CIS at the university is quite remarkable, click for a short summary</p>
@@ -144,7 +122,7 @@
 		</a>
 		<a href="journey.php">
 			<div id="journey" class="content-box">
-			<img src="img/journey.jpg" />
+			<img src="img/journey.PNG" />
 			<h2 margin='5px'>Journey</h2>
 			<hr color='black' size='3px'/>
 			<p>journey through the history and add your own story</p>
@@ -152,7 +130,7 @@
 		</a>
 		<a href="media-index.php">
 			<div id="media" class="content-box">
-			<img src="img/gallery1.jpg" />
+			<img src="img/gallery.png" />
 			<h2>Media Gallery</h2>
 			<hr color='black' size='3px'/>
 			<p>click to see more media</p>
@@ -204,16 +182,6 @@
 <script src="js/slideshow.js"></script>
 <script src="js/functions.js"></script>
 
-<?php
-function displayUserImg($username) {
-    if (file_exists('userimg/'.$username.'.jpg')) {
-        echo '<img class="user-image" src="userimg/'.$username.'.jpg"/>';
-    } else {
-        echo '<img class="user-image" src="userimg/no-user-image4.jpg"/>';
-    }
-}
-
-?>
 
 </body>
 

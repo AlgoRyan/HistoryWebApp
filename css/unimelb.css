@@ -46,7 +46,7 @@ a img { border: 0px; }
 #g-header a { border: 0px; text-decoration: none; }
 #g-header ol { list-style: none; }
 #g-header hr { display: list-item; clear: both; border: 0px solid red; height: 0px; margin: 0px; *margin: -16px 0px 0px; padding: 0px; background: 0px; visibility: hidden; }
-#g-header .wrapper { overflow: visible; position: relative; zoom: 1; padding-right: 0px; }
+#g-header .wrapper { overflow: visible; position: relative; zoom: 1; padding-right: 100px;}
 
 #g-header #g-breadcrumb-menu { z-index: 10002; font-family: sans-serif; float: left; clear: none; display: inline; width: 25%; height: 24px; margin: 0px; padding: 0px; list-style-type: none; background: transparent; background-image: none; overflow: hidden; border: 0px; -webkit-box-shadow: none; }
 #g-header #g-breadcrumb-menu li { float: left; display: none; text-align: center; background-image: none; list-style: none; list-style-type: none; margin: 0px; padding: 0px; background: #26527f url('../images/breadcrumb-right.png') top right no-repeat; font-weight: normal; font-size: 10px; }
